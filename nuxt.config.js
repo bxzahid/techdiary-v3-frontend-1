@@ -54,15 +54,15 @@ export default {
   ],
 
   axios: {
-    proxy: true,
+    baseURL: process.env.NUXT_ENV_APP_URL_CLIENT,
     credentials: true,
   },
 
-  proxy: {
-    '/api': {
-      target: 'http://nginx:81',
-    },
-  },
+  // proxy: {
+  //   '/api': {
+  //     target: 'http://nginx:81',
+  //   },
+  // },
 
   colorMode: {
     classSuffix: '',
