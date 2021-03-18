@@ -32,27 +32,27 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+<script>
+export default {
   layout: 'dashboard',
   head: {
-    title: 'Login Sessions',
+    title: 'Login Sessions'
   },
   data: () => ({
-    tokens: [],
+    tokens: []
   }),
   async asyncData({ $axios }) {
     const { data: tokens } = await $axios.$get('/api/auth/my-tokens')
     return { tokens }
   },
   methods: {
-    async revokeToken(id: number, index: number) {
+    async revokeToken(id, index) {
       try {
         await this.$axios.$delete(`/api/auth/revoke-token/${id}`)
         this.tokens.splice(index, 1)
-      } catch (error) {}
-    },
+      } catch (error) {
+      }
+    }
   },
-})
+}
 </script>

@@ -35,22 +35,21 @@
           <a
             href="#"
             class="mr-2 text-sm font-bold text-red-400"
-            @click="removeArticle(article.slug, index)"
-            >মুছুন</a
+            @click='removeArticle(article.slug, index)'
+          >মুছুন</a
           >
-          <a href="#" class="text-sm font-bold text-indigo-400"> খসড়া করুন </a>
+          <a href='#' class='text-sm font-bold text-indigo-400'> খসড়া করুন </a>
         </div>
       </div>
     </div>
-    <div v-observe-visibility="visibilityChanged" />
+    <div v-observe-visibility='visibilityChanged' />
   </div>
 </template>
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+<script>
+export default {
   head() {
     return {
-      title: 'Update diaries',
+      title: 'Update diaries'
     }
   },
   layout: 'dashboard',
@@ -70,7 +69,7 @@ export default Vue.extend({
   },
 
   methods: {
-    async removeArticle(slug: string, index: number) {
+    async removeArticle(slug, index) {
       if (!confirm('Sure to delete?')) return
 
       await this.$axios.$delete(`/api/articles/${slug}`)
@@ -85,7 +84,7 @@ export default Vue.extend({
       // @ts-ignore
       this.articles.push(...data)
     },
-    async visibilityChanged(isVisible: boolean) {
+    async visibilityChanged(isVisible) {
       if (!isVisible) {
         return
       }
@@ -98,5 +97,5 @@ export default Vue.extend({
       await this.loadMore()
     },
   },
-})
+}
 </script>

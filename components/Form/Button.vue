@@ -27,16 +27,15 @@
   </button>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+<script>
+export default {
   props: {
     loading: {
       type: Boolean,
-      default: false,
-    },
-  },
-})
+      default: false
+    }
+  }
+}
 </script>
 
 <style scoped>

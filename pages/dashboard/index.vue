@@ -1,11 +1,10 @@
 <template></template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+<script>
+export default {
   layout: 'dashboard',
   asyncData({ redirect }) {
     return redirect('/dashboard/diaries')
-  },
-})
+  }
+}
 </script>

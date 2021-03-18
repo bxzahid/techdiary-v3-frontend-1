@@ -26,16 +26,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+<script>
+export default {
   props: {
     label: {
-      type: String,
+      type: String
     },
     type: {
       type: String,
-      default: 'text',
+      default: 'text'
     },
     helperText: {
       type: String,
@@ -57,7 +56,7 @@ export default Vue.extend({
       default: false,
     },
   },
-})
+}
 </script>
 
 <style scoped land="scss">
