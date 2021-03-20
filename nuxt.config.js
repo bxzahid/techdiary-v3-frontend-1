@@ -5,16 +5,16 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '' },
     ],
     link: [
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap'
+          'https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap',
       },
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
+    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -25,7 +25,7 @@ export default {
     '@/plugins/visibility-observer.js',
     '@/plugins/select.client.js',
     '@/plugins/clickaway.js',
-    '@/plugins/fragment.js'
+    '@/plugins/fragment.js',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -37,33 +37,23 @@ export default {
     '@nuxtjs/tailwindcss',
     ['@nuxtjs/dotenv', { systemvars: true }],
     '@nuxtjs/color-mode',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
   ],
-
-  env: {
-    apiUrl: process.env.NUXT_ENV_APP_URL
-  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth',
-    '@nuxtjs/cloudinary'
+    '@nuxtjs/cloudinary',
   ],
 
   axios: {
-    baseURL: process.env.NUXT_ENV_APP_URL_CLIENT
+    baseURL: process.env.NUXT_ENV_API,
   },
 
-  // proxy: {
-  //   '/api': {
-  //     target: 'http://nginx:81',
-  //   },
-  // },
-
   colorMode: {
-    classSuffix: ''
+    classSuffix: '',
   },
 
   auth: {
@@ -72,35 +62,36 @@ export default {
         token: {
           propertyName: 'token',
           required: true,
-          type: 'Bearer'
+          type: 'Bearer',
         },
         endpoints: {
           login: { url: '/api/auth/login', method: 'post' },
           logout: { url: '/api/auth/logout', method: 'post' },
-          user: { url: '/api/user', method: 'get', propertyName: null }
+          user: { url: '/api/user', method: 'get', propertyName: null },
         },
         redirect: {
           login: '/',
           logout: '/',
           callback: '/',
-          home: '/dashboard/diaries'
-        }
-      }
-    }
+          home: '/dashboard/diaries',
+        },
+      },
+    },
   },
 
   moment: {
     defaultLocale: 'bn',
-    locales: ['bn']
+    locales: ['bn'],
   },
 
   tailwindcss: {
-    cssPath: '~/assets/styles/app.scss'
+    jit: true,
+    cssPath: '~/assets/styles/app.scss',
   },
   cloudinary: {
-    cloudName: process.env.NUXT_ENV_CLOUDINARY_CLOUDNAME
+    cloudName: process.env.NUXT_ENV_CLOUDINARY_CLOUDNAME,
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {}
+  build: {},
 }

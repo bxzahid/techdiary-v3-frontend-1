@@ -19,7 +19,7 @@
 
             <a
               href="#"
-              class="inline-block px-4 py-2 text-xl bg-yellow-400 rounded"
+              class="inline-block px-4 py-2 text-xl bg-[#ddd] rounded"
             >
               টেকডায়েরি কী?
             </a>

@@ -51,6 +51,9 @@ export default {
   head() {
     return {
       title: this.user.username,
+      bodyAttrs: {
+        class: 'bg-gray-100 dark:bg-gray-700',
+      },
     }
   },
   data: () => ({

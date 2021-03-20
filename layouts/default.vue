@@ -12,7 +12,7 @@
 export default {
   head: {
     bodyAttrs: {
-      class: 'dark:bg-gray-900 font-techdiary',
+      class: 'font-techdiary',
     },
   },
 }

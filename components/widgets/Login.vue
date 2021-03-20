@@ -60,7 +60,7 @@ export default {
   methods: {
     socialLogin(service) {
       this.loading = true
-      window.location.href = `${process.env.NUXT_ENV_APP_URL_CLIENT}/api/auth/login/${service}`
+      window.location.href = `${process.env.NUXT_ENV_API}/api/auth/login/${service}`
     },
   },
 }
