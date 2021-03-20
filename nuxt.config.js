@@ -49,7 +49,7 @@ export default {
   ],
 
   axios: {
-    baseURL: process.env.NUXT_ENV_API,
+    baseURL: process.env.NUXT_ENV_APP_URL_CLIENT,
   },
 
   colorMode: {
