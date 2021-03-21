@@ -3,7 +3,7 @@
     <nav class="flex items-center justify-between p-8">
       <nuxt-link
         :to="{ name: 'dashboard-diaries' }"
-        class="flex items-center space-x-2"
+        class="flex items-center space-x-2 text-dark"
       >
         <svg
           class="w-4 h-4"
@@ -60,11 +60,11 @@
     <div class="max-w-4xl px-3 mx-auto md:px-0">
       <input
         type="text"
-        class="w-full text-3xl focus:outline-none"
+        class="w-full text-3xl bg-transparent focus:outline-none"
         placeholder="ডায়েরির শিরোনাম"
         v-model="article.title"
       />
-      <div id="techdiary-editor" class="markdown"></div>
+      <div id="techdiary-editor" class="markdown text-dark"></div>
     </div>
     <!-- ======================================================= -->
     <!-- Editor Content end -->
@@ -76,7 +76,7 @@
 
     <transition name="slide">
       <div
-        class="fixed top-0 right-0 z-50 min-h-screen bg-white border-l w-72"
+        class="fixed top-0 right-0 z-50 min-h-screen bg-gray-100 border-l dark:border-gray-700 dark:bg-gray-800 w-72 text-dark"
         v-if="showOptions"
       >
         <button

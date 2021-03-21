@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center justify-center h-40 overflow-hidden bg-gray-100 rounded"
+    class="flex items-center justify-center h-40 overflow-hidden rounded bg-dark-tertiary"
     v-bind="$attrs"
   >
     <input

@@ -2,23 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .text-dark {
+    @apply text-gray-900 dark:text-gray-200;
+  }
+  .text-dark-secondary {
+    @apply text-gray-600 dark:text-gray-300;
+  }
+  .text-dark-tertiary {
+    @apply text-gray-400 dark:text-gray-600;
+  }
+
+  .bg-dark {
+    @apply bg-gray-900 dark:bg-gray-200;
+  }
+  .bg-dark-secondary {
+    @apply bg-gray-600 dark:bg-gray-300;
+  }
+  .bg-dark-tertiary {
+    @apply bg-gray-400 dark:bg-gray-600;
+  }
+}
+
 @import 'base';
 @import 'markdown';
 
 .top-full {
   top: 100%;
-}
-
-.text-dark {
-  @apply text-gray-900 dark:text-gray-200;
-}
-
-.text-dark-secondary {
-  @apply text-gray-600 dark:text-gray-300;
-}
-
-.text-dark-tertiary {
-  @apply text-gray-400 dark:text-gray-600;
 }
 
 .wrapper {

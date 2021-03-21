@@ -15,17 +15,6 @@ module.exports = {
       colors: {
         primary: '#58D4E1',
         secondary: '#FDF9F3',
-        cream: {
-          100: '#fffefd',
-          200: '#fefdfa',
-          300: '#fefbf8',
-          400: '#fdfaf5',
-          500: '#fdf9f3',
-          600: '#cac7c2',
-          700: '#989592',
-          800: '#656461',
-          900: '#333231',
-        },
         paste: {
           100: '#def6f9',
           200: '#bceef3',

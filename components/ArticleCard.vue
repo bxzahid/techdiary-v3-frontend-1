@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-12">
+  <div class="pb-5">
     <!-- user info and actions start -->
     <div class="flex items-center justify-between h-12">
       <nuxt-link
@@ -12,7 +12,7 @@
           :alt="article.user.name"
         />
 
-        <span class="text-dark-secondary">
+        <span class="font-mono text-dark-secondary">
           {{ article.user.username }}
         </span>
       </nuxt-link>
