@@ -31,10 +31,10 @@ export default {
 .dashboard {
   @apply grid h-auto md:min-h-screen grid-cols-12 bg-white rounded shadow dark:bg-gray-800;
   &__sidebar {
-    @apply col-span-12 md:col-span-2 border-b md:border-r md:border-b-0 dark:border-gray-700 p-3;
+    @apply col-span-2 border-b md:border-r md:border-b-0 dark:border-gray-700 p-3;
   }
   &__main {
-    @apply h-full col-span-12 md:col-span-10 p-4;
+    @apply h-full col-span-10 p-4;
   }
 }
 </style>

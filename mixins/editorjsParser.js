@@ -25,14 +25,26 @@ const editorjsParser = (blocks) => {
        */
       html += '<hr />'
     } else if (block.type === 'image') {
-      console.log(block)
       /**
        * --------------------------------------------------
        *  Block: Image
        * --------------------------------------------------
        */
 
-      html += `<img class="img-fluid" src="${block.data.file.url}" title="${block.data.caption}" /><br /><em>${block.data.caption}</em>`
+      html += `
+        <figure>
+          <img src="${block.data.file.url}" title="Techdiary: ${
+        block.data.caption
+      }" alt="Techdiary: ${block.data.caption}" />
+
+        ${
+          block.data.caption
+            ? `<figcaption>${block.data.caption}</figcaption>`
+            : ''
+        }
+            
+          </figure/>
+        `
     } else if (block.type === 'embed') {
       /**
        * --------------------------------------------------

@@ -23,7 +23,7 @@
       <!-- user info end -->
 
       <div class="markdown" v-html="article.body"></div>
-      <article-comments />
+      <!-- <article-comments /> -->
     </div>
   </Fragment>
 </template>

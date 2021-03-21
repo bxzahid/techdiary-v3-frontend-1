@@ -1,6 +1,11 @@
 .markdown {
-  @apply text-xl leading-relaxed dark:text-gray-300;
+  @apply text-xl leading-loose dark:text-gray-300;
 
+  /**
+  * -----------------------------------
+  *   Block quote
+  * -----------------------------------
+  */
   blockquote {
     @apply text-gray-700 ml-0 my-8 bg-gray-100 p-4 border-l-2 border-primary rounded;
 
@@ -16,43 +21,66 @@
     }
   }
 
-  p {
-    @apply my-8;
-
-    &:first-child {
-      @apply mt-0;
-    }
-
-    &:last-child {
-      @apply mb-0;
-    }
-  }
-
+  /**
+  * -----------------------------------
+  *   Mark
+  * -----------------------------------
+  */
   mark {
     @apply bg-yellow-200;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    @apply my-5;
-
-    &:first-child {
-      @apply mt-0;
-    }
-
-    &:last-child {
-      @apply mb-0;
-    }
-  }
+  /**
+  * -----------------------------------
+  *   Heading
+  * -----------------------------------
+  */
 
   h2 {
     @apply text-2xl border-b-2 border-gray-200;
   }
   h3 {
-    @apply text-xl;
+    @apply text-xl font-bold;
+  }
+
+  /**
+  * -----------------------------------
+  *   Paragraph
+  * -----------------------------------
+  */
+  p {
+    @apply my-5;
+    &::first-child {
+      @apply mt-0;
+    }
+
+    &::last-child {
+      @apply mb-0;
+    }
+  }
+
+  /**
+  * -----------------------------------
+  *   List
+  * -----------------------------------
+  */
+  ul {
+    @apply list-outside list-decimal;
+  }
+  ol {
+    counter-reset: foo;
+    display: table;
+  }
+
+  ol > li {
+    counter-increment: foo;
+    display: table-row;
+  }
+
+  ol > li::before {
+    content: counter(foo) '.';
+    display: table-cell; /* aha! */
+    text-align: right;
   }
 
   .techdiary-embed {
@@ -72,13 +100,6 @@
     &:hover {
       @apply underline;
     }
-
-    // &::after {
-    //   content: url('~static/icons/external-link-sm.svg');
-    //   height: 15px;
-    //   width: 15px;
-    //   margin-left: 5px;
-    // }
 
     &.techdiary-embeded-link {
       @apply hover:no-underline;
@@ -101,9 +122,20 @@
     }
   }
 
-  img {
-    border-style: none;
+  figure {
     @apply my-5;
+
+    figcaption {
+      @apply text-sm text-gray-600 italic text-center mt-2;
+    }
+
+    &:first-child {
+      @apply mt-0;
+    }
+
+    &:last-child {
+      @apply mb-0;
+    }
   }
 
   hr {
@@ -122,30 +154,6 @@
     &:after {
       clear: both;
     }
-  }
-
-  details summary {
-    cursor: pointer;
-  }
-
-  ul,
-  ol {
-    @apply my-5 list-inside;
-    &:first-child {
-      @apply mt-0;
-    }
-
-    &:last-child {
-      @apply mb-0;
-    }
-  }
-
-  ul {
-    @apply list-disc;
-  }
-
-  ol {
-    @apply list-decimal;
   }
 }
 
