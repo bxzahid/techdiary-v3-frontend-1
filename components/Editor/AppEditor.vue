@@ -77,8 +77,6 @@
     <transition name="slide">
       <div
         ref="editorOptions"
-        tabindex="0"
-        @blur="showOptions = false"
         class="fixed top-0 right-0 z-50 min-h-screen bg-gray-100 border-l dark:border-gray-700 dark:bg-gray-800 w-72 text-dark"
         v-show="showOptions"
       >
@@ -226,7 +224,6 @@ export default {
     },
     openOptions() {
       this.showOptions = true
-      this.$refs.editorOptions.focus()
     },
   },
 }
