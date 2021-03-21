@@ -1,32 +1,38 @@
 <template>
-  <div class="min-h-screen p-4 overflow-y-auto mt-7">
-    <!-- thumbnail -->
-    <EditorThumbnail v-model="article.thumbnail" />
+  <div class="flex flex-col justify-between min-h-screen p-4 overflow-y-auto">
+    <div>
+      <!-- thumbnail -->
+      <EditorThumbnail v-model="article.thumbnail" />
 
-    <div class="my-5">
-      <multi-select
-        placeholder="ট্যাগ নির্বাচন করুন"
-        selectLabel="নির্বাচন করতে এন্টার চাপুন"
-        tagPlaceholder="ট্যাগ তৈরি করতে এন্টার চাপুন"
-        :options="tagOptions"
-        :multiple="true"
-        :hideSelected="true"
-        :taggable="true"
-        :max="10"
-        @tag="createNewTag"
-        track-by="id"
-        label="name"
-        v-model="article.tags"
-        :closeOnSelect="false"
-      ></multi-select>
+      <div class="my-5">
+        <multi-select
+          placeholder="ট্যাগ নির্বাচন করুন"
+          selectLabel="নির্বাচন করতে এন্টার চাপুন"
+          tagPlaceholder="ট্যাগ তৈরি করতে এন্টার চাপুন"
+          :options="tagOptions"
+          :multiple="true"
+          :hideSelected="true"
+          :taggable="true"
+          :max="10"
+          @tag="createNewTag"
+          track-by="id"
+          label="name"
+          v-model="article.tags"
+          :closeOnSelect="false"
+        ></multi-select>
+      </div>
+      <div class="flex items-center">
+        <input type="checkbox" id="isPublished" v-model="article.isPublished" />
+        <label class="ml-2" for="isPublished">Public Diary</label>
+      </div>
     </div>
-    <div class="my-5">
-      <text-area v-model="article.excerpt" label="excerpt" />
-    </div>
-    <div class="flex items-center">
-      <input type="checkbox" id="isPublished" v-model="article.isPublished" />
-      <label class="ml-2" for="isPublished">Public Diary</label>
-    </div>
+
+    <button
+      @click="$emit('saveArticle')"
+      class="w-full py-2 text-gray-700 rounded-sm bg-primary"
+    >
+      সেভ করুন
+    </button>
   </div>
 </template>
 

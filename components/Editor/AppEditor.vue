@@ -29,7 +29,7 @@
 
         <button
           class="transition-transform duration-150 transform focus:outline-none hover:rotate-180"
-          @click="showOptions = true"
+          @click="openOptions"
         >
           <svg
             class="w-5 text-gray-500 stroke-1"
@@ -60,7 +60,7 @@
     <div class="max-w-4xl px-3 mx-auto md:px-0">
       <input
         type="text"
-        class="w-full text-3xl bg-transparent focus:outline-none"
+        class="w-full text-3xl bg-transparent text-dark focus:outline-none"
         placeholder="ডায়েরির শিরোনাম"
         v-model="article.title"
       />
@@ -76,8 +76,11 @@
 
     <transition name="slide">
       <div
+        ref="editorOptions"
+        tabindex="0"
+        @blur="showOptions = false"
         class="fixed top-0 right-0 z-50 min-h-screen bg-gray-100 border-l dark:border-gray-700 dark:bg-gray-800 w-72 text-dark"
-        v-if="showOptions"
+        v-show="showOptions"
       >
         <button
           class="absolute text-4xl transition-transform duration-150 transform top-1 right-3 focus:outline-none hover:rotate-180"
@@ -86,7 +89,7 @@
           &times;
         </button>
 
-        <editor-meta :article="article" />
+        <editor-meta :article="article" @saveArticle="() => save()" />
       </div>
     </transition>
 
@@ -125,7 +128,6 @@ export default {
        * Id of Element that should contain Editor instance
        */
       holder: 'techdiary-editor',
-      autofocus: true,
       placeholder: 'চলুন শুরু করা যাক চমৎকার একটা ডায়েরি 😍',
       tools: {
         /**
@@ -222,8 +224,9 @@ export default {
     save() {
       this.$emit('editorSaved', this.article)
     },
-    closeSideBar() {
-      this.showOptions = false
+    openOptions() {
+      this.showOptions = true
+      this.$refs.editorOptions.focus()
     },
   },
 }
