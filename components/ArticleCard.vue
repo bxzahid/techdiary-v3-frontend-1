@@ -1,113 +1,113 @@
 <template>
   <div class="pb-12">
-    <div v-if="article.thumbnail">
-      <nuxt-link :to="articleUrl">
-        <img class="w-full" :src="article.thumbnail" alt="" />
+    <!-- user info and actions start -->
+    <div class="flex items-center justify-between h-12">
+      <nuxt-link
+        :to="userProfileUrl"
+        class="flex items-center space-x-2 font-mono"
+      >
+        <img
+          class="w-8 rounded-full"
+          :src="article.user.profilePhoto"
+          :alt="article.user.name"
+        />
+
+        <span class="text-dark-secondary">
+          {{ article.user.username }}
+        </span>
       </nuxt-link>
-    </div>
-
-    <!-- User info and reaction start -->
-    <div class="flex items-center justify-between mt-5">
-      <!-- User info start -->
-      <div class="flex items-center mb-1">
-        <div class="w-8 h-8 overflow-hidden rounded-full">
-          <nuxt-link :to="userProfileUrl">
-            <img
-              class="w-full"
-              :src="article.user.profilePhoto"
-              :alt="article.user.name"
-            />
-          </nuxt-link>
-        </div>
-
-        <div class="flex flex-col ml-2">
-          <nuxt-link
-            class="mb-0 font-semibold dark:text-gray-100"
-            :to="userProfileUrl"
-          >
-            {{ article.user.name }}
-          </nuxt-link>
-        </div>
-      </div>
-      <!-- User info end -->
 
       <!-- Reaction start-->
-      <div class="flex items-center">
-        <div class="flex items-center mr-1">
+      <div class="flex items-center space-x-2">
+        <div class="flex items-center mr-1 space-x-1">
           <button
             title="love-react"
             @click="doReact('HEART', article.slug)"
             class="focus:outline-none"
           >
             <svg
-              class="w-6 h-6 opacity-75 stroke-current stroke-2"
+              class="w-5 stroke-1"
               :class="{
+                'text-dark-secondary': !reactedByMe('HEART'),
                 'text-red-600': reactedByMe('HEART'),
                 'fill-current': reactedByMe('HEART'),
               }"
-              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 19 17"
               fill="none"
-              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
+                class="stroke-current"
+                d="M1.79691 3.77795C2.00422 3.23198 2.30807 2.7359 2.69111 2.31804C3.07415 1.90017 3.52889 1.5687 4.02936 1.34255C4.52984 1.1164 5.06624 1 5.60795 1C6.14965 1 6.68605 1.1164 7.18653 1.34255C7.687 1.5687 8.14174 1.90017 8.52478 2.31804L9.73295 3.63604L10.9411 2.31804C11.7147 1.47412 12.7639 1.00001 13.8579 1.00001C14.952 1.00001 16.0012 1.47412 16.7748 2.31804C17.5484 3.16196 17.983 4.30656 17.983 5.50004C17.983 6.69352 17.5484 7.83812 16.7748 8.68204L9.73295 16.364L2.69111 8.68204C2.30807 8.26417 2.00422 7.7681 1.79691 7.22213C1.58961 6.67616 1.48291 6.09099 1.48291 5.50004C1.48291 4.90909 1.58961 4.32392 1.79691 3.77795Z"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
               />
             </svg>
           </button>
-          <p class="text-gray-600 dark:text-gray-200">
+          <p class="text-base text-dark">
             {{ reactionCount('HEART') }}
           </p>
         </div>
 
-        <div class="flex items-center mr-1">
-          <button
-            title="bookmark"
-            @click="doReact('BOOKMARK', article.slug)"
-            class="focus:outline-none"
+        <button
+          title="bookmark"
+          @click="doReact('BOOKMARK', article.slug)"
+          class="focus:outline-none"
+        >
+          <svg
+            class="w-4"
+            :class="{
+              'text-dark-secondary': !reactedByMe('BOOKMARK'),
+              'text-green-600': reactedByMe('BOOKMARK'),
+              'fill-current': reactedByMe('BOOKMARK'),
+            }"
+            viewBox="0 0 14 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              class="w-6 h-6 stroke-current stroke-1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              :class="{
-                'text-green-600': reactedByMe('BOOKMARK'),
-                'fill-current': reactedByMe('BOOKMARK'),
-              }"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-              />
-            </svg>
-          </button>
-        </div>
+            <path
+              class="stroke-current"
+              d="M1.83354 1.28697C1.52462 1.63079 1.35107 2.0971 1.35107 2.58333V17.25L7.11647 14.0417L12.8819 17.25V2.58333C12.8819 2.0971 12.7083 1.63079 12.3994 1.28697C12.0905 0.943154 11.6715 0.75 11.2346 0.75H2.99833C2.56145 0.75 2.14246 0.943154 1.83354 1.28697Z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
       </div>
       <!-- Reaction end-->
     </div>
-    <!-- User info and reaction end -->
+    <!-- user info and actions end -->
 
-    <nuxt-link
-      :to="articleUrl"
-      class="inline-block text-xl text-gray-700 dark:text-gray-100"
-    >
-      <span
-        v-if="isSearchCard"
-        class="search-title"
-        v-html="article._highlightResult.title.value"
-      >
-      </span>
-      <span v-else>
-        {{ article.title }}
-      </span>
-    </nuxt-link>
+    <div v-if="article.thumbnail">
+      <nuxt-link :to="articleUrl">
+        <img class="w-full rounded-md" :src="article.thumbnail" alt="" />
+      </nuxt-link>
+    </div>
 
-    <p class="text-base text-gray-600 dark:text-gray-200">
-      শনিবার, ১৯ ডিসেম্বর ২০২০, দুপুর ৪:২৮ সময়
-    </p>
+    <!-- Article content start -->
+    <div class="mt-2">
+      <nuxt-link :to="articleUrl" class="block text-xl text-dark">
+        <span
+          v-if="isSearchCard"
+          class="search-title"
+          v-html="article._highlightResult.title.value"
+        >
+        </span>
+        <span v-else>
+          {{ article.title }}
+        </span>
+      </nuxt-link>
+
+      <p class="mt-2 text-dark-secondary">
+        {{ $moment(article.created_at).format('LLLL') }}
+      </p>
+
+      <div class="flex space-x-2 text-dark-secondary">
+        <a href="#" v-for="tag in article.tags" :key="tag.id">
+          #{{ tag.name }}
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 <script>

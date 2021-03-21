@@ -20,7 +20,7 @@ export default {
         tags: [],
         title: '',
         excerpt: '',
-        isPublished: false,
+        isPublished: true,
         thumbnail: '',
       },
     }

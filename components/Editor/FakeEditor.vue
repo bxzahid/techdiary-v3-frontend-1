@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-10 bg-white rounded-md dark:bg-gray-800">
+  <div class="mb-10 bg-white rounded-md dark:bg-gray-900">
     <div class="flex items-center space-x-2">
       <img
         :src="$auth.user.profilePhoto"

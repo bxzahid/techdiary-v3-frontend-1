@@ -1,7 +1,7 @@
 <template>
   <main>
     <Navbar />
-    <Hero />
+    <!-- <Hero /> -->
     <div class="wrapper">
       <div class="grid grid-cols-12">
         <div class="hidden col-span-12 md:block md:col-span-3">
@@ -16,8 +16,8 @@
         </div>
 
         <div class="hidden col-span-12 md:block md:col-span-3">
-          <widgets-login v-if="!$auth.loggedIn" class="mb-4" />
-          <widgets-online-users class="mb-4" />
+          <widgets-login v-if="!$auth.loggedIn" class="mb-8" />
+          <!-- <widgets-online-users class="mb-4" /> -->
           <widgets-latest-registered-users />
         </div>
       </div>
@@ -29,7 +29,7 @@
 export default {
   head: {
     bodyAttrs: {
-      class: 'dark:bg-gray-900 font-techdiary',
+      class: 'techdiary-body',
     },
   },
 }

@@ -1,8 +1,6 @@
 <template>
-  <Card v-bind="$attrs">
-    <h2 class="mb-2 text-base text-gray-600 uppercase dark:text-gray-300">
-      লগইন করুন
-    </h2>
+  <div>
+    <h2 class="mb-2 text-lg font-bold text-dark">লগইন করুন</h2>
 
     <div>
       <button
@@ -47,7 +45,7 @@
         <span class="pl-2" v-if="loading">একটু অপেক্ষা করুন</span>
       </button>
     </div>
-  </Card>
+  </div>
 </template>
 
 <script>

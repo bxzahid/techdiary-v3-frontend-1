@@ -23,7 +23,10 @@
         <span>ডায়েরি সমূহ</span>
       </nuxt-link>
       <div class="flex items-center space-x-2">
-        <button @click="save">সেভ করুন</button>
+        <button class="px-2 py-1 rounded bg-primary" @click="save">
+          সেভ করুন
+        </button>
+
         <button
           class="transition-transform duration-150 transform focus:outline-none hover:rotate-180"
           @click="showOptions = true"

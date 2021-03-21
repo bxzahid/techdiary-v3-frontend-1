@@ -2,12 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import 'base';
 @import 'markdown';
 
 .top-full {
   top: 100%;
+}
+
+.text-dark {
+  @apply text-gray-900 dark:text-gray-200;
+}
+
+.text-dark-secondary {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+.text-dark-tertiary {
+  @apply text-gray-400 dark:text-gray-600;
 }
 
 .wrapper {
@@ -18,5 +29,6 @@
   @apply py-20;
 }
 
-
-
+.techdiary-body {
+  @apply dark:bg-gray-900 font-techdiary;
+}
