@@ -16,7 +16,9 @@
       </div>
 
       <div class="my-4">
-        <h2 class="text-3xl dark:text-gray-300">{{ article.title }}</h2>
+        <h2 class="text-3xl dark:text-gray-300">
+          {{ article.title }}
+        </h2>
         <p class="text-dark-secondary">
           {{ $moment(article.created_at).format('LLLL') }}
         </p>
@@ -43,7 +45,7 @@
         </span>
       </nuxt-link>
 
-      <div class="markdown text-dark" v-html="article.body"></div>
+      <div class="content-typography text-dark" v-html="article.body"></div>
       <!-- <article-comments /> -->
     </div>
   </Fragment>

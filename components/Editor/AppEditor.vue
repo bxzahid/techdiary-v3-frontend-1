@@ -64,7 +64,7 @@
         placeholder="ডায়েরির শিরোনাম"
         v-model="article.title"
       />
-      <div id="techdiary-editor" class="markdown text-dark"></div>
+      <div id="techdiary-editor" class="content-typography text-dark"></div>
     </div>
     <!-- ======================================================= -->
     <!-- Editor Content end -->

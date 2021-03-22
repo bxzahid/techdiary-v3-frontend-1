@@ -119,6 +119,15 @@
           ></path>
         </svg>
       </button>
+      <nuxt-link
+        v-if="$auth.loggedIn && $auth.user.id == article.user.id"
+        :to="{
+          name: 'dashboard-diaries-slug-edit',
+          params: { slug: article.slug },
+        }"
+      >
+        সংস্কার
+      </nuxt-link>
       <!-- <button
         title="share"
         class="focus:outline-none"

@@ -26,6 +26,7 @@ export default {
     '@/plugins/select.client.js',
     '@/plugins/clickaway.js',
     '@/plugins/fragment.js',
+    '@/plugins/skeleton.js',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -39,13 +40,17 @@ export default {
     '@nuxtjs/color-mode',
     '@nuxtjs/moment',
   ],
-
+  toast: {
+    position: 'top-center',
+    duration: 2000,
+  },
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth',
     '@nuxtjs/cloudinary',
+    '@nuxtjs/toast',
   ],
 
   axios: {

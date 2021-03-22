@@ -15,8 +15,8 @@
             ~/techdiary/{{ user.username }}/README.md
           </p>
 
-          <div class="readme-content markdown-body dark:bg-gray-800">
-            <div class="markdown" v-html="user.profile_readme"></div>
+          <div class="readme-content dark:bg-gray-800">
+            <div class="content-typography" v-html="user.profile_readme"></div>
           </div>
         </div>
       </div>

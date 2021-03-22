@@ -39,11 +39,19 @@ export default {
           `/api/articles/${this.$route.params.slug}`,
           { ...data }
         )
-        const url = `/${this.$auth.user.username}/${article.data.slug}`
-        this.$store.commit(
-          'alert/SUCCESS_ALERT',
-          `Article saved. <a href='${url}' target='_blank' >Read now</a>`
-        )
+        // const url = `/${this.$auth.user.username}/${article.data.slug}`
+        // this.$store.commit(
+        //   'alert/SUCCESS_ALERT',
+        //   `Article saved. <a href='${url}' target='_blank' >Read now</a>`
+        // )
+        this.$toast.success('ডায়েরি হালনাগাদ করা হয়েছে')
+        await this.$router.push({
+          name: 'username-articleSlug',
+          params: {
+            articleSlug: article.data.slug,
+            username: this.$auth.user.username,
+          },
+        })
       } catch (e) {
         if (e.response.status !== 500) {
           const errors = this.jsonToPlainErrorText(e.response.data?.errors)

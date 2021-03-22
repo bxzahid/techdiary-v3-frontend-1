@@ -14,7 +14,7 @@
             ~/techdiary/{{ user.username }}/diaries.json
           </p>
 
-          <div class="readme-content markdown-body dark:bg-gray-800">
+          <div class="readme-content dark:bg-gray-800">
             <div
               class="flex mb-4 transition-all duration-500 ease-in-out rounded hover:bg-gray-100"
               v-for="(article, index) in articles"

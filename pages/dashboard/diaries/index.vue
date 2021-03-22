@@ -1,5 +1,32 @@
 <template>
-  <div>
+  <div v-if="$fetchState.pending">
+    <div v-for="d in [1, 2, 3, 4, 5]" :key="d" class="mb-4">
+      <Skeleton
+        type="rect"
+        :height="20"
+        :width="300"
+        animation="fade"
+        class="w-full mb-2"
+      />
+      <Skeleton
+        type="rect"
+        :width="500"
+        :height="15"
+        animation="fade"
+        class="mb-1"
+      />
+      <Skeleton type="rect" :width="500" :height="8" animation="fade" />
+    </div>
+  </div>
+
+  <div v-else class="min-h-full">
+    <client-only>
+      <modal @confirm="confirmation" :modalOpen="modalOpen">
+        <template v-slot:header> ডায়েরি মুছে ফেলতে চান? </template>
+        <span class="font-bold">সাবধান</span> একবার মুছে ফেলার পর আর কখনোই তা
+        ফিরিয়ে আনা যাবে না।
+      </modal>
+    </client-only>
     <div
       class="flex mb-4 transition-all duration-500 ease-in-out rounded dark:hover:bg-gray-600 hover:bg-gray-100"
       v-for="(article, index) in articles"
@@ -15,8 +42,8 @@
                 articleSlug: article.slug,
               },
             }"
-            >{{ article.title }}</nuxt-link
-          >
+            >{{ article.title }}
+          </nuxt-link>
         </h3>
         <p class="text-sm font-bold text-gray-600 dark:text-gray-200">
           {{ $moment(article.created_at).format('LLLL') }}
@@ -28,73 +55,115 @@
               name: 'dashboard-diaries-slug-edit',
               params: { slug: article.slug },
             }"
-            class="mr-2 text-sm font-bold text-green-400"
+            class="mr-2 text-sm font-bold text-green-400 hover:underline"
           >
             সংস্কার
           </nuxt-link>
           <a
             href="#"
-            class="mr-2 text-sm font-bold text-red-400"
-            @click='removeArticle(article.slug, index)'
-          >মুছুন</a
+            class="mr-2 text-sm font-bold text-red-400 hover:underline"
+            @click="removeArticle(article.slug, index)"
           >
-          <a href='#' class='text-sm font-bold text-indigo-400'> খসড়া করুন </a>
+            মুছুন
+          </a>
         </div>
       </div>
     </div>
-    <div v-observe-visibility='visibilityChanged' />
+
+    <div
+      v-if="!articles.length"
+      class="flex items-center justify-center h-full text-center"
+    >
+      <div>
+        <div class="max-w-md mx-auto">
+          <icons-no-diaries class="mx-auto my-3" />
+        </div>
+        <h2 class="mb-4 text-2xl text-dark">এখনো কোন ডায়েরি লিখেননি? 😭</h2>
+        <nuxt-link
+          :to="{ name: 'dashboard-diaries-new' }"
+          class="inline-flex items-center justify-center px-2 px-5 py-3 mb-6 transition duration-200 shadow hover:shadow-lg bg-primary rounded-3xl"
+        >
+          <svg
+            class="w-6 h-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+            />
+          </svg>
+          <span class="inline-block ml-2">নতুন ডায়েরি</span>
+        </nuxt-link>
+      </div>
+    </div>
+
+    <div v-observe-visibility="visibilityChanged" />
   </div>
 </template>
 <script>
 export default {
+  middleware: 'auth',
   head() {
     return {
-      title: 'Update diaries'
+      title: 'সকল ডায়েরি সমূহ',
     }
   },
   layout: 'dashboard',
   data: () => ({
     articles: [],
+    modalOpen: false,
     pageMeta: {
       current_page: 1,
       last_page: null,
     },
+    removeArticleSlug: null,
+    removeArticleIndex: null,
   }),
-  async asyncData({ $axios }) {
+  async fetch() {
     const {
       data,
       meta: { current_page, last_page },
-    } = await $axios.$get('/api/my-articles')
-    return { articles: data, pageMeta: { current_page, last_page } }
+    } = await this.$axios.$get(
+      `/api/my-articles?page=${this.pageMeta.current_page}`
+    )
+    this.articles.push(...data)
+    this.pageMeta = { current_page, last_page }
   },
-
   methods: {
-    async removeArticle(slug, index) {
-      if (!confirm('Sure to delete?')) return
-
+    confirmation(value) {
+      if (value)
+        this.removeArticle(
+          this.removeArticleSlug,
+          this.removeArticleIndex,
+          value
+        )
+      this.modalOpen = false
+    },
+    async removeArticle(slug, index, confirm) {
+      if (!confirm) {
+        this.removeArticleSlug = slug
+        this.removeArticleIndex = index
+        this.modalOpen = true
+        return
+      }
       await this.$axios.$delete(`/api/articles/${slug}`)
       this.articles.splice(index, 1)
-    },
-
-    async loadMore() {
-      const { data } = await this.$axios.$get(
-        `/api/my-articles?page=${this.pageMeta.current_page}`
-      )
-
-      // @ts-ignore
-      this.articles.push(...data)
+      this.$toast.info('Article deleted.')
     },
     async visibilityChanged(isVisible) {
-      if (!isVisible) {
-        return
-      }
-      // @ts-ignore
-      if (this.pageMeta.currentPage >= this.pageMeta.lastPage) {
-        return
-      }
-      this.pageMeta.current_page++
+      if (isVisible) {
+        if (this.pageMeta.current_page >= this.pageMeta.last_page) {
+          return
+        }
+        this.pageMeta.current_page++
 
-      await this.loadMore()
+        await this.$fetch()
+      }
     },
   },
 }

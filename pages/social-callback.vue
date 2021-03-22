@@ -1,14 +1,28 @@
 <template>
-  <p>Please wait ...</p>
+  <div class='flex items-center justify-center h-full mt-32'>
+    <div class='sk-chase'>
+      <div class='sk-chase-dot'></div>
+      <div class='sk-chase-dot'></div>
+      <div class='sk-chase-dot'></div>
+      <div class='sk-chase-dot'></div>
+      <div class='sk-chase-dot'></div>
+      <div class='sk-chase-dot'></div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   mode: 'spa',
-  async asyncData({ app, query, redirect }) {
-    app.$auth.$storage.setCookie('_token.local', `Bearer ${query?.token}`)
-    app.$auth.fetchUser()
-    redirect('/')
+  auth: 'guest',
+  middleware: 'auth',
+  mounted() {
+    this.$router.replace('/')
   },
+  async fetch() {
+    this.$auth.$storage.setCookie('_token.local', `Bearer ${this.$route.query?.token}`)
+    this.$auth.fetchUser()
+  }
 }
 </script>
+

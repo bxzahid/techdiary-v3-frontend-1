@@ -2,11 +2,15 @@
   <main>
     <Navbar />
     <div class="wrapper">
-      <div class="dashboard">
-        <div class="dashboard__sidebar">
+      <div
+        class="grid min-h-[85vh] grid-cols-12 bg-white rounded shadow dark:bg-gray-800"
+      >
+        <div
+          class="col-span-12 p-3 border-b md:col-span-2 md:border-r md:border-b-0 dark:border-gray-700"
+        >
           <DashboardSidebar />
         </div>
-        <div class="dashboard__main">
+        <div class="col-span-12 p-4 md:col-span-10">
           <slot name="title"></slot>
           <Nuxt />
         </div>
@@ -20,21 +24,9 @@ export default {
   head: {
     title: 'Dashboard',
     bodyAttrs: {
-      class: 'bg-gray-200 dark:bg-gray-900',
+      class: 'bg-gray-200 dark:bg-gray-900 font-techdiary',
     },
   },
   middleware: 'auth',
 }
 </script>
-
-<style lang="scss" scoped>
-.dashboard {
-  @apply grid h-auto md:min-h-screen grid-cols-12 bg-white rounded shadow dark:bg-gray-800;
-  &__sidebar {
-    @apply col-span-2 border-b md:border-r md:border-b-0 dark:border-gray-700 p-3;
-  }
-  &__main {
-    @apply h-full col-span-10 p-4;
-  }
-}
-</style>
