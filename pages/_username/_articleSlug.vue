@@ -1,54 +1,54 @@
 <template>
-  <Fragment>
-    <div class="fixed w-32 top-25">
-      <ArticleReactions :article="article" />
+  <div>
+    <div class='fixed w-32 top-25'>
+      <ArticleReactions :article='article' />
     </div>
-    <div class="mx-auto md:w-8/12">
-      <alert v-if="!article.isPublished" class="mb-4">
+    <div class='mx-auto md:w-8/12'>
+      <alert v-if='!article.isPublished' class='mb-4'>
         অপ্রকাশিত ডায়েরি, তবে আপনি চাইলে URL এর মাধ্যমে যে কাউকে দেখাতে পারবেন।
         <template v-slot:sub-title>
           অপ্রকাশিত ডায়েরি প্রথম পাতায় দেখানো হবে না।
         </template>
       </alert>
 
-      <div v-if="article.thumbnail" class="overflow-hidden rounded-md">
-        <img :src="article.thumbnail" :alt="article.title" />
+      <div v-if='article.thumbnail' class='overflow-hidden rounded-md'>
+        <img :src='article.thumbnail' :alt='article.title' />
       </div>
 
-      <div class="my-4">
-        <h2 class="text-3xl dark:text-gray-300">
+      <div class='my-4'>
+        <h2 class='text-3xl dark:text-gray-300'>
           {{ article.title }}
         </h2>
-        <p class="text-dark-secondary">
+        <p class='text-dark-secondary'>
           {{ $moment(article.created_at).format('LLLL') }}
         </p>
         <!-- tags -->
-        <div class="flex space-x-2 text-dark-secondary">
-          <a href="#" v-for="tag in article.tags" :key="tag.id">
+        <div class='flex space-x-2 text-dark-secondary'>
+          <a href='#' v-for='tag in article.tags' :key='tag.id'>
             #{{ tag.name }}
           </a>
         </div>
       </div>
 
       <nuxt-link
-        :to="userProfileUrl"
-        class="flex items-center mb-4 space-x-2 font-mono"
+        :to='`/${article.user.username}`' exact
+        class='flex items-center mb-4 space-x-2 font-mono'
       >
         <img
-          class="w-8 rounded-full"
-          :src="article.user.profilePhoto"
-          :alt="article.user.name"
+          class='w-8 rounded-full'
+          :src='article.user.profilePhoto'
+          :alt='article.user.name'
         />
 
-        <span class="font-mono text-dark-secondary">
+        <span class='font-mono text-dark-secondary'>
           {{ article.user.username }}
         </span>
       </nuxt-link>
 
-      <div class="content-typography text-dark" v-html="article.body"></div>
+      <div class='content-typography text-dark' v-html='article.body'></div>
       <!-- <article-comments /> -->
     </div>
-  </Fragment>
+  </div>
 </template>
 <script>
 import editorjsParser from '~/mixins/editorjsParser'
@@ -122,8 +122,8 @@ export default {
       return {
         name: 'username',
         params: {
-          username: this.article.user.username,
-        },
+          username: this.article.user.username
+        }
       }
     },
   },

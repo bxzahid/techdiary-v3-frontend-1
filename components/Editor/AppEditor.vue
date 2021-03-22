@@ -171,12 +171,15 @@ export default {
         list: {
           class: require('@editorjs/list'),
           inlineToolbar: true,
-          shortcut: 'CMD+SHIFT+L',
+          shortcut: 'CMD+SHIFT+L'
         },
-
+        inlineCode: {
+          class: require('@editorjs/inline-code'),
+          shortcut: 'CMD+SHIFT+M'
+        },
         checklist: {
           class: require('@editorjs/checklist'),
-          inlineToolbar: true,
+          inlineToolbar: true
         },
 
         quote: {
