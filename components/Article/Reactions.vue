@@ -126,6 +126,7 @@
           :class="{
             'text-green-600': reactedByMe('BOOKMARK'),
             'fill-current': reactedByMe('BOOKMARK'),
+            'text-dark': !reactedByMe('BOOKMARK'),
           }"
         >
           <path
@@ -136,6 +137,7 @@
         </svg>
       </button>
       <nuxt-link
+        class="text-dark"
         v-if="$auth.loggedIn && $auth.user.id == article.user.id"
         :to="{
           name: 'dashboard-diaries-slug-edit',

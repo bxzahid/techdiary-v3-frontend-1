@@ -86,7 +86,7 @@ export default {
         },
         {
           property: 'keywords',
-          content: `${this.article.tags.map((k) => k).join(',')}`,
+          content: `${this.article.tags.map((k) => k.name).join(',')}`,
         },
       ],
     }

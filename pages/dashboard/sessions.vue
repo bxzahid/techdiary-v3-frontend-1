@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="text-xl text-gray-500 dark:text-gray-300">Sessins</h3>
+    <h3 class="text-xl text-gray-500 dark:text-gray-300">সেশন সমূহ</h3>
     <div
       class="flex w-4/5 p-2 space-x-4 border-b"
       :class="{
@@ -36,10 +36,10 @@
 export default {
   layout: 'dashboard',
   head: {
-    title: 'Login Sessions'
+    title: 'Login Sessions',
   },
   data: () => ({
-    tokens: []
+    tokens: [],
   }),
   async asyncData({ $axios }) {
     const { data: tokens } = await $axios.$get('/api/auth/my-tokens')
@@ -50,9 +50,8 @@ export default {
       try {
         await this.$axios.$delete(`/api/auth/revoke-token/${id}`)
         this.tokens.splice(index, 1)
-      } catch (error) {
-      }
-    }
+      } catch (error) {}
+    },
   },
 }
 </script>
