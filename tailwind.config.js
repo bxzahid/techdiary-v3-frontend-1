@@ -28,8 +28,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        techdiary: ['Nunito', 'Kohinoor Bangla'],
-        mono: ['Space Mono', 'monospace'],
+        techdiary: ['Nunito', 'techdiary-bangla'],
+        mono: ['Space Mono', 'techdiary-bangla', 'monospace'],
       },
     },
   },

@@ -1,6 +1,5 @@
 <template>
   <main>
-    <Alert />
     <Navbar />
     <div class="wrapper">
       <Nuxt />

@@ -3,26 +3,47 @@
     <div class="fixed w-32 top-25">
       <ArticleReactions :article="article" />
     </div>
-
     <div class="mx-auto md:w-8/12">
-      <div v-if="article.thumbnail" class="mb-8 overflow-hidden rounded-md">
+      <alert v-if="!article.isPublished" class="mb-4">
+        অপ্রকাশিত ডায়েরি, তবে আপনি চাইলে URL এর মাধ্যমে যে কাউকে দেখাতে পারবেন।
+        <template v-slot:sub-title>
+          অপ্রকাশিত ডায়েরি প্রথম পাতায় দেখানো হবে না।
+        </template>
+      </alert>
+
+      <div v-if="article.thumbnail" class="overflow-hidden rounded-md">
         <img :src="article.thumbnail" :alt="article.title" />
       </div>
 
-      <h2 class="mb-5 text-3xl dark:text-gray-300">{{ article.title }}</h2>
-
-      <!-- user info start -->
-      <div class="flex items-center justify-between py-3 mb-3">
-        <div class="flex items-center space-x-2">
-          <div class="w-10 h-10 overflow-hidden rounded-full">
-            <img :src="article.user.profilePhoto" :alt="article.user.name" />
-          </div>
-          <h3 class="text-base font-bold">{{ article.user.name }}</h3>
+      <div class="my-4">
+        <h2 class="text-3xl dark:text-gray-300">{{ article.title }}</h2>
+        <p class="text-dark-secondary">
+          {{ $moment(article.created_at).format('LLLL') }}
+        </p>
+        <!-- tags -->
+        <div class="flex space-x-2 text-dark-secondary">
+          <a href="#" v-for="tag in article.tags" :key="tag.id">
+            #{{ tag.name }}
+          </a>
         </div>
       </div>
-      <!-- user info end -->
 
-      <div class="markdown" v-html="article.body"></div>
+      <nuxt-link
+        :to="userProfileUrl"
+        class="flex items-center mb-4 space-x-2 font-mono"
+      >
+        <img
+          class="w-8 rounded-full"
+          :src="article.user.profilePhoto"
+          :alt="article.user.name"
+        />
+
+        <span class="font-mono text-dark-secondary">
+          {{ article.user.username }}
+        </span>
+      </nuxt-link>
+
+      <div class="markdown text-dark" v-html="article.body"></div>
       <!-- <article-comments /> -->
     </div>
   </Fragment>
@@ -38,9 +59,6 @@ export default {
   mixins: [reactions],
   head() {
     return {
-      bodyAttrs: {
-        class: 'bg-white dark:bg-gray-900',
-      },
       title: this.article.title,
     }
   },
@@ -57,6 +75,16 @@ export default {
     )
     article.data.body = editorjsParser(article.data.body)
     return { article: article.data, reactions: article.data.reactions }
+  },
+  computed: {
+    userProfileUrl() {
+      return {
+        name: 'username',
+        params: {
+          username: this.article.user.username,
+        },
+      }
+    },
   },
 
   // async fetch() {

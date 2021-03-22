@@ -1,7 +1,6 @@
 <template>
   <main>
     <Navbar />
-    <!-- <Hero /> -->
     <div class="wrapper">
       <div class="grid grid-cols-12">
         <div class="hidden col-span-12 md:block md:col-span-3">
