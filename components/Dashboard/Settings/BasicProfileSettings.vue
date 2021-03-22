@@ -117,10 +117,7 @@ export default {
           this.form
         )
         await this.$auth.fetchUser()
-        this.$store.commit(
-          'alert/SUCCESS_ALERT',
-          'Profile updated successfully'
-        )
+        this.$toast.success('Profile updated successfully')
         this.loading = false
         this.errors = {}
       } catch (e) {

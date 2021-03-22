@@ -37,15 +37,19 @@ export default {
     '@nuxtjs/tailwindcss',
     ['@nuxtjs/dotenv', { systemvars: true }],
     '@nuxtjs/color-mode',
-    '@nuxtjs/moment',
+    '@nuxtjs/moment'
   ],
-
+  toast: {
+    position: 'top-center',
+    duration: 2000
+  },
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth',
     '@nuxtjs/cloudinary',
+    '@nuxtjs/toast'
   ],
 
   axios: {

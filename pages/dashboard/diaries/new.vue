@@ -30,18 +30,15 @@ export default {
       try {
         const article = await this.$axios.$post('/api/articles', { ...data })
         const url = `/${this.$auth.user.username}/${article.data.slug}`
-        this.$store.commit(
-          'alert/SUCCESS_ALERT',
-          `Article saved. <a href='${url}' target='_blank' >Read now</a>`
-        )
-        this.$router.push({
-          name: 'dashboard-diaries-slug-edit',
-          params: { slug: article.data.slug },
+        this.$toast.success('ডায়েরি সংরক্ষণ করা হয়েছে')
+        await this.$router.push({
+          name: 'username-articleSlug',
+          params: { articleSlug: article.data.slug, username: this.$auth.user.username }
         })
       } catch (e) {
         if (e.response.status !== 500) {
           const errors = this.jsonToPlainErrorText(e.response.data?.errors)
-          this.$store.commit('alert/ERROR_ALERT', errors)
+          this.$toast.error(errors)
         }
       }
     },

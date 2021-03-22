@@ -1,13 +1,13 @@
 <template>
   <main>
     <Navbar />
-    <div class="wrapper">
-      <div class="dashboard">
-        <div class="dashboard__sidebar">
+    <div class='wrapper'>
+      <div class='dashboard'>
+        <div class='dashboard__sidebar'>
           <DashboardSidebar />
         </div>
-        <div class="dashboard__main">
-          <slot name="title"></slot>
+        <div class='dashboard__main'>
+          <slot name='title'></slot>
           <Nuxt />
         </div>
       </div>

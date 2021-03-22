@@ -1,6 +1,5 @@
 <template>
   <div class="fixed top-0 left-0 z-50 w-full">
-    <Alert />
 
     <div
       class="flex items-center justify-between px-4 py-1 bg-white shadow-sm md:px-10 dark:bg-gray-800 h-14"
