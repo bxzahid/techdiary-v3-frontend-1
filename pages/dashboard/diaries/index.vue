@@ -47,6 +47,7 @@
 </template>
 <script>
 export default {
+  middleware: 'auth',
   head() {
     return {
       title: 'Update diaries'
@@ -77,19 +78,20 @@ export default {
     },
 
     async loadMore() {
-      const { data } = await this.$axios.$get(
+      const { data, meta: { current_page, last_page } } = await this.$axios.$get(
         `/api/my-articles?page=${this.pageMeta.current_page}`
       )
 
       // @ts-ignore
       this.articles.push(...data)
+      this.pageMeta.current_page = current_page
     },
     async visibilityChanged(isVisible) {
       if (!isVisible) {
         return
       }
       // @ts-ignore
-      if (this.pageMeta.currentPage >= this.pageMeta.lastPage) {
+      if (this.pageMeta.current_page >= this.pageMeta.last_page) {
         return
       }
       this.pageMeta.current_page++
