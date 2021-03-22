@@ -1,6 +1,6 @@
 <template>
   <!-- This example requires Tailwind CSS v2.0+ -->
-  <div class='fixed z-10 inset-0 overflow-y-auto'>
+  <div class='fixed inset-0 overflow-y-auto z-10' :class='{"visible" : modalOpen, "invisible" : !modalOpen}'>
     <div class='flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0'>
       <!--
         Background overlay, show/hide based on modal state.
@@ -12,10 +12,11 @@
           From: "opacity-100"
           To: "opacity-0"
       -->
-      <div class='fixed inset-0 transition-opacity' aria-hidden='true' v-if='modalOpen' @click='clickAway'>
-        <div class='absolute inset-0 bg-gray-500 opacity-75'></div>
-      </div>
-
+      <transition name='background-overlay'>
+        <div class='fixed inset-0 transition-opacity' aria-hidden='true' v-if='modalOpen' @click='clickAway'>
+          <div class='absolute inset-0 bg-gray-500 opacity-75'></div>
+        </div>
+      </transition>
       <!-- This element is to trick the browser into centering the modal contents. -->
       <span class='hidden sm:inline-block sm:align-middle sm:h-screen' aria-hidden='true'>&#8203;</span>
       <!--
@@ -114,6 +115,37 @@ export default {
 
     &-to {
       @apply opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95;
+    }
+  }
+}
+
+//Entering: "ease-out duration-300"
+//From: "opacity-0"
+//To: "opacity-100"
+//Leaving: "ease-in duration-200"
+//From: "opacity-100"
+//To: "opacity-0"
+
+.background-overlay {
+  &-enter {
+    @apply opacity-0;
+    &-active {
+      @apply ease-out duration-300;
+    }
+
+    &-to {
+      @apply opacity-100;
+    }
+  }
+
+  &-leave {
+    @apply opacity-100;
+    &-active {
+      @apply ease-in duration-200;
+    }
+
+    &-to {
+      @apply opacity-0;
     }
   }
 }

@@ -11,7 +11,7 @@
   </div>
   <div v-else>
     <client-only>
-      <modal @confirm='confirmation' :modalOpen='modalOpen' v-show='modalOpen'>
+      <modal @confirm='confirmation' :modalOpen='modalOpen'>
         <template v-slot:header>
           Delete Articles
         </template>

@@ -31,6 +31,9 @@ module.exports = {
         techdiary: ['Nunito', 'Kohinoor Bangla'],
         mono: ['Space Mono', 'monospace'],
       },
+      zIndex: {
+        '-1': '-1',
+      }
     },
   },
   variants: {},
