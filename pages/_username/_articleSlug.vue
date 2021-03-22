@@ -62,6 +62,45 @@ export default {
   head() {
     return {
       title: this.article.title,
+      meta: [
+        {
+          name: 'description',
+          content: `${this.article.title} | Techdiary`,
+        },
+        {
+          property: 'og:title',
+          content: `${this.article.title} | Techdiary`,
+        },
+        {
+          property: 'og:image',
+          content: this.article.thumbnail,
+        },
+        {
+          property: 'og:image:width',
+          content: '1200',
+        },
+
+        {
+          property: 'og:image:height',
+          content: '630',
+        },
+        {
+          property: 'twitter:site',
+          content: '630',
+        },
+        {
+          property: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          property: 'twitter:image',
+          content: this.article.thumbnail,
+        },
+        {
+          property: 'keywords',
+          content: this.article.tags.map((k) => k).join(','),
+        },
+      ],
     }
   },
   data() {
