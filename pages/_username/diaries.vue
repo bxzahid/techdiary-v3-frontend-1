@@ -9,15 +9,15 @@
         <user-profile-tabs :username="user.username" />
         <div>
           <p
-            class="font-mono text-xs font-semibold text-gray-500 dark:text-gray-400"
+            class="font-mono text-sm font-semibold text-gray-500 dark:text-gray-400"
           >
             ~/techdiary/{{ user.username }}/diaries.json
           </p>
 
-          <div class="readme-content dark:bg-gray-800">
+          <div class="mt-4 readme-content dark:bg-gray-800">
             <div
-              class="flex mb-4 transition-all duration-500 ease-in-out rounded hover:bg-gray-100"
-              v-for="(article, index) in articles"
+              class="flex mb-4 transition-all duration-500 ease-in-out rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+              v-for="article in articles"
               :key="article.id"
             >
               <div class="ml-3">
@@ -33,7 +33,9 @@
                     >{{ article.title }}</nuxt-link
                   >
                 </h3>
-                <p class="text-sm font-bold text-gray-600 dark:text-gray-200">
+                <p
+                  class="mt-3 text-sm font-bold text-gray-600 dark:text-gray-200"
+                >
                   {{ $moment(article.created_at).format('LLLL') }}
                 </p>
               </div>

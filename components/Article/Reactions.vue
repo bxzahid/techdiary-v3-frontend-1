@@ -9,7 +9,9 @@
           }"
           src="~/static/reactions/HEART.png"
         />
-        <span class="reaction__count">{{ reactionCount('HEART') }}</span>
+        <span class="reaction__count text-dark-secondary">{{
+          reactionCount('HEART')
+        }}</span>
       </button>
 
       <button class="reaction__button" @click="doReact('LIKE', article.slug)">
@@ -20,7 +22,9 @@
           }"
           src="~/static/reactions/LIKE.png"
         />
-        <span class="reaction__count">{{ reactionCount('LIKE') }}</span>
+        <span class="reaction__count text-dark-secondary">{{
+          reactionCount('LIKE')
+        }}</span>
       </button>
 
       <button
@@ -34,7 +38,9 @@
           }"
           src="~/static/reactions/FLYHIGH.png"
         />
-        <span class="reaction__count">{{ reactionCount('FLYHIGH') }}</span>
+        <span class="reaction__count text-dark-secondary">{{
+          reactionCount('FLYHIGH')
+        }}</span>
       </button>
 
       <button
@@ -48,7 +54,9 @@
           }"
           src="~/static/reactions/UNICORN.png"
         />
-        <span class="reaction__count">{{ reactionCount('UNICORN') }}</span>
+        <span class="reaction__count text-dark-secondary">{{
+          reactionCount('UNICORN')
+        }}</span>
       </button>
 
       <button class="reaction__button" @click="doReact('MONEY', article.slug)">
@@ -59,7 +67,9 @@
           }"
           src="~/static/reactions/MONEY.png"
         />
-        <span class="reaction__count">{{ reactionCount('MONEY') }}</span>
+        <span class="reaction__count text-dark-secondary">{{
+          reactionCount('MONEY')
+        }}</span>
       </button>
 
       <button class="reaction__button" @click="doReact('PARTY', article.slug)">
@@ -70,7 +80,9 @@
           }"
           src="~/static/reactions/PARTY.png"
         />
-        <span class="reaction__count">{{ reactionCount('PARTY') }}</span>
+        <span class="reaction__count text-dark-secondary">{{
+          reactionCount('PARTY')
+        }}</span>
       </button>
 
       <button class="reaction__button" @click="doReact('TROPHY', article.slug)">
@@ -81,7 +93,9 @@
           }"
           src="~/static/reactions/TROPHY.png"
         />
-        <span class="reaction__count">{{ reactionCount('TROPHY') }}</span>
+        <span class="reaction__count text-dark-secondary">{{
+          reactionCount('TROPHY')
+        }}</span>
       </button>
 
       <button class="reaction__button" @click="doReact('CHEER', article.slug)">
@@ -92,7 +106,9 @@
           }"
           src="~/static/reactions/CHEER.png"
         />
-        <span class="reaction__count">{{ reactionCount('CHEER') }}</span>
+        <span class="reaction__count text-dark-secondary">{{
+          reactionCount('CHEER')
+        }}</span>
       </button>
     </div>
 
