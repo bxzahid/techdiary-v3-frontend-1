@@ -16,6 +16,30 @@ export default {
   layout: 'home',
   head: {
     title: 'নীড়',
+    meta: [
+      {
+        name: 'description',
+        content: `টেকডায়েরি | বাংলার প্রোগ্রামিং নেটওয়ার্ক`,
+      },
+      {
+        property: 'og:title',
+        content: `টেকডায়েরি | বাংলার প্রোগ্রামিং নেটওয়ার্ক`,
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616454527/static-assets/ysbycrhmbjdxqirpskdl.jpg',
+      },
+      {
+        property: 'og:image:width',
+        content: '1200',
+      },
+
+      {
+        property: 'og:image:height',
+        content: '630',
+      },
+    ],
   },
   data: () => ({
     articles: [],

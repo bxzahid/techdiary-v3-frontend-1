@@ -1,6 +1,6 @@
 <template>
-  <Fragment>
-    <div class="fixed w-32 top-25">
+  <div>
+    <div class="fixed hidden w-32 md:block top-25">
       <ArticleReactions :article="article" />
     </div>
     <div class="mx-auto md:w-8/12">
@@ -30,25 +30,13 @@
         </div>
       </div>
 
-      <nuxt-link
-        :to="userProfileUrl"
-        class="flex items-center mb-4 space-x-2 font-mono"
-      >
-        <img
-          class="w-8 rounded-full"
-          :src="article.user.profilePhoto"
-          :alt="article.user.name"
-        />
+      <article-user-info :article="article" />
 
-        <span class="font-mono text-dark-secondary">
-          {{ article.user.username }}
-        </span>
-      </nuxt-link>
-
+      <div class="block md:hidden"></div>
       <div class="content-typography text-dark" v-html="article.body"></div>
       <!-- <article-comments /> -->
     </div>
-  </Fragment>
+  </div>
 </template>
 <script>
 import editorjsParser from '~/mixins/editorjsParser'
@@ -98,7 +86,7 @@ export default {
         },
         {
           property: 'keywords',
-          content: `${this.article.tags.map((k) => k).join(',')}`,
+          content: `${this.article.tags.map((k) => k.name).join(',')}`,
         },
       ],
     }

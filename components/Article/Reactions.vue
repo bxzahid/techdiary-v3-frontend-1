@@ -22,9 +22,9 @@
           }"
           src="~/static/reactions/LIKE.png"
         />
-        <span class="reaction__count text-dark-secondary">{{
-          reactionCount('LIKE')
-        }}</span>
+        <span class="reaction__count text-dark-secondary">
+          {{ reactionCount('LIKE') }}
+        </span>
       </button>
 
       <button
@@ -126,6 +126,7 @@
           :class="{
             'text-green-600': reactedByMe('BOOKMARK'),
             'fill-current': reactedByMe('BOOKMARK'),
+            'text-dark': !reactedByMe('BOOKMARK'),
           }"
         >
           <path
@@ -136,6 +137,7 @@
         </svg>
       </button>
       <nuxt-link
+        class="text-dark"
         v-if="$auth.loggedIn && $auth.user.id == article.user.id"
         :to="{
           name: 'dashboard-diaries-slug-edit',
@@ -236,7 +238,7 @@ export default {
   }
 
   &__icon {
-    @apply w-8 h-8;
+    @apply w-7 h-7;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 

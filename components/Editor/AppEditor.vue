@@ -81,7 +81,7 @@
         v-show="showOptions"
       >
         <button
-          class="absolute text-4xl transition-transform duration-150 transform top-1 right-3 focus:outline-none hover:rotate-180"
+          class="absolute w-8 h-8 text-2xl transition-transform duration-150 transform bg-red-500 rounded-full top-1 right-3 focus:outline-none hover:rotate-180"
           @click="showOptions = false"
         >
           &times;
@@ -173,7 +173,10 @@ export default {
           inlineToolbar: true,
           shortcut: 'CMD+SHIFT+L',
         },
-
+        inlineCode: {
+          class: require('@editorjs/inline-code'),
+          shortcut: 'CMD+SHIFT+M',
+        },
         checklist: {
           class: require('@editorjs/checklist'),
           inlineToolbar: true,
