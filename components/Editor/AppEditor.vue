@@ -131,13 +131,20 @@
 <script>
 import upload from '~/mixins/upload'
 export default {
-  props: ['article-data'],
+  props: {
+    'article-data': {
+      type: Object,
+    },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+  },
   mixins: [upload],
   data() {
     return {
       editor: null,
       showOptions: false,
-      loading: false,
       article: {
         body: this.articleData?.body || [],
         tags: this.articleData?.tags || [],
@@ -254,7 +261,6 @@ export default {
   methods: {
     save() {
       this.$emit('editorSaved', this.article)
-      this.loading = true
     },
     openOptions() {
       this.showOptions = true
