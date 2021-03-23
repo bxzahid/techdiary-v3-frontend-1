@@ -31,7 +31,7 @@
   display: block;
   width: 25%;
   height: 25%;
-  @apply bg-dark;
+  @apply bg-gray-900 dark:bg-gray-200;
   border-radius: 100%;
   animation: sk-chase-dot-before 2s infinite ease-in-out both;
 }
