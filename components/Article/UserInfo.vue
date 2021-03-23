@@ -17,7 +17,12 @@
     </nuxt-link>
 
     <!-- Reaction start-->
-    <div class="flex items-center space-x-3 md:hidden">
+    <div
+      class="flex items-center space-x-3"
+      :class="{
+        'md:hidden': showReactionAlways === false,
+      }"
+    >
       <nuxt-link
         v-if="$auth.loggedIn && $auth.user.id == article.user.id"
         :to="{
@@ -105,7 +110,15 @@
 import reactions from '~/mixins/reactions'
 export default {
   mixins: [reactions],
-  props: ['article'],
+  props: {
+    article: {
+      type: Object,
+    },
+    showReactionAlways: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       reactions: this.article.reactions,

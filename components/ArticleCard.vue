@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5">
-    <article-user-info :article="article" />
+    <article-user-info :article="article" :showReactionAlways="true" />
 
     <div v-if="article.thumbnail">
       <nuxt-link :to="articleUrl">
