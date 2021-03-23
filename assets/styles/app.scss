@@ -23,10 +23,16 @@
     @apply bg-gray-100 dark:bg-gray-600;
   }
 }
-
+.swal-footer {
+  background-color: rgb(245, 248, 250);
+  margin-top: 32px;
+  border-top: 1px solid #e9eef1;
+  overflow: hidden;
+}
 @import 'base';
 @import 'content-typography';
 @import 'fonts';
+@import 'loader';
 
 .top-full {
   top: 100%;
