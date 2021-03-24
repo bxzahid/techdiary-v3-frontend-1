@@ -10,25 +10,71 @@
       মন্তব্য যুক্ত করুন
       </span>
     </button>
-
-
-    <article-comment v-for='comment in comments' :comment='comment' :key='comment.id' :level='0' />
+    <div class='mb-6'>
+      <textarea name='comment' rows='3' class='w-full rounded h-auto p-3 mb-2 dark:bg-gray-700 bg-gray-50 text-dark'
+                v-model='commentText'></textarea>
+      <button class='bg-primary rounded px-3 py-2' @click='commentCreate'>Submit</button>
+    </div>
+    <div class='flex items-center justify-center h-full' v-if='$fetchState.pending'>
+      <div class='sk-chase'>
+        <div class='sk-chase-dot'></div>
+        <div class='sk-chase-dot'></div>
+        <div class='sk-chase-dot'></div>
+        <div class='sk-chase-dot'></div>
+        <div class='sk-chase-dot'></div>
+        <div class='sk-chase-dot'></div>
+      </div>
+    </div>
+    <article-comment v-for='comment in comments' :comment='comment'
+                     :key='comment.id' :level='0' />
 
   </div>
 </template>
 
 <script>
+import validationHelper from '~/mixins/validationHelper'
+import { mapState } from 'vuex'
+
 export default {
+  mixins: [validationHelper],
   data() {
     return {
-      comments: [],
-      currentPage: 1
+      currentPage: 1,
+      commentText: ''
     }
+  },
+  computed: {
+    ...mapState({ comments: state => state.comment.comments })
   },
   async fetch() {
     const comments = await this.$axios.get(`/api/articles/${this.$route.params.articleSlug}/comments?page=${this.currentPage}`)
 
-    this.comments = this.comments.concat(comments.data.data)
+    this.$store.commit('comment/SET_COMMENTS', comments.data.data)
+  },
+  methods: {
+    onDelete(comment) {
+      this.comments = this.comments.filter(cmnt => cmnt.id !== comment.id)
+    },
+    async commentCreate() {
+      try {
+        let comment = await this.$axios.$post(`/api/articles/${this.$route.params.articleSlug}/comments`, { body: this.commentText })
+        comment = {
+          ...comment,
+          user: {
+            id: this.$auth.user.id,
+            name: this.$auth.user.name,
+            profilePhoto: this.$auth.user.profilePhoto,
+            username: this.$auth.user.username
+          }
+        }
+        this.$store.commit('comment/CREATE_COMMENT', { comment, level: 0 })
+      } catch (e) {
+        if (e.response.status !== 500) {
+          const errors = this.jsonToPlainErrorText(e.response.data?.errors)
+          this.$toast.error(errors)
+        }
+      }
+    }
   }
 
 }

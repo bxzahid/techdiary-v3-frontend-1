@@ -46,7 +46,7 @@
       </nuxt-link>
 
       <div class='content-typography text-dark' v-html='article.body'></div>
-      <!-- <article-comments /> -->
+      <article-comments />
     </div>
   </div>
 </template>

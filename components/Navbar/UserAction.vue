@@ -217,7 +217,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang='scss'>
 .user-action-dropdown {
   @apply absolute right-0 w-48 p-4 mt-1 bg-white rounded-bl rounded-br shadow-lg dark:bg-gray-700 top-full;
   &__item {
