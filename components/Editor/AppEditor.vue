@@ -23,8 +23,33 @@
         <span>ডায়েরি সমূহ</span>
       </nuxt-link>
       <div class="flex items-center space-x-2">
-        <button class="px-2 py-1 rounded bg-primary" @click="save">
-          সেভ করুন
+        <button
+          class="flex items-center justify-center px-5 py-1 rounded-full bg-primary"
+          @click="save"
+        >
+          <svg
+            v-if="loading"
+            class="w-5 h-5 mr-2 animate-spin"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+          <span v-if="loading">অপেক্ষা করুন...</span>
+          <span v-else>সেভ করুন</span>
         </button>
 
         <button
@@ -32,7 +57,7 @@
           @click="openOptions"
         >
           <svg
-            class="w-5 text-gray-500 stroke-1"
+            class="text-gray-500 stroke-1 w-7"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -81,13 +106,17 @@
         v-show="showOptions"
       >
         <button
-          class="absolute text-4xl transition-transform duration-150 transform top-1 right-3 focus:outline-none hover:rotate-180"
+          class="absolute w-8 h-8 text-2xl text-white transition-transform duration-150 transform bg-red-500 rounded-full top-1 right-3 focus:outline-none hover:rotate-180"
           @click="showOptions = false"
         >
           &times;
         </button>
 
-        <editor-meta :article="article" @saveArticle="() => save()" />
+        <editor-meta
+          :loading="loading"
+          :article="article"
+          @saveArticle="() => save()"
+        />
       </div>
     </transition>
 
@@ -102,7 +131,15 @@
 <script>
 import upload from '~/mixins/upload'
 export default {
-  props: ['article-data'],
+  props: {
+    'article-data': {
+      type: Object,
+    },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+  },
   mixins: [upload],
   data() {
     return {
@@ -171,15 +208,15 @@ export default {
         list: {
           class: require('@editorjs/list'),
           inlineToolbar: true,
-          shortcut: 'CMD+SHIFT+L'
+          shortcut: 'CMD+SHIFT+L',
         },
         inlineCode: {
           class: require('@editorjs/inline-code'),
-          shortcut: 'CMD+SHIFT+M'
+          shortcut: 'CMD+SHIFT+M',
         },
         checklist: {
           class: require('@editorjs/checklist'),
-          inlineToolbar: true
+          inlineToolbar: true,
         },
 
         quote: {

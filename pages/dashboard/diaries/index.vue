@@ -1,21 +1,7 @@
 <template>
   <div v-if="$fetchState.pending">
-    <div v-for="d in [1, 2, 3, 4, 5]" :key="d" class="mb-4">
-      <Skeleton
-        type="rect"
-        :height="20"
-        :width="300"
-        animation="fade"
-        class="w-full mb-2"
-      />
-      <Skeleton
-        type="rect"
-        :width="500"
-        :height="15"
-        animation="fade"
-        class="mb-1"
-      />
-      <Skeleton type="rect" :width="500" :height="8" animation="fade" />
+    <div class="flex items-center justify-center min-h-[60vh]">
+      <loader-spin />
     </div>
   </div>
 
@@ -135,25 +121,20 @@ export default {
     this.pageMeta = { current_page, last_page }
   },
   methods: {
-    confirmation(value) {
-      if (value)
-        this.removeArticle(
-          this.removeArticleSlug,
-          this.removeArticleIndex,
-          value
-        )
-      this.modalOpen = false
-    },
-    async removeArticle(slug, index, confirm) {
-      if (!confirm) {
-        this.removeArticleSlug = slug
-        this.removeArticleIndex = index
-        this.modalOpen = true
-        return
-      }
-      await this.$axios.$delete(`/api/articles/${slug}`)
-      this.articles.splice(index, 1)
-      this.$toast.info('Article deleted.')
+    async removeArticle(slug, index) {
+      swal({
+        title: 'ডায়েরি মুছে ফেলতে চান?',
+        text: 'সাবধান - একবার মুছে ফেলার পর আর  কখনোই ফিরিয়ে আনা যাবে না',
+        icon: 'warning',
+        buttons: ['না', 'হ্যাঁ'],
+        dangerMode: true,
+      }).then(async (confirmed) => {
+        if (confirmed) {
+          await this.$axios.$delete(`/api/articles/${slug}`)
+          this.articles.splice(index, 1)
+          this.$toast.success('ডায়েরি মুছে ফেলা হয়েছে।')
+        }
+      })
     },
     async visibilityChanged(isVisible) {
       if (isVisible) {

@@ -23,14 +23,28 @@
     @apply bg-gray-100 dark:bg-gray-600;
   }
 }
-
+.swal-footer {
+  background-color: rgb(245, 248, 250);
+  margin-top: 32px;
+  border-top: 1px solid #e9eef1;
+  overflow: hidden;
+}
 @import 'base';
 @import 'content-typography';
 @import "loader";
 @import 'fonts';
+@import 'loader';
 
 .top-full {
   top: 100%;
+}
+
+*::selection {
+  @apply bg-primary text-gray-800;
+}
+
+.ce-block--selected .ce-block__content {
+  @apply dark:bg-gray-800;
 }
 
 .wrapper {

@@ -1,6 +1,7 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
+    lang: 'bn',
     titleTemplate: '%s - Tech Diary',
     meta: [
       { charset: 'utf-8' },

@@ -1,13 +1,6 @@
 <template>
-  <div class='flex items-center justify-center h-full mt-32'>
-    <div class='sk-chase'>
-      <div class='sk-chase-dot'></div>
-      <div class='sk-chase-dot'></div>
-      <div class='sk-chase-dot'></div>
-      <div class='sk-chase-dot'></div>
-      <div class='sk-chase-dot'></div>
-      <div class='sk-chase-dot'></div>
-    </div>
+  <div class="flex items-center justify-center min-h-[50vh]">
+    <loader-spin />
   </div>
 </template>
 
@@ -20,9 +13,11 @@ export default {
     this.$router.replace('/')
   },
   async fetch() {
-    this.$auth.$storage.setCookie('_token.local', `Bearer ${this.$route.query?.token}`)
+    this.$auth.$storage.setCookie(
+      '_token.local',
+      `Bearer ${this.$route.query?.token}`
+    )
     this.$auth.fetchUser()
-  }
+  },
 }
 </script>
-

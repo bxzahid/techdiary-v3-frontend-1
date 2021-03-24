@@ -1,6 +1,10 @@
 <template>
   <client-only>
-    <editor-app-editor @editorSaved="handleSave" v-model="article" />
+    <editor-app-editor
+      @editorSaved="handleSave"
+      v-model="article"
+      :loading="loading"
+    />
   </client-only>
 </template>
 <script>
@@ -15,6 +19,7 @@ export default {
   mixins: [validationHelper],
   data() {
     return {
+      loading: false,
       article: {
         body: [],
         tags: [],
@@ -27,8 +32,10 @@ export default {
   },
   methods: {
     async handleSave(data) {
+      this.loading = true
       try {
         const article = await this.$axios.$post('/api/articles', { ...data })
+        this.loading = false
         // const url = `/${this.$auth.user.username}/${article.data.slug}`
         this.$toast.success('ডায়েরি সংরক্ষণ করা হয়েছে')
         await this.$router.push({
@@ -39,6 +46,7 @@ export default {
           },
         })
       } catch (e) {
+        this.loading = false
         if (e.response.status !== 500) {
           const errors = this.jsonToPlainErrorText(e.response.data?.errors)
           this.$toast.error(errors)
