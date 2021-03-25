@@ -24,7 +24,7 @@ export const mutations = {
   },
 }
 
-function createComment(comment, comments, level, currentLevel = 0) {
+function createComment(comment, comments, level) {
   if (level === 0) {
     comments.push(comment)
   } else {
@@ -35,14 +35,14 @@ function createComment(comment, comments, level, currentLevel = 0) {
       if (comment.parent_id === singleComment.id) {
         singleComment.children.push(comment)
       } else {
-        createComment(comment, singleComment.children, level, ++currentLevel)
+        createComment(comment, singleComment.children, level)
       }
     }
   }
   return comments
 }
 
-function editComment(comment, comments, level, currentLevel = 0) {
+function editComment(comment, comments, level) {
   if (level === 0) {
     let commentIndex = comments.findIndex(
       (singleComment) => singleComment.id === comment.id
@@ -50,20 +50,18 @@ function editComment(comment, comments, level, currentLevel = 0) {
     comments[commentIndex].body = comment.body
   } else {
     for (let singleComment of comments) {
-      if (currentLevel === level) {
-        if (comment.id === singleComment.id) {
-          singleComment.body = comment.body
-        }
+      if (comment.id === singleComment.id) {
+        singleComment.body = comment.body
       } else {
         if (singleComment.children)
-          editComment(comment, singleComment.children, level, ++currentLevel)
+          editComment(comment, singleComment.children, level)
       }
     }
     return comments
   }
 }
 
-function deleteComment(comment, comments, level, currentLevel = 0) {
+function deleteComment(comment, comments, level) {
   if (level === 0) {
     let commentIndex = comments.findIndex(
       (singleComment) => singleComment.id === comment.id
@@ -75,7 +73,7 @@ function deleteComment(comment, comments, level, currentLevel = 0) {
         comments.splice(i, 1)
       } else {
         if (singleComment.children)
-          deleteComment(comment, singleComment.children, level, ++currentLevel)
+          deleteComment(comment, singleComment.children, level)
       }
     }
   }

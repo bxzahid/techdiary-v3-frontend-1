@@ -152,7 +152,7 @@
           name="reply"
           rows="5"
           v-model="replyText"
-          class="w-full p-2 mb-0 rounded-tl rounded-tr shadow-md outline-none dark:bg-gray-700 bg-gray-50"
+          class="w-full p-2 mb-0 rounded-tl rounded-tr shadow-md text-dark outline-none dark:bg-gray-700 bg-gray-50"
         />
         <div
           class="absolute bottom-0 w-full p-1 bg-gray-300 rounded-bl rounded-br"
