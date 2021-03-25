@@ -21,7 +21,7 @@
       </span>
     </button> -->
 
-    <div class="mb-6">
+    <div class="mb-6 mt-10" v-if="$auth.loggedIn">
       <textarea
         name="comment"
         rows="3"
@@ -65,7 +65,7 @@ export default {
   data() {
     return {
       articleComments: [],
-      currentPage: 1,
+     pageMeta: { current_page: 1, last_page: 1 },
       commentText: '',
     }
   },
@@ -73,10 +73,14 @@ export default {
     ...mapState({ comments: (state) => state.comment.comments }),
   },
   async fetch() {
-    const comments = await this.$axios.get(
-      `/api/articles/${this.$route.params.articleSlug}/comments?page=${this.currentPage}`
+    const {
+      data,
+      meta: { current_page, last_page },
+    } = await this.$axios.get(
+      `/api/articles/${this.$route.params.articleSlug}/comments?page=${this.pageMeta.current_page}`
     )
-    this.articleComments = this.articleComments.concat(comments.data.data)
+    this.articleComments = this.articleComments.concat(data)
+    this.pageMeta = { current_page, last_page }
     this.$store.commit('comment/SET_COMMENTS', this.articleComments)
   },
   methods: {
@@ -106,6 +110,16 @@ export default {
           const errors = this.jsonToPlainErrorText(e.response.data?.errors)
           this.$toast.error(errors)
         }
+      }
+    },
+     async visibilityChanged(isVisible) {
+      if (isVisible) {
+        if (this.pageMeta.current_page >= this.pageMeta.last_page) {
+          return
+        }
+        this.pageMeta.current_page++
+
+        await this.$fetch()
       }
     },
   },

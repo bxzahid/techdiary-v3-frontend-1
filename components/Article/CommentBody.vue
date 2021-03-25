@@ -13,7 +13,7 @@
           </p>
         </div>
       </div>
-      <div class="relative" v-click-away="closeDropdown" v-if="$auth.loggedIn">
+      <div class="relative" v-click-away="closeDropdown" v-if="$auth.loggedIn && canBeModified">
         <svg
           class="w-10 h-10 cursor-pointer text-dark"
           viewBox="0 0 25 24"
