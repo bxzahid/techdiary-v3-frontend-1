@@ -1,7 +1,7 @@
 # techdiary
 techdiary.dev version 3 frontend
 
-## Build Setup
+**Build Setup**
 
 ```bash
 # install dependencies
