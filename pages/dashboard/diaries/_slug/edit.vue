@@ -55,7 +55,7 @@ export default {
       } catch (e) {
         if (e.response.status !== 500) {
           const errors = this.jsonToPlainErrorText(e.response.data?.errors)
-          this.$store.commit('alert/ERROR_ALERT', errors)
+          this.$toast.error(errors)
         }
       }
     },

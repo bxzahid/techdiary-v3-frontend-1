@@ -1,14 +1,30 @@
 <template>
-
-  <div v-if='comment.children' class='ml-5'>
-    <article-comment-body :comment='comment' :showReplyButton='showReplyButton' />
-    <ArticleComment v-for='childComment in comment.children' :comment='childComment' :key='childComment.id'
-                    :level='level + 1' />
+  <div
+    v-if="comment.children"
+    class="pl-3 my-3 ml-5 border border-gray-300 border-opacity-25 border-dashed rounded dark:border-gray-800"
+  >
+    <article-comment-body
+      :comment="comment"
+      :level="level"
+      :showReplyButton="showReplyButton"
+    />
+    <ArticleComment
+      v-for="childComment in comment.children"
+      :comment="childComment"
+      :key="childComment.id"
+      :level="level + 1"
+    />
   </div>
-  <div class='my-3 pl-3' v-else>
-    <article-comment-body :comment='comment' :showReplyButton='showReplyButton' />
+  <div
+    class="pl-3 my-3 ml-5 border border-gray-300 border-opacity-25 border-dashed rounded dark:border-gray-800"
+    v-else
+  >
+    <article-comment-body
+      :comment="comment"
+      :showReplyButton="showReplyButton"
+      :level="level"
+    />
   </div>
-
 </template>
 
 <script>
@@ -16,8 +32,8 @@ export default {
   props: ['comment', 'level'],
   data() {
     return {
-      showReplyButton: true
+      showReplyButton: this.level < 2,
     }
-  }
+  },
 }
 </script>

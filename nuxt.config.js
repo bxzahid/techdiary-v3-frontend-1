@@ -14,6 +14,10 @@ export default {
         href:
           'https://fonts.googleapis.com/css2?family=Nunito&family=Roboto&display=swap',
       },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Fira+Code&display=swap',
+      },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
     ],
   },
@@ -99,5 +103,11 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    extend(config, ctx) {
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      }
+    },
+  },
 }
