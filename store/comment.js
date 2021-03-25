@@ -8,7 +8,9 @@ export const mutations = {
     state.comments = state.comments.concat(payload)
   },
   UPDATE_COMMENT(state, payload) {
-    editComment(payload.comment, state.comments, payload.level)
+    let comments = cloneDeep(state.comments)
+    editComment(payload.comment, comments, payload.level)
+    state.comments = comments
   },
   DELETE_COMMENT(state, payload) {
     let comments = cloneDeep(state.comments)
@@ -54,12 +56,7 @@ function editComment(comment, comments, level, currentLevel = 0) {
         }
       } else {
         if (singleComment.children)
-          return editComment(
-            comment,
-            singleComment.children,
-            level,
-            ++currentLevel
-          )
+          editComment(comment, singleComment.children, level, ++currentLevel)
       }
     }
     return comments

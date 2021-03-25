@@ -31,8 +31,6 @@
       </div>
 
       <article-user-info :article="article" />
-
-      <div class="block md:hidden"></div>
       <div class="content-typography text-dark" v-html="article.body"></div>
       <article-comments />
     </div>
