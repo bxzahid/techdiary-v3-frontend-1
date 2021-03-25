@@ -1,5 +1,5 @@
 # techdiary
-techdiary.dev version 3 frontend
+https://techdiary.dev version 3 frontend
 
 **Build Setup**
 
