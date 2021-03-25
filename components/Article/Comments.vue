@@ -39,7 +39,6 @@
       :key="comment.id"
       :level="0"
     />
-     <div v-observe-visibility="visibilityChanged" />
         <div
       class="flex items-center justify-center h-full"
       v-if="$fetchState.pending"
@@ -53,6 +52,7 @@
         <div class="sk-chase-dot"></div>
       </div>
     </div>
+     <div v-observe-visibility="visibilityChanged" />
   </div>
 </template>
 
@@ -72,13 +72,16 @@ export default {
   computed: {
     ...mapState({ comments: (state) => state.comment.comments }),
   },
+  fetchOnServer: false,
   async fetch() {
     const {
-      data,
-      meta: { current_page, last_page },
+      data : {data, current_page, last_page },
     } = await this.$axios.get(
       `/api/articles/${this.$route.params.articleSlug}/comments?page=${this.pageMeta.current_page}`
     )
+    // const comment = await this.$axios.$get(`/api/articles/${this.$route.params.articleSlug}/comments?page=${1}`)
+    // console.log(comment)
+    
     this.articleComments = this.articleComments.concat(data)
     this.pageMeta = { current_page, last_page }
     this.$store.commit('comment/SET_COMMENTS', this.articleComments)
