@@ -5,7 +5,7 @@ export const state = () => ({
 
 export const mutations = {
   SET_COMMENTS(state, payload) {
-    state.comments = state.comments.concat(payload)
+    state.comments = payload
   },
   UPDATE_COMMENT(state, payload) {
     let comments = cloneDeep(state.comments)

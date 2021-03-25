@@ -32,7 +32,15 @@
         Submit
       </button>
     </div>
-    <div
+
+    <article-comment
+      v-for="comment in comments"
+      :comment="comment"
+      :key="comment.id"
+      :level="0"
+    />
+     <div v-observe-visibility="visibilityChanged" />
+        <div
       class="flex items-center justify-center h-full"
       v-if="$fetchState.pending"
     >
@@ -45,12 +53,6 @@
         <div class="sk-chase-dot"></div>
       </div>
     </div>
-    <article-comment
-      v-for="comment in comments"
-      :comment="comment"
-      :key="comment.id"
-      :level="0"
-    />
   </div>
 </template>
 
@@ -62,6 +64,7 @@ export default {
   mixins: [validationHelper],
   data() {
     return {
+      articleComments: [],
       currentPage: 1,
       commentText: '',
     }
@@ -73,8 +76,8 @@ export default {
     const comments = await this.$axios.get(
       `/api/articles/${this.$route.params.articleSlug}/comments?page=${this.currentPage}`
     )
-
-    this.$store.commit('comment/SET_COMMENTS', comments.data.data)
+    this.articleComments = this.articleComments.concat(comments.data.data)
+    this.$store.commit('comment/SET_COMMENTS', this.articleComments)
   },
   methods: {
     onDelete(comment) {

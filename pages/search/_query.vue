@@ -3,11 +3,10 @@
     <div class="mb-4 md:hidden">
       <mobile-search />
     </div>
-
+<img class=" flex justify-end" src="~/static/icons/search-by-algolia-dark-background.svg" alt="Algolia">
     <div v-if="loading" class="my-5 text-center">
       <SyncLoader color="#58d4e1" />
     </div>
-
     <ArticleCard
       v-else
       :isSearchCard="true"
