@@ -4,6 +4,7 @@
     <div class="wrapper">
       <Nuxt />
     </div>
+    <beta-warning />
   </main>
 </template>
 
