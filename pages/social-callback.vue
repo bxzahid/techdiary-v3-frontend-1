@@ -9,6 +9,9 @@ export default {
   mode: 'spa',
   auth: 'guest',
   middleware: 'auth',
+  head: {
+    title: 'একটু অপেক্ষা করুন',
+  },
   mounted() {
     this.$router.replace('/')
   },

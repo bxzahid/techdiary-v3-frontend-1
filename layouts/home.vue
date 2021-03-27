@@ -21,6 +21,7 @@
         </div>
       </div>
     </div>
+    <beta-warning />
   </main>
 </template>
 
