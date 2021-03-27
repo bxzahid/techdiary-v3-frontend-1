@@ -29,7 +29,7 @@ module.exports = {
       },
       fontFamily: {
         techdiary: ['Nunito', 'techdiary-bangla'],
-        mono: ['Space Mono', 'techdiary-bangla', 'monospace'],
+        mono: ['Fira Code', 'techdiary-bangla', 'monospace'],
       },
       zIndex: {
         '-1': '-1',

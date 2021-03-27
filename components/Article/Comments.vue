@@ -21,7 +21,7 @@
       </span>
     </button> -->
 
-    <div class="mb-6">
+    <div class="mb-6 mt-10" v-if="$auth.loggedIn">
       <textarea
         name="comment"
         rows="3"
@@ -32,7 +32,14 @@
         Submit
       </button>
     </div>
-    <div
+
+    <article-comment
+      v-for="comment in comments"
+      :comment="comment"
+      :key="comment.id"
+      :level="0"
+    />
+        <div
       class="flex items-center justify-center h-full"
       v-if="$fetchState.pending"
     >
@@ -45,12 +52,7 @@
         <div class="sk-chase-dot"></div>
       </div>
     </div>
-    <article-comment
-      v-for="comment in comments"
-      :comment="comment"
-      :key="comment.id"
-      :level="0"
-    />
+     <div v-observe-visibility="visibilityChanged" />
   </div>
 </template>
 
@@ -62,19 +64,27 @@ export default {
   mixins: [validationHelper],
   data() {
     return {
-      currentPage: 1,
+      articleComments: [],
+     pageMeta: { current_page: 1, last_page: 1 },
       commentText: '',
     }
   },
   computed: {
     ...mapState({ comments: (state) => state.comment.comments }),
   },
+  fetchOnServer: false,
   async fetch() {
-    const comments = await this.$axios.get(
-      `/api/articles/${this.$route.params.articleSlug}/comments?page=${this.currentPage}`
+    const {
+      data : {data, current_page, last_page },
+    } = await this.$axios.get(
+      `/api/articles/${this.$route.params.articleSlug}/comments?page=${this.pageMeta.current_page}`
     )
-
-    this.$store.commit('comment/SET_COMMENTS', comments.data.data)
+    // const comment = await this.$axios.$get(`/api/articles/${this.$route.params.articleSlug}/comments?page=${1}`)
+    // console.log(comment)
+    
+    this.articleComments = this.articleComments.concat(data)
+    this.pageMeta = { current_page, last_page }
+    this.$store.commit('comment/SET_COMMENTS', this.articleComments)
   },
   methods: {
     onDelete(comment) {
@@ -103,6 +113,16 @@ export default {
           const errors = this.jsonToPlainErrorText(e.response.data?.errors)
           this.$toast.error(errors)
         }
+      }
+    },
+     async visibilityChanged(isVisible) {
+      if (isVisible) {
+        if (this.pageMeta.current_page >= this.pageMeta.last_page) {
+          return
+        }
+        this.pageMeta.current_page++
+
+        await this.$fetch()
       }
     },
   },

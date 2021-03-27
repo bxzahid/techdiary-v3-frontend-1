@@ -13,7 +13,7 @@
           </p>
         </div>
       </div>
-      <div class="relative" v-click-away="closeDropdown" v-if="$auth.loggedIn">
+      <div class="relative" v-click-away="closeDropdown" v-if="$auth.loggedIn && canBeModified">
         <svg
           class="w-10 h-10 cursor-pointer text-dark"
           viewBox="0 0 25 24"
@@ -152,9 +152,9 @@
           name="reply"
           rows="5"
           v-model="replyText"
-          class="w-full p-2 mb-0 rounded-tl rounded-tr shadow-md outline-none dark:bg-gray-700 bg-gray-50"
+          class="w-full p-2 mb-0 rounded-tl rounded-tr shadow-md text-dark outline-none dark:bg-gray-700 bg-gray-50"
         />
-        <div
+        <!-- <div
           class="absolute bottom-0 w-full p-1 bg-gray-300 rounded-bl rounded-br"
         >
           <svg
@@ -183,7 +183,7 @@
               stroke-linejoin="round"
             />
           </svg>
-        </div>
+        </div> -->
       </div>
       <button class="px-3 py-2 rounded bg-primary" @click="replyComment">
         Submit
