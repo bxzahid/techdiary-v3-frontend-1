@@ -23,10 +23,24 @@
 
       <form-button :loading="loading">সেভ করুন</form-button>
     </form>
-
-    <draggable v-model="list">
-      <h1 v-for="l in list" :key="l">list item: {{ l }}</h1>
-    </draggable>
+    <div
+      v-for="key in Object.keys(form.articles)"
+      :key="key"
+      class="min-h-[25px] p-4 mb-6 "
+    >
+      <h3 class="mt-5 text-xl capitalize">{{ key }}</h3>
+      <draggable
+        @move="handleMove"
+        v-model="form.articles[key]"
+        :group="{ name: 'g1' }"
+        class="p-4 border-2 border-dashed "
+        tag="ul"
+      >
+        <li v-for="(child, index) in form.articles[key]" :key="index">
+          {{ child.article_id }}
+        </li>
+      </draggable>
+    </div>
   </div>
 </template>
 
@@ -37,7 +51,7 @@ export default {
   mixins: [validationHelper],
   layout: 'dashboard',
   components: {
-    draggable,
+    draggable
   },
   data() {
     return {
@@ -46,9 +60,33 @@ export default {
         cover: '',
         icon: '',
         description: '',
+        articles: {
+          general: [
+            {
+              id: 6,
+              name: 'general',
+              series_id: '15fb4b72-72d4-448b-93c8-59d14f2820b0',
+              article_id: 'e066e2c4-77b5-4f5a-9ca7-6a77a1767e9c',
+              series_order: 7
+            },
+            {
+              id: 5,
+              name: 'general',
+              series_id: '15fb4b72-72d4-448b-93c8-59d14f2820b0',
+              article_id: 'e066e2c4-77b5-4f5a-9ca7-6a77a1767e9c',
+              series_order: 9
+            },
+            {
+              id: 4,
+              name: 'general',
+              series_id: '15fb4b72-72d4-448b-93c8-59d14f2820b0',
+              article_id: 'e066e2c4-77b5-4f5a-9ca7-6a77a1767e9c',
+              series_order: 10
+            }
+          ]
+        }
       },
-      loading: false,
-      list: {},
+      loading: false
     }
   },
   async asyncData({ $axios, error, params }) {
@@ -58,7 +96,7 @@ export default {
     } catch (e) {
       error({
         statusCode: e.response?.status,
-        message: e.response.data?.message,
+        message: e.response.data?.message
       })
     }
   },
@@ -71,11 +109,14 @@ export default {
           this.form
         )
         this.loading = false
+        this.$toast.success('সিরিজ হালনাগাদ হয়েছে')
+        this.errors = {}
       } catch (e) {
         if (e.response.data.errors) this.errors = e.response.data.errors
         this.loading = false
       }
     },
-  },
+    handleMove(evt, originalEvent) {}
+  }
 }
 </script>
