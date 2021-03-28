@@ -17,8 +17,11 @@
     </label>
 
     <p
-      class="text-sm text-gray-600"
-      :class="{ 'text-red-500': error }"
+      class="text-sm"
+      :class="{
+        'text-red-500': error,
+        'text-gray-600': !error,
+      }"
       v-if="helperText"
     >
       {{ helperText }}
@@ -30,11 +33,11 @@
 export default {
   props: {
     label: {
-      type: String
+      type: String,
     },
     type: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
     helperText: {
       type: String,

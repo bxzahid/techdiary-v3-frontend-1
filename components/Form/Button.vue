@@ -1,5 +1,5 @@
 <template>
-  <button class="td-button" v-bind="$attrs">
+  <button class="td-button" v-bind="$attrs" @click="$emit('click', $event)">
     <template v-if="loading">
       <svg
         class="animated-spin"
@@ -32,15 +32,15 @@ export default {
   props: {
     loading: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 }
 </script>
 
 <style scoped>
 .td-button {
-  @apply flex items-center px-3 py-1 rounded bg-primary focus:outline-none;
+  @apply flex items-center px-3 py-1 rounded bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
 }
 .animated-spin {
   @apply w-5 h-5 mr-2 animate-spin;

@@ -1,23 +1,24 @@
 <template>
   <div>
     <label>
-      <p v-if='label' class='td-label'>
+      <p v-if="label" class="td-label">
         {{ label }}
+        <span v-if="required" class="text-red-500">*</span>
       </p>
       <textarea
         @input="$emit('input', $event.target.value)"
-        class='td-input'
+        class="td-input"
         :class="{ 'has-error': error }"
-        v-bind='$attrs'
-        :value='value'
-        :type='type'
+        v-bind="$attrs"
+        :value="value"
+        :type="type"
       />
     </label>
 
     <p
-      class='text-sm text-gray-600'
+      class="text-sm text-gray-600"
       :class="{ 'text-red-500': error }"
-      v-if='helperText'
+      v-if="helperText"
     >
       {{ helperText }}
     </p>
@@ -25,36 +26,39 @@
 </template>
 
 <script>
-
 export default {
   props: {
     label: {
-      type: String
+      type: String,
     },
     type: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
     helperText: {
       type: String,
       default: '',
-      required: false
+      required: false,
     },
     error: {
       type: Boolean,
       default: false,
-      required: false
+      required: false,
     },
     value: {
       type: String,
       default: false,
-      required: false
-    }
-  }
+      required: false,
+    },
+    required: {
+      type: Boolean,
+      default: false,
+    },
+  },
 }
 </script>
 
-<style scoped land='scss'>
+<style scoped land="scss">
 .td-label {
   @apply font-bold text-gray-500 dark:text-gray-300;
 }

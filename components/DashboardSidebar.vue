@@ -45,6 +45,28 @@
       </nuxt-link>
 
       <nuxt-link
+        :to="{ name: 'dashboard-series' }"
+        class="sidebar__link"
+        exact-active-class="sidebar__link--active"
+      >
+        <svg
+          class="w-4 h-4"
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+
+        <span class="inline-block ml-2">সিরিজ সমূহ</span>
+      </nuxt-link>
+
+      <nuxt-link
         class="sidebar__link"
         :to="{ name: 'dashboard-bookmarks' }"
         exact-active-class="sidebar__link--active"

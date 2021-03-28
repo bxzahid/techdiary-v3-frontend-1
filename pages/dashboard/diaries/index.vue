@@ -6,13 +6,6 @@
   </div>
 
   <div v-else class="min-h-full">
-    <client-only>
-      <modal @confirm="confirmation" :modalOpen="modalOpen">
-        <template v-slot:header> ডায়েরি মুছে ফেলতে চান? </template>
-        <span class="font-bold">সাবধান</span> একবার মুছে ফেলার পর আর কখনোই তা
-        ফিরিয়ে আনা যাবে না।
-      </modal>
-    </client-only>
     <div
       class="flex mb-4 transition-all duration-500 ease-in-out rounded dark:hover:bg-gray-600 hover:bg-gray-100"
       v-for="(article, index) in articles"
