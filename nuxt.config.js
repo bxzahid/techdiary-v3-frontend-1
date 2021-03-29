@@ -32,6 +32,8 @@ export default {
     '@/plugins/clickaway.js',
     '@/plugins/fragment.js',
     '@/plugins/skeleton.js',
+    '@/plugins/bn.js',
+    '@/plugins/echo.client.js'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

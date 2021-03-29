@@ -22,3 +22,19 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+
+  mounted() {
+
+    this.$echo.join('users').here((users) => {
+      this.$store.commit('onlineusers/SET_USERS', users)
+    }).joining(user => {
+      this.$store.commit('onlineusers/ADD_USER', user)
+    }).leaving(user => {
+      this.$store.commit('onlineusers/REMOVE_USER', user)
+    })
+  }
+}
+</script>

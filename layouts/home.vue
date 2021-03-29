@@ -16,7 +16,7 @@
 
         <div class="hidden col-span-12 md:block md:col-span-3">
           <widgets-login v-if="!$auth.loggedIn" class="mb-8" />
-          <!-- <widgets-online-users class="mb-4" /> -->
+          <widgets-online-users class="mb-4" v-if="$auth.loggedIn" />
           <widgets-latest-registered-users />
         </div>
       </div>
