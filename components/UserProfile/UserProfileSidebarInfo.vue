@@ -9,7 +9,17 @@
     </div>
 
     <div class="mt-5">
-      <h2 class="text-2xl dark:text-gray-200">{{ user.name }}</h2>
+      <h2 class="flex items-center text-2xl dark:text-gray-200">
+        <span
+          class="inline-block w-2 h-2 mr-2 rounded-full"
+          :class="{
+            'bg-green-500': isOnline(user.username),
+            'bg-red-500': !isOnline(user.username),
+          }"
+        ></span>
+
+        {{ user.name }}
+      </h2>
       <p class="text-gray-600 dark:text-gray-400">@{{ user.username }}</p>
 
       <div v-if="user.designation" class="mt-3 italic dark:text-gray-200">
@@ -211,8 +221,10 @@
 </template>
 
 <script>
+import onlineStatus from '~/mixins/isUserOnline'
 export default {
   props: ['user'],
+  mixins: [onlineStatus],
   methods: {
     fetchUsernameFromUrl(url) {
       const parts = url.split('/')

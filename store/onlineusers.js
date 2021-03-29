@@ -11,5 +11,5 @@ export const mutations = {
   },
   REMOVE_USER(state, payload) {
     state.users = state.users.filter(user => user.username !== payload.username)
-  }
+  },
 }

@@ -7,7 +7,7 @@
     </client-only>
 
     <div
-      class='flex items-center justify-between px-4 py-1 bg-white shadow-sm md:px-10 dark:bg-gray-800 h-14'
+      class="flex items-center justify-between px-4 py-1 bg-white shadow-sm md:px-10 dark:bg-gray-800 h-14"
     >
       <nuxt-link :to="{ name: 'index' }">
         <navbar-logo />
@@ -15,8 +15,8 @@
 
       <navbar-search />
 
-      <div class='flex items-center justify-end'>
-        <navbar-links class='mr-5' />
+      <div class="flex items-center justify-end">
+        <navbar-links class="mr-5" />
         <navbar-user-action />
       </div>
     </div>
@@ -24,8 +24,6 @@
 </template>
 
 <script>
-import Echo from 'laravel-echo'
-
 export default {
 
   mounted() {

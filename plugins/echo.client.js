@@ -1,16 +1,21 @@
 import Echo from 'laravel-echo'
 
 window.Pusher = require('pusher-js')
+
 export default ({ app }, inject) => {
   window.Pusher = require('pusher-js')
-  Pusher.logToConsole = true
+  
+  // Pusher.logToConsole = true
+  if(process.env.NODE_ENV !== 'production'){
+    Pusher.logToConsole = true
+  }
+  
   const echo = new Echo({
     broadcaster: 'pusher',
-    // key: process.env.MIX_PUSHER_APP_KEY,
-    key: 'ecd078d7fb446d6271df',
-    cluster: 'ap2',
+    key: process.env.NUXT_PUSHER_KEY,
+    cluster: process.env.NUXT_PUSHER_CLUSTER,
     forceTLS: true,
-    authorizer: (channel, options) => {
+    authorizer: (channel) => {
       return {
         authorize: (socketId, callback) => {
           app.$axios.post('/broadcasting/auth', {
