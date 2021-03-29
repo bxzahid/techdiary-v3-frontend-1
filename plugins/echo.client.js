@@ -12,8 +12,8 @@ export default ({ app }, inject) => {
   
   const echo = new Echo({
     broadcaster: 'pusher',
-    key: process.env.NUXT_PUSHER_KEY,
-    cluster: process.env.NUXT_PUSHER_CLUSTER,
+    key: process.env.NUXT_ENV_PUSHER_KEY,
+    cluster: process.env.NUXT_ENV_PUSHER_CLUSTER,
     forceTLS: true,
     authorizer: (channel) => {
       return {
