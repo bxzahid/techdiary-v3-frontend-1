@@ -1,9 +1,11 @@
-<a align="center" href="https://techdiary.dev" target="_blank">
-    <img align="center" src="https://user-images.githubusercontent.com/7611746/82744130-38b0fd80-9d96-11ea-8223-62d62a56566f.png"/>
+<div align="center">
+  <a href="https://techdiary.dev" target="_blank">
+      <img align="center" src="https://user-images.githubusercontent.com/7611746/82744130-38b0fd80-9d96-11ea-8223-62d62a56566f.png"/>
     <br/>
     <br/>
     <br/>
-</a>
+    </a
+</div>
 
 ## বাংলার প্রোগ্রামিং নেটওয়ার্ক 
 
