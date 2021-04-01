@@ -19,6 +19,7 @@
               name: 'username',
               params: { username: $auth.user.username },
             }"
+            class='px-3 py-1 rounded bg-primary focus:shadow-outline'
           >
             Preview
           </nuxt-link>
