@@ -3,6 +3,7 @@
     <div class="flex items-center justify-center min-h-[60vh]">
       <loader-spin />
     </div>
+    <!--  -->
   </div>
   <div v-else>
     <editor-fake-editor />
