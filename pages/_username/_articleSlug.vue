@@ -1,5 +1,10 @@
 <template>
-  <div>
+  <div v-if="$fetchState.pending">
+    <div class="flex items-center justify-center min-h-[60vh]">
+      <loader-spin />
+    </div>
+  </div>
+  <div v-else>
     <div class="fixed hidden w-32 md:block top-25">
       <ArticleReactions :article="article" />
     </div>
@@ -39,27 +44,24 @@
 <script>
 import editorjsParser from '~/mixins/editorjsParser'
 import reactions from '~/mixins/reactions'
-/**
- *
- */
 export default {
   name: 'techdiary-details',
   mixins: [reactions],
   head() {
     return {
-      title: this.article.title,
+      title: this.article?.title,
       meta: [
         {
           name: 'description',
-          content: `${this.article.title} | Techdiary`,
+          content: `${this.article?.title} | Techdiary`,
         },
         {
           property: 'og:title',
-          content: `${this.article.title} | Techdiary`,
+          content: `${this.article?.title} | Techdiary`,
         },
         {
           property: 'og:image',
-          content: this.article.thumbnail,
+          content: this.article?.thumbnail,
         },
         {
           property: 'og:image:width',
@@ -80,11 +82,11 @@ export default {
         },
         {
           property: 'twitter:image',
-          content: this.article.thumbnail,
+          content: this.article?.thumbnail,
         },
         {
           property: 'keywords',
-          content: `${this.article.tags.map((k) => k.name).join(',')}`,
+          content: `${this.article?.tags.map((k) => k.name).join(',')}`,
         },
       ],
     }
@@ -95,13 +97,13 @@ export default {
       comments: [],
     }
   },
-
-  async asyncData({ $axios, params }) {
-    const { data: article } = await $axios.get(
-      `api/articles/${params.articleSlug}`
+  async fetch() {
+    const { data: article } = await this.$axios.get(
+      `api/articles/${this.$route.params.articleSlug}`
     )
     article.data.body = editorjsParser(article.data.body)
-    return { article: article.data, reactions: article.data.reactions }
+    this.article = article.data
+    this.reactions = article.data.reactions
   },
   computed: {
     userProfileUrl() {
@@ -113,14 +115,5 @@ export default {
       }
     },
   },
-
-  // async fetch() {
-  //   const { data: article } = await this.$axios.get(
-  //     `api/articles/${this.$route.params.articleSlug}`
-  //   )
-  //   article.data.body = editorjsParser(article.data.body)
-  //   this.article = article.data
-  //   this.reactions = article.data.reactions
-  // },
 }
 </script>

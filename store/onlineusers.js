@@ -1,5 +1,5 @@
 export const state = () => ({
-  users: []
+  users: [],
 })
 
 export const mutations = {
@@ -10,6 +10,8 @@ export const mutations = {
     state.users.push(payload)
   },
   REMOVE_USER(state, payload) {
-    state.users = state.users.filter(user => user.username !== payload.username)
+    state.users = state.users.filter(
+      (user) => user.username !== payload.username
+    )
   },
 }

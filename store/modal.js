@@ -31,5 +31,3 @@ export const actions = {
     })
   },
 }
-
-// store.dispatch('triggierModal')

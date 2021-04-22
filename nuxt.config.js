@@ -31,7 +31,7 @@ export default {
     '@/plugins/select.client.js',
     '@/plugins/clickaway.js',
     '@/plugins/fragment.js',
-    '@/plugins/skeleton.js',
+    // '@/plugins/skeleton.js',
     '@/plugins/bn.js',
     '@/plugins/echo.client.js',
   ],
@@ -46,6 +46,7 @@ export default {
     ['@nuxtjs/dotenv', { systemvars: true }],
     '@nuxtjs/color-mode',
     '@nuxtjs/moment',
+    '@nuxtjs/google-analytics',
   ],
   toast: {
     position: 'top-center',
@@ -102,6 +103,9 @@ export default {
   },
   cloudinary: {
     cloudName: process.env.NUXT_ENV_CLOUDINARY_CLOUDNAME,
+  },
+  googleAnalytics: {
+    id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID,
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
