@@ -18,26 +18,27 @@
         </div>
 
         <!-- When user don't have profile pic -->
-        <svg v-else
-             class='w-10 h-10 mr-2 overflow-hidden text-gray-500 rounded-full cursor-pointer dark:text-gray-300'
-             xmlns='http://www.w3.org/2000/svg'
-             viewBox='0 0 20 20'
-             fill='currentColor'
+        <svg
+          v-else
+          class="w-10 h-10 mr-2 overflow-hidden text-gray-500 rounded-full cursor-pointer dark:text-gray-300"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
         >
           <path
-            fill-rule='evenodd'
-            d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z'
-            clip-rule='evenodd'
+            fill-rule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+            clip-rule="evenodd"
           />
         </svg>
 
-        <p class="text-lg cursor-pointer md:mr-2 dark:text-gray-300">
+        <p class="text-lg text-gray-300 cursor-pointer md:mr-2">
           {{ $auth.user.name }}
         </p>
 
         <svg
           style="transition: transform 200ms"
-          class="cursor-pointer dark:text-gray-300"
+          class="text-gray-300 cursor-pointer"
           :class="[dropDownOpen && 'svgRotation']"
           width="16"
           xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +218,7 @@ export default {
 }
 </script>
 
-<style lang='scss'>
+<style lang="scss">
 .user-action-dropdown {
   @apply absolute right-0 w-48 p-4 mt-1 bg-white rounded-bl rounded-br shadow-lg dark:bg-gray-700 top-full;
   &__item {
