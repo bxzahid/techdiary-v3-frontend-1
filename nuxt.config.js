@@ -6,7 +6,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'বাংলার প্রোগ্রামিং নেটওয়ার্ক',
+      },
+      { hid: 'theme-color', name: 'theme-color', content: '#1F2936' },
     ],
     link: [
       {
@@ -115,5 +120,9 @@ export default {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
       }
     },
+  },
+  server: {
+    port: 3000, // default: 3000
+    host: '0.0.0.0', // default: localhost
   },
 }

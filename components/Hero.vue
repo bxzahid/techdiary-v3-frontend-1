@@ -658,10 +658,12 @@
       </div>
 
       <div class="col-span-12 md:col-span-8">
-        <h1 class="text-3xl font-thin text-dark">
+        <h1 class="text-xl font-thin md:text-3xl text-dark">
           বাংলার প্রোগ্রামিং নেটয়ার্ক
         </h1>
-        <p class="mt-3 space-x-3 text-xl uppercase text-dark-secondary">
+        <p
+          class="mt-3 space-x-3 text-sm uppercase md:text-lg text-dark-secondary"
+        >
           <span># ব্লগ</span>
           <span># টিটরিয়াল</span>
           <span># চ্যালেঞ্জ</span>
@@ -712,7 +714,7 @@
               <line x1="20" y1="8" x2="20" y2="14"></line>
               <line x1="23" y1="11" x2="17" y2="11"></line>
             </svg>
-            <span>যুক্ত হোন</span>
+            <span class="text-xs md:text-lg">যুক্ত হোন</span>
           </button>
         </div>
       </div>
