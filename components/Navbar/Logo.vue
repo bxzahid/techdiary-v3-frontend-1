@@ -1,7 +1,7 @@
 <template>
   <svg class="flex items-center justify-center w-6 h-6">
     <g
-      class="text-gray-700 stroke-current stroke-2 dark:text-gray-300"
+      class="text-gray-300 stroke-current stroke-2"
       fill="none"
       stroke-linecap="round"
       stroke-linejoin="round"

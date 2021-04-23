@@ -7,14 +7,12 @@
   </div>
   <div v-else>
     <editor-fake-editor />
-
     <ArticleCard
       v-for="article in articles"
       class="mb-5"
       :key="article.id"
       :article="article"
     />
-
     <div v-observe-visibility="visibilityChanged"></div>
   </div>
 </template>

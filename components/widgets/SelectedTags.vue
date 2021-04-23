@@ -117,7 +117,7 @@ export default {
 }
 .tag {
   &__link {
-    @apply flex space-x-2 items-center mb-2;
+    @apply flex space-x-2 items-center mb-2 dark:text-gray-50;
   }
   &__icon {
     @apply w-8;

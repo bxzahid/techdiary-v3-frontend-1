@@ -5,7 +5,7 @@
   >
     <input
       type="text"
-      class="w-full h-full px-3 bg-gray-200 rounded-lg dark:text-gray-300 dark:bg-gray-600 focus:outline-none"
+      class="w-full h-full px-3 text-gray-300 bg-gray-600 rounded-lg focus:outline-none"
       placeholder="সার্চ করুন"
       v-model="query"
     />
