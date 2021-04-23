@@ -3,10 +3,13 @@
     <h3 class="text-lg font-light text-dark">নির্বাচিত ট্যাগ সমূহ</h3>
     <div class="mt-2 tags">
       <div class="tag" v-for="tag in tags" :key="tag.label">
-        <a href="#" class="tag__link">
+        <nuxt-link
+          :to="{ name: 'tags-name', params: { name: tag.label } }"
+          class="tag__link"
+        >
           <img class="tag__icon" :src="tag.icon" :alt="tag.label" />
           <span class="tag__label"># {{ tag.label }}</span>
-        </a>
+        </nuxt-link>
       </div>
     </div>
   </div>

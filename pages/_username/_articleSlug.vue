@@ -29,9 +29,13 @@
         </p>
         <!-- tags -->
         <div class="flex space-x-2 text-dark-secondary">
-          <a href="#" v-for="tag in article.tags" :key="tag.id">
+          <nuxt-link
+            :to="{ name: 'tags-name', params: { name: tag.name } }"
+            v-for="tag in article.tags"
+            :key="tag.id"
+          >
             #{{ tag.name }}
-          </a>
+          </nuxt-link>
         </div>
       </div>
 
