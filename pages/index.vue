@@ -8,10 +8,6 @@
   <div v-else>
     <editor-fake-editor />
 
-    <div v-if="initialLoading">
-      <Skeleton />
-    </div>
-
     <ArticleCard
       v-for="article in articles"
       class="mb-5"
