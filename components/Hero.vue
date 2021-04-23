@@ -24,7 +24,7 @@ export default {}
 <style lang="scss" scoped>
 .techdiary-hero {
   height: 15rem;
-  /* background-image: url(https://cdn.hashnode.com/res/hashnode/image/upload/v1611214716159/WVCkO7taM.png?auto=compress); */
+  background-image: url(https://cdn.hashnode.com/res/hashnode/image/upload/v1611214716159/WVCkO7taM.png?auto=compress);
   background-size: 100%;
 }
 </style>
