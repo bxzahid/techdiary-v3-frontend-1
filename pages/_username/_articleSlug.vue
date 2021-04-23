@@ -1,8 +1,6 @@
 <template>
   <div v-if="$fetchState.pending">
-    <div class="flex items-center justify-center min-h-[60vh]">
-      <loader-spin />
-    </div>
+    <skelleton-article-details />
   </div>
   <div v-else>
     <div class="fixed hidden w-32 md:block top-25">
@@ -29,9 +27,13 @@
         </p>
         <!-- tags -->
         <div class="flex space-x-2 text-dark-secondary">
-          <a href="#" v-for="tag in article.tags" :key="tag.id">
+          <nuxt-link
+            :to="{ name: 'tags-name', params: { name: tag.name } }"
+            v-for="tag in article.tags"
+            :key="tag.id"
+          >
             #{{ tag.name }}
-          </a>
+          </nuxt-link>
         </div>
       </div>
 

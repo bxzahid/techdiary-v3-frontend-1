@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-secondary">
+  <div class="bg-secondary dark:bg-gray-800">
     <div
       class="max-w-[1200px] w-[95%] py-6 min-h-[40vh] mt-14 grid items-center grid-cols-12 mx-auto space-x-4"
     >
@@ -37,9 +37,8 @@
             fill="#263238"
           />
           <path
+            class="fill-current fill-[#263238] dark:fill-[#58D4E1]"
             d="M132.703 16.4229V140.915L226.435 156.338V1L132.703 16.4229ZM224.001 52.0704L176.375 54.7713V11.5168L224.001 3.93583V52.0704ZM176.375 59.3186L224.001 57.133V100.622L176.375 98.3978V59.3186ZM172.513 98.2151L134.276 96.434V61.2497L172.48 59.5013L172.513 98.2151ZM172.513 12.1301V55.0062L134.276 57.1526V18.2105L172.513 12.1301ZM134.276 100.531L172.48 102.73V145.208L134.276 139.127V100.531ZM176.343 145.821V102.952L223.968 105.692V153.402L176.343 145.821Z"
-            fill="#263238"
-            stroke="#263238"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
