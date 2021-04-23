@@ -12,18 +12,6 @@
               <span>#আলোচনা</span>
             </h2>
           </div>
-          <div class="mt-5 space-x-3">
-            <button class="px-4 py-2 text-xl rounded bg-primary">
-              যুক্ত হোন
-            </button>
-
-            <a
-              href="#"
-              class="inline-block px-4 py-2 text-xl bg-[#ddd] rounded"
-            >
-              টেকডায়েরি কী?
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -36,7 +24,7 @@ export default {}
 <style lang="scss" scoped>
 .techdiary-hero {
   height: 15rem;
-  /* background-image: url(https://cdn.hashnode.com/res/hashnode/image/upload/v1611214716159/WVCkO7taM.png?auto=compress); */
+  background-image: url(https://cdn.hashnode.com/res/hashnode/image/upload/v1611214716159/WVCkO7taM.png?auto=compress);
   background-size: 100%;
 }
 </style>
