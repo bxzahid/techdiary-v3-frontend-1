@@ -1,8 +1,6 @@
 <template>
   <div v-if="$fetchState.pending">
-    <div class="flex items-center justify-center min-h-[60vh]">
-      <loader-spin />
-    </div>
+    <skelleton-article-details />
   </div>
   <div v-else>
     <div class="fixed hidden w-32 md:block top-25">

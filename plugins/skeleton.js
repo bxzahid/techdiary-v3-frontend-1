@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // Import the component
-import VueSkeletonLoader from 'skeleton-loader-vue'
+import VueSkeletonLoader from 'vue-loading-skeleton'
 
 // Register the component globally
-Vue.component('Skeleton', VueSkeletonLoader)
+Vue.use(VueSkeletonLoader)

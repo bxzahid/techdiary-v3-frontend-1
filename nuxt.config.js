@@ -36,7 +36,7 @@ export default {
     '@/plugins/select.client.js',
     '@/plugins/clickaway.js',
     '@/plugins/fragment.js',
-    // '@/plugins/skeleton.js',
+    '@/plugins/skeleton.js',
     '@/plugins/bn.js',
     '@/plugins/echo.client.js',
   ],
@@ -122,7 +122,6 @@ export default {
     },
   },
   server: {
-    port: 3000, // default: 3000
-    host: '0.0.0.0', // default: localhost
+    host: '0.0.0.0',
   },
 }

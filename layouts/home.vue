@@ -1,9 +1,7 @@
 <template>
   <main>
     <Navbar />
-
     <hero v-if="!$auth.loggedIn" />
-
     <div class="wrapper">
       <div class="grid grid-cols-12 md:space-x-5">
         <div class="hidden col-span-12 md:block md:col-span-3">
