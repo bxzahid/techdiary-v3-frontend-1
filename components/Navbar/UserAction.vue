@@ -183,30 +183,64 @@
         </div>
       </transition>
     </div>
-    <div v-else class="flex items-center space-x-1">
+    <button
+      @click="socialLogin('github')"
+      v-else
+      class="flex items-center space-x-2"
+    >
       <svg
-        class="w-8 text-gray-600 dark:text-gray-300"
+        v-if="loading"
+        class="w-5 h-5 mr-2 text-gray-300 animate-spin"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
+        fill="none"
+        viewBox="0 0 24 24"
       >
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"
+        ></circle>
         <path
-          fill-rule="evenodd"
-          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-          clip-rule="evenodd"
-        />
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
       </svg>
-      <p class="text-lg text-gray-900 dark:text-gray-300">আগন্তুক</p>
-    </div>
+      <svg
+        v-else
+        class="text-gray-300"
+        stroke="currentColor"
+        fill="none"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        height="1em"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+        <circle cx="8.5" cy="7" r="4"></circle>
+        <line x1="20" y1="8" x2="20" y2="14"></line>
+        <line x1="23" y1="11" x2="17" y2="11"></line>
+      </svg>
+
+      <p class="text-lg text-gray-300">প্রবেশ করুন</p>
+    </button>
   </div>
 </template>
 
 <script>
+import SocialLogins from '~/mixins/social-login'
 export default {
   name: 'user-action',
   data: () => ({
     dropDownOpen: false,
   }),
+  mixins: [SocialLogins],
   methods: {
     logout() {
       this.$auth.logout()
