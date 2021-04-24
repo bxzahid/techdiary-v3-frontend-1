@@ -4,7 +4,7 @@
       <div v-if="!$fetchState.pending">
         <div
           :style="{
-            'border-color': tag.color,
+            'border-color': tag.color ? tag.color : '#58D4E1',
           }"
           class="bg-secondary shadow-sm border-t-8 dark:bg-gray-800 max-w-[1200px] w-[95%] py-6 min-h-[150px] mt-16 mx-auto px-5 rounded-md flex md:flex-row items-center flex-col md:space-x-5 space-y-4"
         >
