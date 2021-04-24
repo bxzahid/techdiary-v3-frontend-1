@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$fetchState.pending">
+  <div v-if="$fetchState.pending" class="wrapper">
     <skelleton-article-details />
   </div>
   <div v-else class="wrapper">
