@@ -9,12 +9,11 @@
           class="bg-secondary shadow-sm border-t-8 dark:bg-gray-800 max-w-[1200px] w-[95%] py-6 min-h-[150px] mt-16 mx-auto px-5 rounded-md flex md:flex-row items-center flex-col md:space-x-5 space-y-4"
         >
           <img class="w-20" :src="tag.icon" :alt="tag.name" />
-
           <div>
             <h1 class="mb-2 text-2xl uppercase text-dark" style="opacity: 1">
               {{ tag.name }}
             </h1>
-            <p class="text-dark">
+            <p class="text-lg text-dark">
               {{ tag.description }}
             </p>
           </div>
