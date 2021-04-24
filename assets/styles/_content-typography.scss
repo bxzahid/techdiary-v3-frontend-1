@@ -7,15 +7,15 @@
   * -----------------------------------
   */
   p {
-    @apply my-5;
+    @apply mb-5;
 
-    &:nth-child(1) {
-      @apply mt-0;
-    }
+    // &:nth-child(1) {
+    //   @apply mt-0;
+    // }
 
-    &:last-child {
-      @apply mb-0;
-    }
+    // &:last-child {
+    //   @apply mb-0;
+    // }
   }
   /**
   * -----------------------------------

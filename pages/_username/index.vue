@@ -1,26 +1,31 @@
 <template>
-  <div class="grid grid-cols-12">
-    <user-profile-sidebar-info :user="user" />
+  <div class="wrapper">
+    <div class="grid grid-cols-12">
+      <user-profile-sidebar-info :user="user" />
 
-    <!-- Main Content -->
-    <main class="col-span-12 md:col-span-9 md:px-4">
-      <div
-        class="min-h-screen p-4 bg-white rounded shadow dark:bg-gray-800 dark:text-white"
-      >
-        <user-profile-tabs :username="user.username" />
-        <div>
-          <p
-            class="font-mono text-xs font-semibold text-gray-500 dark:text-gray-400"
-          >
-            ~/techdiary/{{ user.username }}/README.md
-          </p>
+      <!-- Main Content -->
+      <main class="col-span-12 md:col-span-9 md:px-4">
+        <div
+          class="min-h-screen p-4 bg-white rounded shadow dark:bg-gray-800 dark:text-white"
+        >
+          <user-profile-tabs :username="user.username" />
+          <div>
+            <p
+              class="font-mono text-xs font-semibold text-gray-500 dark:text-gray-400"
+            >
+              ~/techdiary/{{ user.username }}/README.md
+            </p>
 
-          <div class="readme-content dark:bg-gray-800">
-            <div class="content-typography" v-html="user.profile_readme"></div>
+            <div class="readme-content dark:bg-gray-800">
+              <div
+                class="content-typography"
+                v-html="user.profile_readme"
+              ></div>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </div>
 </template>
 <script>

@@ -64,6 +64,7 @@ export default {
     '@nuxtjs/auth',
     '@nuxtjs/cloudinary',
     '@nuxtjs/toast',
+    '@nuxt/content',
   ],
 
   axios: {

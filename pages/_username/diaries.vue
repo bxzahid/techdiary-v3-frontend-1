@@ -1,5 +1,6 @@
 <template>
-  <div class="grid grid-cols-12">
+  <div class=" wrapper">
+    <div class="grid grid-cols-12">
     <user-profile-sidebar-info :user="user" />
     <!-- Main Content -->
     <main class="col-span-12 md:col-span-9 md:px-4">
@@ -45,6 +46,7 @@
         </div>
       </div>
     </main>
+  </div>
   </div>
 </template>
 <script>
