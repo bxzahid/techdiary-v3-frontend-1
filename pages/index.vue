@@ -1,25 +1,30 @@
 <template>
-  <div v-if="$fetchState.pending">
-    <div class="flex items-center justify-center min-h-[60vh]">
-      <loader-spin />
+  <layout-home>
+    <template #top>
+      <hero v-if="!$auth.loggedIn" />
+    </template>
+
+    <div v-if="$fetchState.pending">
+      <div class="flex items-center justify-center min-h-[60vh]">
+        <loader-spin />
+      </div>
+      <!--  -->
     </div>
-    <!--  -->
-  </div>
-  <div v-else>
-    <editor-fake-editor />
-    <ArticleCard
-      v-for="article in articles"
-      class="mb-5"
-      :key="article.id"
-      :article="article"
-    />
-    <div v-observe-visibility="visibilityChanged"></div>
-  </div>
+    <div v-else>
+      <editor-fake-editor />
+      <ArticleCard
+        v-for="article in articles"
+        class="mb-5"
+        :key="article.id"
+        :article="article"
+      />
+      <div v-observe-visibility="visibilityChanged"></div>
+    </div>
+  </layout-home>
 </template>
 
 <script>
 export default {
-  layout: 'home',
   head: {
     title: 'নীড়',
     meta: [

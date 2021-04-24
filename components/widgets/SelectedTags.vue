@@ -26,12 +26,12 @@ export default {
       {
         icon:
           'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873448/static-assets/tag-icons/typescript.svg',
-        label: 'typescript',
+        label: 'ts',
       },
       {
         icon:
           'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873444/static-assets/tag-icons/js.svg',
-        label: 'javascript',
+        label: 'js',
       },
       {
         icon:

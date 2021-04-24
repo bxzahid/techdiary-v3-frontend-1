@@ -2,7 +2,7 @@
   <div v-if="$fetchState.pending">
     <skelleton-article-details />
   </div>
-  <div v-else>
+  <div v-else class="wrapper">
     <div class="fixed hidden w-32 md:block top-25">
       <ArticleReactions :article="article" />
     </div>
@@ -19,7 +19,7 @@
       </div>
 
       <div class="my-4">
-        <h2 class="text-3xl dark:text-gray-300">
+        <h2 class="text-xl md:text-3xl dark:text-gray-300">
           {{ article.title }}
         </h2>
         <p class="text-dark-secondary">
