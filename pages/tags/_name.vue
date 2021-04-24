@@ -4,17 +4,16 @@
       <div v-if="!$fetchState.pending">
         <div
           :style="{
-            'border-color': tag.color,
+            'border-color': tag.color ? tag.color : '#58D4E1',
           }"
           class="bg-secondary shadow-sm border-t-8 dark:bg-gray-800 max-w-[1200px] w-[95%] py-6 min-h-[150px] mt-16 mx-auto px-5 rounded-md flex md:flex-row items-center flex-col md:space-x-5 space-y-4"
         >
           <img class="w-20" :src="tag.icon" :alt="tag.name" />
-
           <div>
             <h1 class="mb-2 text-2xl uppercase text-dark" style="opacity: 1">
               {{ tag.name }}
             </h1>
-            <p class="text-dark">
+            <p class="text-lg text-dark">
               {{ tag.description }}
             </p>
           </div>
@@ -47,25 +46,11 @@ export default {
     meta: [
       {
         name: 'description',
-        content: `টেকডায়েরি | বাংলার প্রোগ্রামিং নেটওয়ার্ক`,
+        content: `${tag?.name} | টেকডায়েরি`,
       },
       {
         property: 'og:title',
-        content: `টেকডায়েরি | বাংলার প্রোগ্রামিং নেটওয়ার্ক`,
-      },
-      {
-        property: 'og:image',
-        content:
-          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616454527/static-assets/ysbycrhmbjdxqirpskdl.jpg',
-      },
-      {
-        property: 'og:image:width',
-        content: '1200',
-      },
-
-      {
-        property: 'og:image:height',
-        content: '630',
+        content: `${tag?.name} | টেকডায়েরি`,
       },
     ],
   },
