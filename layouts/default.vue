@@ -1,9 +1,7 @@
 <template>
   <main>
     <Navbar />
-    <div class="wrapper">
-      <Nuxt />
-    </div>
+    <Nuxt />
     <beta-warning />
   </main>
 </template>
