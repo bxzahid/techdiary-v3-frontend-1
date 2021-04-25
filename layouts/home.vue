@@ -25,8 +25,8 @@
 export default {
   head: {
     bodyAttrs: {
-      class: 'techdiary-body',
-    },
+      class: 'techdiary-body'
+    }
   },
 }
 </script>

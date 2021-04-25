@@ -7,10 +7,13 @@
 
 <script>
 export default {
-  head: {
+  head: () => ({
     bodyAttrs: {
-      class: 'techdiary-body',
-    },
-  },
+      class: 'techdiary-body'
+    }
+  }),
+  mounted() {
+    this.$auth.fetchUser()
+  }
 }
 </script>
