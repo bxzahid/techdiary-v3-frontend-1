@@ -2,7 +2,6 @@
   <main>
     <Navbar />
     <Nuxt />
-    <beta-warning />
   </main>
 </template>
 

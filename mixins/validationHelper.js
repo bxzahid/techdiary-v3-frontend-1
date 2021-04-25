@@ -29,12 +29,12 @@ export default {
       return errors
     },
 
-    jsonToPlainErrorText(errors){
-      let err = '';
-      for(let key in errors){
+    jsonToPlainErrorText(errors) {
+      let err = ''
+      for (let key in errors) {
         err += ' ' + errors[key].join('. ')
       }
-      return err;
-    }
+      return err
+    },
   },
 }
