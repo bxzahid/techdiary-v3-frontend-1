@@ -20,7 +20,7 @@ export default {
   props: ['error'],
   head() {
     return {
-      title: error.message,
+      title: this.error.message,
     }
   },
 }
