@@ -14,8 +14,10 @@
         </p>
 
         <!-- TOC -->
-        <div class="my-10 ">
-          <h3 class="inline-block mb-2 text-xl font-bold text-dark">সূচিপত্র</h3>
+        <div class="my-10">
+          <h3 class="inline-block mb-2 text-xl font-bold text-dark">
+            সূচিপত্র
+          </h3>
           <ul>
             <li v-for="link in page.toc" :key="link.id">
               <a class="text-base text-green-500" :href="`#${link.id}`">

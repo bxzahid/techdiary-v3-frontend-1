@@ -1,52 +1,52 @@
 <template>
-  <div class=" wrapper">
+  <div class="wrapper">
     <div class="grid grid-cols-12">
-    <user-profile-sidebar-info :user="user" />
-    <!-- Main Content -->
-    <main class="col-span-12 md:col-span-9 md:px-4">
-      <div
-        class="min-h-screen p-4 bg-white rounded shadow dark:bg-gray-800 dark:text-white"
-      >
-        <user-profile-tabs :username="user.username" />
-        <div>
-          <p
-            class="font-mono text-sm font-semibold text-gray-500 dark:text-gray-400"
-          >
-            ~/techdiary/{{ user.username }}/diaries.json
-          </p>
-
-          <div class="mt-4 readme-content dark:bg-gray-800">
-            <div
-              class="flex mb-4 transition-all duration-500 ease-in-out rounded hover:bg-gray-100 dark:hover:bg-gray-700"
-              v-for="article in articles"
-              :key="article.id"
+      <user-profile-sidebar-info :user="user" />
+      <!-- Main Content -->
+      <main class="col-span-12 md:col-span-9 md:px-4">
+        <div
+          class="min-h-screen p-4 bg-white rounded shadow dark:bg-gray-800 dark:text-white"
+        >
+          <user-profile-tabs :username="user.username" />
+          <div>
+            <p
+              class="font-mono text-sm font-semibold text-gray-500 dark:text-gray-400"
             >
-              <div class="ml-3">
-                <h3 class="text-lg text-gray-700 dark:text-gray-100">
-                  <nuxt-link
-                    :to="{
-                      name: 'username-articleSlug',
-                      params: {
-                        username: article.user.username,
-                        articleSlug: article.slug,
-                      },
-                    }"
-                    >{{ article.title }}</nuxt-link
+              ~/techdiary/{{ user.username }}/diaries.json
+            </p>
+
+            <div class="mt-4 readme-content dark:bg-gray-800">
+              <div
+                class="flex mb-4 transition-all duration-500 ease-in-out rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+                v-for="article in articles"
+                :key="article.id"
+              >
+                <div class="ml-3">
+                  <h3 class="text-lg text-gray-700 dark:text-gray-100">
+                    <nuxt-link
+                      :to="{
+                        name: 'username-articleSlug',
+                        params: {
+                          username: article.user.username,
+                          articleSlug: article.slug,
+                        },
+                      }"
+                      >{{ article.title }}</nuxt-link
+                    >
+                  </h3>
+                  <p
+                    class="mt-3 text-sm font-bold text-gray-600 dark:text-gray-200"
                   >
-                </h3>
-                <p
-                  class="mt-3 text-sm font-bold text-gray-600 dark:text-gray-200"
-                >
-                  {{ $moment(article.created_at).format('LLLL') }}
-                </p>
+                    {{ $moment(article.created_at).format('LLLL') }}
+                  </p>
+                </div>
               </div>
+              <div v-observe-visibility="visibilityChanged" />
             </div>
-            <div v-observe-visibility="visibilityChanged" />
           </div>
         </div>
-      </div>
-    </main>
-  </div>
+      </main>
+    </div>
   </div>
 </template>
 <script>
