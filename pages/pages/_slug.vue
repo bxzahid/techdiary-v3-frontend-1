@@ -49,7 +49,7 @@ export default {
     } catch (e) {
       return error({
         statusCode: 404,
-        message: 'পেইজ খুঁজে পাওয়া ',
+        message: 'পেইজ খুঁজে পাওয়া যায়নি',
       })
     }
   },
