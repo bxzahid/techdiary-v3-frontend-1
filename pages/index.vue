@@ -4,14 +4,13 @@
       <hero v-if="!$auth.loggedIn" />
     </template>
 
+    <editor-fake-editor />
+
     <div v-if="$fetchState.pending">
-      <div class="flex items-center justify-center min-h-[60vh]">
-        <loader-spin />
-      </div>
-      <!--  -->
+      <skelleton-article-card v-for="i in new Array(4)" :key="i" />
     </div>
+
     <div v-else>
-      <editor-fake-editor />
       <ArticleCard
         v-for="article in articles"
         class="mb-5"
