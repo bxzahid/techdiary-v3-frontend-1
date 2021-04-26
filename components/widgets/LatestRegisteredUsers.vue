@@ -34,7 +34,7 @@
 <script>
 export default {
   async fetch() {
-    const { data: users } = await this.$axios.$get('/api/users?limit=5')
+    const { data: users } = await this.$axios.$get('/api/users?limit=10')
     this.users = users
   },
 

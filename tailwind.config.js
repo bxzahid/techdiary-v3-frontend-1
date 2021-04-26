@@ -28,7 +28,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        techdiary: ['Nunito', 'techdiary-bangla'],
+        techdiary: ['techdiary-bangla', 'Nunito'],
         mono: ['Fira Code', 'techdiary-bangla', 'monospace'],
       },
       zIndex: {
@@ -37,5 +37,5 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [require('@tailwindcss/aspect-ratio')]
+  plugins: [require('@tailwindcss/aspect-ratio')],
 }

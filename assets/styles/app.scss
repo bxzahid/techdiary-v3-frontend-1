@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  *::selection {
+    @apply bg-primary text-gray-800;
+  }
+}
+
+@layer components{
   .text-dark {
     @apply text-gray-900 dark:text-gray-200;
   }
@@ -23,6 +29,8 @@
     @apply bg-gray-100 dark:bg-gray-600;
   }
 }
+
+
 .swal-footer {
   background-color: rgb(245, 248, 250);
   margin-top: 32px;
@@ -37,10 +45,6 @@
 
 .top-full {
   top: 100%;
-}
-
-*::selection {
-  @apply bg-primary text-gray-800;
 }
 
 .ce-block--selected .ce-block__content {
