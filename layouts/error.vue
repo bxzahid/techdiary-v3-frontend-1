@@ -5,7 +5,7 @@
     <div class="w-8/12 md:w-[350px]">
       <img src="~/static/images/sadface.gif" alt="techdiary-error" />
     </div>
-    <pre class="col-auto text-sm md:text-xl">
+    <pre class="col-auto text-sm md:text-xl text-dark">
 {
     status: {{ error.statusCode }} , 
     message: '{{ error.message }}'

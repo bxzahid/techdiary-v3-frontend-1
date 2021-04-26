@@ -25,7 +25,7 @@
     </div>
 
     <div v-if="loading" class="my-5 text-center">
-      <SyncLoader color="#58d4e1" />
+      <skelleton-article-card v-for="i in new Array(4)" :key="i" />
     </div>
     <ArticleCard
       v-else
