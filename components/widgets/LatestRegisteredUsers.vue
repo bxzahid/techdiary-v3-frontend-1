@@ -2,7 +2,10 @@
   <Fragment>
     <h3 class="-mb-4 font-bold text-dark">সর্বশেষ নিবন্ধিত ব্যবহারকারী</h3>
 
-    <div>
+    <div v-if="$fetchState.pending">
+      <skelleton-user-list v-for="i in new Array(10)" :key="i" />
+    </div>
+    <div v-else>
       <div v-for="user in users" :key="user.id" class="flex items-center my-4">
         <nuxt-link
           :to="{ name: 'username', params: { username: user.username } }"
