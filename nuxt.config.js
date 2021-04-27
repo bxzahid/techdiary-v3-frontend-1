@@ -70,6 +70,13 @@ export default {
     '@nuxtjs/cloudinary',
     '@nuxtjs/toast',
     '@nuxt/content',
+    [
+      '@netsells/nuxt-hotjar',
+      {
+        id: 1886608,
+        sv: 6,
+      },
+    ],
   ],
 
   axios: {
