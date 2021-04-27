@@ -78,11 +78,9 @@
 
     @media (min-width: 768px) {
       &.image--stretched {
-        padding: 20px 0 40px;
-        width: calc(65vw + 2px);
-        margin: auto calc(50% - 50vw - 0.8rem);
-        transform: translateX(calc(50vw - 50% + 0.8rem));
-        min-width: calc(100% + 18rem);
+        position: relative;
+        margin-left: calc(50% - 32vw);
+        margin-right: calc(50% - 32vw);
       }
     }
   }

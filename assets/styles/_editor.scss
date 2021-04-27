@@ -6,6 +6,7 @@
   h5 {
     @apply font-bold;
   }
+
   h1 {
     @apply text-2xl;
   }
@@ -20,11 +21,12 @@
     @apply text-base;
   }
 
-  .image-tool--stretched {
-    padding: 20px 0 40px;
-    width: calc(65vw + 2px);
-    margin: auto calc(50% - 50vw - 0.8rem);
-    transform: translateX(calc(50vw - 50% + 0.8rem));
-    min-width: calc(100% + 18rem);
+  .ce-block--stretched {
+    position: relative;
+    @media (min-width: 768px) {
+      position: relative;
+      margin-left: calc(50% - 32vw);
+      margin-right: calc(50% - 32vw);
+    }
   }
 }
