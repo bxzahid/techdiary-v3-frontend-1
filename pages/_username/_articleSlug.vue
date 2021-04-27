@@ -43,7 +43,7 @@
         <article-user-info :article="article" />
 
         <div
-          class="content-typography text-dark max-w-none"
+          class="my-6 content-typography text-dark max-w-none"
           v-html="article.body"
         />
 
