@@ -8,7 +8,7 @@ export default {
 
         // TODO: handle exception
         const fetchApi = await fetch(
-          'https://api.cloudinary.com/v1_1/techdiary-dev/image/upload',
+          `https://api.cloudinary.com/v1_1/techdiary-dev/image/upload`,
           {
             method: 'POST',
             body: fd,

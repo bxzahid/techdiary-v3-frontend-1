@@ -1,0 +1,30 @@
+.td-editor {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-bold;
+  }
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  h4 {
+    @apply text-base;
+  }
+
+  .image-tool--stretched {
+    padding: 20px 0 40px;
+    width: calc(65vw + 2px);
+    margin: auto calc(50% - 50vw - 0.8rem);
+    transform: translateX(calc(50vw - 50% + 0.8rem));
+    min-width: calc(100% + 18rem);
+  }
+}
