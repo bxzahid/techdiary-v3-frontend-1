@@ -1,7 +1,7 @@
 <template>
   <div class="bg-secondary dark:bg-gray-800">
     <div
-      class='w-full w-[95%] py-6 min-h-[40vh] mt-14 grid place-content-center'
+      class='w-full py-6 min-h-[40vh] mt-14 grid place-content-center'
     >
       <div class="col-span-12 mb-8 text-center md:col-span-4">
         <svg
