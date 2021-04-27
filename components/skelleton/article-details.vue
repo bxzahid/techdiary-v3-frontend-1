@@ -12,7 +12,7 @@
       </div>
 
       <!-- body -->
-      <PuSkeleton count="10" height="10px" />
+      <PuSkeleton :count="10" height="10px" />
     </div>
   </div>
 </template>

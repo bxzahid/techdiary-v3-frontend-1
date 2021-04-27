@@ -5,6 +5,13 @@
     </div>
 
     <div v-if="!$fetchState.pending && article" class="wrapper">
+      <alert v-if="!article.isPublished" class="mb-8">
+        অপ্রকাশিত ডায়েরি, তবে আপনি চাইলে URL এর মাধ্যমে যে কাউকে দেখাতে পারবেন।
+        <template v-slot:sub-title>
+          অপ্রকাশিত ডায়েরি প্রথম পাতায় দেখানো হবে না।
+        </template>
+      </alert>
+
       <div class="fixed hidden w-32 md:block top-25">
         <ArticleReactions :article="article" />
       </div>
@@ -34,7 +41,12 @@
         </div>
         <!-- Title and meta end -->
         <article-user-info :article="article" />
-        <div class="content-typography text-dark" v-html="article.body" />
+
+        <div
+          class="content-typography text-dark max-w-none"
+          v-html="article.body"
+        />
+
         <article-comments />
       </div>
     </div>

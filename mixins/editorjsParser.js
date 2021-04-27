@@ -31,18 +31,21 @@ const editorjsParser = (blocks) => {
        * --------------------------------------------------
        */
 
+      const title = block.data.caption ? block.data.caption : 'article-image'
+
       html += `
-        <figure>
-          <img src="${block.data.file.url}" title="Techdiary: ${
-        block.data.caption
-      }" alt="Techdiary: ${block.data.caption}" />
+        <figure class="${
+          block.data.stretched ? 'image--stretched' : 'image--normal'
+        }">
+          <img src="${
+            block.data.file.url
+          }" title="Techdiary: ${title}" alt="Techdiary: ${title}" />
 
         ${
           block.data.caption
             ? `<figcaption>${block.data.caption}</figcaption>`
             : ''
         }
-            
           </figure/>
         `
     } else if (block.type === 'embed') {
@@ -66,6 +69,7 @@ const editorjsParser = (blocks) => {
         '```' + block.data.languageCode + '\n' + block.data.code + '\n' + '```'
       const parsedHtmlCode = md(code)
 
+      // html += `<pre class="line-numbers language-${block.data.languageCode}">${block.data.code}</pre>`(
       html += parsedHtmlCode
     } else if (block.type === 'warning') {
       /**

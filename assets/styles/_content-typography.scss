@@ -1,54 +1,45 @@
 .content-typography {
-  @apply text-xl leading-loose;
+  @apply prose prose-lg md:prose-2xl;
 
-  /**
-  * -----------------------------------
-  *   Paragraph
-  * -----------------------------------
-  */
-  p {
-    @apply mb-5;
-
-    // &:nth-child(1) {
-    //   @apply mt-0;
-    // }
-
-    // &:last-child {
-    //   @apply mb-0;
-    // }
-  }
   /**
   * -----------------------------------
   *   Heading
   * -----------------------------------
   */
 
+  h1 {
+    @apply text-2xl;
+  }
+
   h2 {
-    @apply text-2xl border-b-2 border-gray-200;
+    @apply text-xl;
   }
   h3 {
-    @apply text-xl font-bold;
+    @apply text-lg;
+  }
+  h4 {
+    @apply text-base;
   }
 
-  /**
-  * -----------------------------------
-  *   Block quote
-  * -----------------------------------
-  */
-  blockquote {
-    @apply text-gray-700 ml-0 my-8 bg-gray-100 p-4 border-l-2 border-primary rounded;
+  // /**
+  // * -----------------------------------
+  // *   Block quote
+  // * -----------------------------------
+  // */
+  // blockquote {
+  //   @apply text-gray-700 ml-0 my-8 bg-gray-100 p-4 border-l-2 border-primary rounded;
 
-    &.warning {
-      @apply border-yellow-300 bg-yellow-50;
-    }
+  //   &.warning {
+  //     @apply border-yellow-300 bg-yellow-50;
+  //   }
 
-    .quotation {
-      @apply mb-0;
-    }
-    .author {
-      @apply italic font-bold mt-0;
-    }
-  }
+  //   .quotation {
+  //     @apply mb-0;
+  //   }
+  //   .author {
+  //     @apply italic font-bold mt-0;
+  //   }
+  // }
 
   /**
   * -----------------------------------
@@ -59,56 +50,8 @@
     @apply bg-yellow-200;
   }
 
-  /**
-  * -----------------------------------
-  *   List
-  * -----------------------------------
-  */
-
-  ol {
-    @apply list-decimal list-inside;
-  }
-
-  ul {
-    @apply list-disc list-inside;
-  }
-
-  // ol > li {
-  //   counter-increment: foo;
-  //   display: table-row;
-  // }
-
-  // ol > li::before {
-  //   content: counter(foo) '.';
-  //   display: table-cell; /* aha! */
-  //   text-align: right;
-  // }
-
   .techdiary-embed {
-    position: relative;
-    padding-top: 56%;
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  a {
-    @apply text-primary font-bold;
-    &:hover {
-      @apply underline;
-    }
-
-    &.techdiary-embeded-link {
-      @apply hover:no-underline;
-    }
-  }
-
-  strong {
-    @apply font-bold;
+    @apply aspect-w-16 aspect-h-9 rounded-md;
   }
 
   // syntax highliter
@@ -124,36 +67,18 @@
   }
 
   figure {
-    @apply my-5;
-
     figcaption {
       @apply text-sm text-gray-600 italic text-center mt-2;
     }
 
-    &:first-child {
-      @apply mt-0;
-    }
-
-    &:last-child {
-      @apply mb-0;
-    }
-  }
-
-  hr {
-    height: 0;
-    margin: 15px 0;
-    overflow: hidden;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid #dfe2e5;
-    &:after,
-    &:before {
-      display: table;
-      content: '';
-    }
-
-    &:after {
-      clear: both;
+    @media (min-width: 768px) {
+      &.image--stretched {
+        padding: 20px 0 40px;
+        width: calc(65vw + 2px);
+        margin: auto calc(50% - 50vw - 0.8rem);
+        transform: translateX(calc(50vw - 50% + 0.8rem));
+        min-width: calc(100% + 18rem);
+      }
     }
   }
 }
@@ -162,7 +87,16 @@
   list-style: none !important;
 
   &__item {
-    @apply flex space-x-2 items-center;
+    @apply flex space-x-2 items-center mb-0;
+
+    &::before {
+      width: 0 !important;
+      height: 0 !important;
+    }
+  }
+
+  &__text {
+    margin-bottom: 0 !important;
   }
 
   &__state {
@@ -172,6 +106,8 @@
     border-radius: 100%;
     margin-right: 6px;
     position: relative;
+
+    margin-top: 0 !important;
 
     &--checked {
       background-color: #58d4e1;

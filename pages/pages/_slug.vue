@@ -1,10 +1,11 @@
 <template>
   <div class="wrapper">
     <div class="grid grid-cols-12 space-x-5">
-      <div class="col-span-3">
+      <div class="col-span-12 md:col-span-3">
         <static-pages-list />
       </div>
-      <div class="col-span-8">
+
+      <div class="col-span-12 md:col-span-8">
         <h2 class="text-xl md:text-3xl dark:text-gray-300">
           {{ page.title }}
         </h2>

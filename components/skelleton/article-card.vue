@@ -13,7 +13,7 @@
     <PuSkeleton height="250px" />
 
     <div>
-      <PuSkeleton height="12px" count="2" />
+      <PuSkeleton height="12px" :count="2" />
     </div>
   </div>
 </template>
