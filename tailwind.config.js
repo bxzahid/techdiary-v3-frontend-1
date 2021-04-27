@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   mode: 'jit',
   purge: {
@@ -29,8 +30,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        techdiary: ['techdiary-bangla', 'Nunito'],
-        mono: ['Fira Code', 'techdiary-bangla', 'monospace'],
+        techdiary: ['Kohinoor Bangla', 'Nunito', ...defaultTheme.fontFamily.sans],
+        mono: ['Fira Code', 'Kohinoor Bangla', 'monospace']
       },
       zIndex: {
         '-1': '-1',
