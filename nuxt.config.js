@@ -1,3 +1,8 @@
+const hljs = require('highlight.js')
+
+const wrap = (code, lang) =>
+  `<pre><code class="hljs ${lang}">${code}</code></pre>`
+
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -28,7 +33,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['@/assets/styles/app.scss'],
+  css: ['@/assets/styles/app.scss', 'highlight.js/styles/shades-of-purple.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
@@ -120,6 +125,17 @@ export default {
       if (ctx.isDev) {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
       }
+    },
+  },
+
+  content: {
+    markdown: {
+      highlighter(rawCode, lang) {
+        if (!lang) {
+          return wrap(hljs.highlightAuto(rawCode).value, lang)
+        }
+        return wrap(hljs.highlight(lang, rawCode).value, lang)
+      },
     },
   },
   server: {

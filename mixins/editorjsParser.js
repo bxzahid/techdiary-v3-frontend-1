@@ -35,7 +35,7 @@ const editorjsParser = (blocks) => {
 
       html += `
         <figure class="${
-          block.data.stretched ? 'image--stretched' : 'image--normal'
+          block.data.stretched ? 'image--stretched' : 'image--stretched'
         }">
           <img src="${
             block.data.file.url
@@ -68,9 +68,6 @@ const editorjsParser = (blocks) => {
       const code =
         '```' + block.data.languageCode + '\n' + block.data.code + '\n' + '```'
       const parsedHtmlCode = md(code)
-
-      // // html += `<pre class="line-numbers language-${block.data.languageCode}">${block.data.code}</pre>`(
-      // html += parsedHtmlCode
 
       html += parsedHtmlCode
     } else if (block.type === 'warning') {

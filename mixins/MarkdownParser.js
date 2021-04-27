@@ -1,10 +1,18 @@
-import MarkdownIt from 'markdown-it'
-import prism from 'markdown-it-prism'
+const hljs = require('highlight.js')
 
-const md = new MarkdownIt()
+const markdownIt = require('markdown-it')({
+  highlight(str, lang) {
+    if (lang && hljs.getLanguage(lang))
+      return `<pre class="hljs language-${lang.toLowerCase()}"><code>${
+        hljs.highlightAuto(str).value
+      }</code></pre>`
 
-md.use(prism)
+    return `<pre class="hljs"><code>${markdownIt.renderInline(
+      str
+    )}</code></pre>`
+  },
+})
 
-export default (markdownText) => {
-  return md.render(markdownText)
+export default function md(markdownText) {
+  return markdownIt.render(markdownText)
 }

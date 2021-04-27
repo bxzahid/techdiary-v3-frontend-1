@@ -59,16 +59,6 @@ function fancyAlert(arg) {
 }
 ```
 
-    function fancyAlert(arg) {
-      if(arg) {
-        $.facebox({div:'#foo'})
-      }
-    }
-
-    def foo():
-        if not bar:
-            return True
-
 ### কার্য তালিকাগুলি
 
 - [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
