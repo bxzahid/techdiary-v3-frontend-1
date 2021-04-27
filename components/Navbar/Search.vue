@@ -1,7 +1,7 @@
 <template>
   <div
-    v-bind="$attrs"
-    class="relative hidden w-full h-full mx-5 md:block lg:mx-10 lg:w-6/12"
+    v-bind='$attrs'
+    class='relative hidden w-full h-full mx-5 md:block lg:mx-10 md:w-6/12'
   >
     <input
       type="text"
