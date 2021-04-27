@@ -1,7 +1,10 @@
-const prismjs = require('markdown-it-prism')
-const md = require('markdown-it')
-// md.use(prismjs)
+import MarkdownIt from 'markdown-it'
+import prism from 'markdown-it-prism'
 
-export default function markdown(markdownText) {
+const md = new MarkdownIt()
+
+md.use(prism)
+
+export default (markdownText) => {
   return md.render(markdownText)
 }

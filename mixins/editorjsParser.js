@@ -69,7 +69,9 @@ const editorjsParser = (blocks) => {
         '```' + block.data.languageCode + '\n' + block.data.code + '\n' + '```'
       const parsedHtmlCode = md(code)
 
-      // html += `<pre class="line-numbers language-${block.data.languageCode}">${block.data.code}</pre>`(
+      // // html += `<pre class="line-numbers language-${block.data.languageCode}">${block.data.code}</pre>`(
+      // html += parsedHtmlCode
+
       html += parsedHtmlCode
     } else if (block.type === 'warning') {
       /**

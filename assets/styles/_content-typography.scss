@@ -21,25 +21,30 @@
     @apply text-base;
   }
 
-  // /**
-  // * -----------------------------------
-  // *   Block quote
-  // * -----------------------------------
-  // */
-  // blockquote {
-  //   @apply text-gray-700 ml-0 my-8 bg-gray-100 p-4 border-l-2 border-primary rounded;
+  /**
+  * -----------------------------------
+  *   Block quote
+  * -----------------------------------
+  */
+  blockquote {
+    @apply text-gray-700 ml-0 bg-gray-100 border-l-2 border-primary rounded;
 
-  //   &.warning {
-  //     @apply border-yellow-300 bg-yellow-50;
-  //   }
+    @apply text-xl py-1;
+    @media (min-width: 768px) {
+      @apply text-lg;
+    }
 
-  //   .quotation {
-  //     @apply mb-0;
-  //   }
-  //   .author {
-  //     @apply italic font-bold mt-0;
-  //   }
-  // }
+    &.warning {
+      @apply border-yellow-300 bg-yellow-50;
+    }
+
+    .quotation {
+      @apply mb-0;
+    }
+    .author {
+      @apply italic font-bold mt-0;
+    }
+  }
 
   /**
   * -----------------------------------
