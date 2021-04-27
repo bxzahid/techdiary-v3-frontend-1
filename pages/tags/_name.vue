@@ -3,15 +3,15 @@
     <template #top>
       <div v-if="!$fetchState.pending">
         <div
-          :style='{"background-color" : tag.color, "border-color": tag.color}'
-          class='bg-secondary bg-opacity-25 dark:bg-opacity-25 shadow-sm border-t-8 dark:bg-gray-800 max-w-[1200px] w-[95%] py-6 min-h-[150px] mt-16 mx-auto px-5 rounded-md flex md:flex-row items-center flex-col md:space-x-5 space-y-4'
+          :style="{ 'background-color': tag.color, 'border-color': tag.color }"
+          class="bg-secondary bg-opacity-25 dark:bg-opacity-25 shadow-sm border-t-8 dark:bg-gray-800 max-w-[1200px] w-[95%] py-6 min-h-[150px] mt-16 mx-auto px-5 rounded-md flex md:flex-row items-center flex-col md:space-x-5 space-y-4"
         >
-          <img class='w-20' :src='tag.icon' :alt='tag.name' />
+          <img class="w-20" v-if="tag.icon" :src="tag.icon" :alt="tag.name" />
           <div>
-            <h1 class='mb-2 text-2xl uppercase text-dark' style='opacity: 1'>
-              {{ tag.name }}
+            <h1 class="mb-2 text-2xl uppercase text-dark" style="opacity: 1">
+              #{{ tag.name }}
             </h1>
-            <p class='text-lg text-dark'>
+            <p class="text-lg text-dark">
               {{ tag.description }}
             </p>
           </div>
@@ -27,12 +27,12 @@
     </div>
     <div v-else>
       <ArticleCard
-        v-for='article in articles'
-        class='mb-5'
-        :key='article.id'
-        :article='article'
+        v-for="article in articles"
+        class="mb-5"
+        :key="article.id"
+        :article="article"
       />
-      <div v-observe-visibility='visibilityChanged'></div>
+      <div v-observe-visibility="visibilityChanged"></div>
     </div>
   </layout-home>
 </template>
@@ -45,13 +45,13 @@ export default {
       meta: [
         {
           name: 'description',
-          content: `${this.tag?.name} | টেকডায়েরি`
+          content: `${this.tag?.name} | টেকডায়েরি`,
         },
         {
           property: 'og:title',
-          content: `${this.tag?.name} | টেকডায়েরি`
-        }
-      ]
+          content: `${this.tag?.name} | টেকডায়েরি`,
+        },
+      ],
     }
   },
   data: () => ({
@@ -60,8 +60,8 @@ export default {
     initialLoading: true,
     pageMeta: {
       current_page: 1,
-      last_page: null
-    }
+      last_page: null,
+    },
   }),
   async fetch() {
     try {
