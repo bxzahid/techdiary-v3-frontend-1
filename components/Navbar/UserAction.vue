@@ -1,5 +1,6 @@
 <template>
   <div v-click-away="closeDropdown">
+    <modal :show='visible' @close='closeModal' />
     <div v-if="$auth.loggedIn">
       <div
         class="relative flex items-center"
@@ -184,7 +185,7 @@
       </transition>
     </div>
     <button
-      @click="socialLogin('github')"
+      @click='visible = true'
       v-else
       class="flex items-center space-x-2"
     >
@@ -239,6 +240,7 @@ export default {
   name: 'user-action',
   data: () => ({
     dropDownOpen: false,
+    visible: false
   }),
   mixins: [SocialLogins],
   methods: {
@@ -248,6 +250,10 @@ export default {
     closeDropdown() {
       this.dropDownOpen = false
     },
+    closeModal() {
+      this.visible = false
+    }
+
   },
 }
 </script>
