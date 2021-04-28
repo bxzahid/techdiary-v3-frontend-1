@@ -2,7 +2,7 @@
   <main>
     <Navbar />
     <Nuxt />
-    <footer class='grid place-content-center'>
+    <footer class='grid place-content-center mb-4'>
       <div class='mb-2'>
         <nuxt-link
           :to="{ name: 'pages-slug', params: { slug: 'privacy-policy' } }"
