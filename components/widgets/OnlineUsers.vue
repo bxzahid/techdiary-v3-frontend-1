@@ -1,7 +1,5 @@
 <template>
   <div v-bind="$attrs">
-    <h3 class="text-lg font-light text-dark">অনলাইনে আছেন</h3>
-
     <div
       class="flex justify-between p-4 my-4 bg-yellow-100 border-2 border-yellow-200"
     >
