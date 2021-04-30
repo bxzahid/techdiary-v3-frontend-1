@@ -30,8 +30,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        techdiary: ['Boshonto', 'Kohinoor Bangla', 'Nunito', ...defaultTheme.fontFamily.sans],
-        mono: ['Fira Code', 'Kohinoor Bangla', 'monospace']
+        KohinoorBangla: ['KohinoorBangla', 'Nunito', 'Arial'],
+        Boshonto: ['Boshonto', 'Nunito', 'Arial'],
+        mono: ['Fira Code', 'techdiary-bangla', 'monospace'],
       },
       zIndex: {
         '-1': '-1',
