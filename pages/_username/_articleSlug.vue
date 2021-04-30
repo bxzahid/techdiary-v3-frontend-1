@@ -39,8 +39,19 @@
             </nuxt-link>
           </div>
         </div>
+
         <!-- Title and meta end -->
         <article-user-info :article="article" />
+
+        <div class="mt-3">
+          <a href="https://contest.techdiary.dev" target="_blank">
+            <img
+              class="w-full rounded-md"
+              src="https://res.cloudinary.com/techdiary-dev/image/upload/v1619780480/static-assets/contest/k09ialie9h1cr5tir9wi.png"
+              alt="dev-article-contest-season-1"
+            />
+          </a>
+        </div>
 
         <div
           class="my-6 content-typography text-dark max-w-none"
