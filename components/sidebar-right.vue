@@ -3,7 +3,7 @@
     <a
       href="https://contest.techdiary.dev"
       target="_blank"
-      class="inline-block mb-2"
+      class="inline-block mb-2 transition duration-200 hover:shadow-2xl"
     >
       <img
         class="w-full rounded-md"
