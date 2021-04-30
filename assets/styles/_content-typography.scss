@@ -88,6 +88,15 @@
     }
   }
 
+  code.inline-code {
+    &::before,
+    &::after {
+      content: '';
+    }
+
+    @apply bg-gray-700 px-3 text-white shadow-lg;
+  }
+
   figure {
     figcaption {
       @apply text-sm text-gray-600 italic text-center mt-2;
