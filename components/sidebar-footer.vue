@@ -6,7 +6,7 @@
           :to="{ name: 'pages-slug', params: { slug: 'privacy-policy' } }"
           class="text-sm text-gray-600"
         >
-          গোপনীয়তা
+          Privacy Policy
         </nuxt-link>
 
         <span class="seperator"> · </span>
@@ -15,7 +15,7 @@
           :to="{ name: 'pages-slug', params: { slug: 'terms-and-conditions' } }"
           class="text-sm text-gray-600"
         >
-          ব্যবহার এর নীতিমালা
+          Terms & Conditions
         </nuxt-link>
         <span class="seperator"> · </span>
 
@@ -23,7 +23,7 @@
           :to="{ name: 'pages-slug', params: { slug: 'about' } }"
           class="text-sm text-gray-600"
         >
-          আমাদের সম্পর্কে
+          About Us
         </nuxt-link>
       </div>
     </div>

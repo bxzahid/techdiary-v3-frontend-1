@@ -1,30 +1,33 @@
 <template>
-  <main>
+  <div>
     <Navbar />
-    <hero v-if="!$auth.loggedIn" />
-    <div class="wrapper">
-      <div class="grid grid-cols-12 md:space-x-5">
-        <div class="hidden col-span-12 md:block md:col-span-3">
+    <hero v-if='!$auth.loggedIn' />
+    <main class='wrapper'>
+      <div class='grid grid-cols-12 md:space-x-5'>
+        <section class='hidden col-span-12 md:block md:col-span-3'>
           <sidebar-left />
-        </div>
-        <div class="col-span-12 md:col-span-6">
+        </section>
+        <section class='col-span-12 md:col-span-6'>
           <Nuxt />
-        </div>
 
-        <div class="hidden col-span-12 md:block md:col-span-3">
+        </section>
+
+        <section class='hidden col-span-12 md:block md:col-span-3'>
           <sidebar-right />
-        </div>
+        </section>
       </div>
-    </div>
-  </main>
+    </main>
+  </div>
 </template>
 
 <script>
 export default {
-  head: {
-    bodyAttrs: {
-      class: 'techdiary-body'
+  head() {
+    return {
+      bodyAttrs: {
+        class: 'techdiary-body'
+      }
     }
-  },
+  }
 }
 </script>

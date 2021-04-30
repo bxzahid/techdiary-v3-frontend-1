@@ -21,12 +21,14 @@
 
 <script>
 export default {
-  head: {
-    title: 'Dashboard',
-    bodyAttrs: {
-      class: 'bg-gray-200 dark:bg-gray-900 font-techdiary',
-    },
+  head() {
+    return {
+      title: 'Dashboard',
+      bodyAttrs: {
+        class: 'bg-gray-200 dark:bg-gray-900 font-techdiary'
+      }
+    }
   },
-  middleware: 'auth',
+  middleware: 'auth'
 }
 </script>

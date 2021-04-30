@@ -43,18 +43,23 @@ import { mapState } from 'vuex'
 import SyncLoader from 'vue-spinner/src/SyncLoader.vue'
 export default {
   components: {
-    SyncLoader,
+    SyncLoader
+  },
+  head() {
+    return {
+      title: 'Search'
+    }
   },
   mounted() {
     if (this.$route.params.query) {
       this.$store.dispatch('search/doSearch', {
         index: 'articles',
-        query: this.$route.params.query,
+        query: this.$route.params.query
       })
     }
   },
   name: 'search-page',
-  computed: mapState('search', ['results', 'meta', 'loading']),
+  computed: mapState('search', ['results', 'meta', 'loading'])
   //   methods: {
   //     async visibilityChanged(isVisible) {
   //       if (!isVisible) {
