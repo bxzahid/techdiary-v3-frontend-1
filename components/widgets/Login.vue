@@ -8,7 +8,7 @@
         class="flex items-center justify-center w-full py-2 mb-4 text-lg text-white transition duration-150 bg-gray-700 rounded hover:opacity-95"
       >
         <svg
-          v-if="!loading"
+          v-if="!loadingGithub"
           width="20"
           class="text-white fill-current"
           role="img"
@@ -20,7 +20,7 @@
           ></path>
         </svg>
         <svg
-          v-if="loading"
+          v-if="loadingGithub"
           class="w-5 h-5 mr-2 animate-spin"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -41,8 +41,8 @@
           ></path>
         </svg>
 
-        <span class="pl-2" v-if="!loading">গিটহাব দিয়ে লগইন</span>
-        <span class="pl-2" v-if="loading">একটু অপেক্ষা করুন</span>
+        <span class="pl-2" v-if="!loadingGithub">গিটহাব দিয়ে লগইন</span>
+        <span class="pl-2" v-if="loadingGithub">একটু অপেক্ষা করুন</span>
       </button>
 
       <button
@@ -50,7 +50,7 @@
         class="flex items-center justify-center w-full py-2 mb-4 text-lg text-white transition duration-150 bg-red-500 rounded font-bangla hover:opacity-95"
       >
         <svg
-          v-if="!loading"
+          v-if="!loadingGoogle"
           width="20"
           class="text-white fill-current"
           role="img"
@@ -63,7 +63,7 @@
           />
         </svg>
         <svg
-          v-if="loading"
+          v-if="loadingGoogle"
           class="w-5 h-5 mr-2 animate-spin"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -83,8 +83,8 @@
             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
           ></path>
         </svg>
-        <span class="pl-2" v-if="!loading">গুগল দিয়ে লগইন</span>
-        <span class="pl-2" v-if="loading">একটু অপেক্ষা করুন</span>
+        <span class="pl-2" v-if="!loadingGoogle">গুগল দিয়ে লগইন</span>
+        <span class="pl-2" v-if="loadingGoogle">একটু অপেক্ষা করুন</span>
       </button>
     </div>
   </div>
