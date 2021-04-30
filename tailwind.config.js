@@ -29,7 +29,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        techdiary: ['techdiary-bangla', 'Nunito'],
+        KohinoorBangla: ['KohinoorBangla', 'Nunito', 'Arial'],
+        Boshonto: ['Boshonto', 'Nunito', 'Arial'],
         mono: ['Fira Code', 'techdiary-bangla', 'monospace'],
       },
       zIndex: {

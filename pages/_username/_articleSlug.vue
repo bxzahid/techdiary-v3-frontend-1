@@ -22,7 +22,7 @@
 
         <!-- Title and meta start -->
         <div class="my-4">
-          <h2 class="text-xl md:text-3xl dark:text-gray-300">
+          <h2 class="text-xl md:text-3xl dark:text-gray-300 font-Boshonto">
             {{ article.title }}
           </h2>
           <p class="text-dark-secondary">
