@@ -1,6 +1,6 @@
 <template>
   <div v-click-away="closeDropdown">
-    <modal :show='visible' @close='closeModal' />
+    <modal :show="visible" @close="closeModal" />
     <div v-if="$auth.loggedIn">
       <div
         class="relative flex items-center"
@@ -33,7 +33,7 @@
           />
         </svg>
 
-        <p class="text-lg text-gray-300 cursor-pointer md:mr-2">
+        <p class="hidden text-lg text-gray-300 cursor-pointer md:mr-2 md:block">
           {{ $auth.user.name }}
         </p>
 
@@ -184,11 +184,7 @@
         </div>
       </transition>
     </div>
-    <button
-      @click='visible = true'
-      v-else
-      class="flex items-center space-x-2"
-    >
+    <button @click="visible = true" v-else class="flex items-center space-x-2">
       <svg
         v-if="loading"
         class="w-5 h-5 mr-2 text-gray-300 animate-spin"
@@ -240,7 +236,7 @@ export default {
   name: 'user-action',
   data: () => ({
     dropDownOpen: false,
-    visible: false
+    visible: false,
   }),
   mixins: [SocialLogins],
   methods: {
@@ -252,8 +248,7 @@ export default {
     },
     closeModal() {
       this.visible = false
-    }
-
+    },
   },
 }
 </script>

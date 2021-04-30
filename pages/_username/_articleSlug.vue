@@ -29,7 +29,7 @@
             {{ $moment(article.created_at).format('LLLL') }}
           </p>
           <!-- tags -->
-          <div class="flex space-x-2 text-dark-secondary">
+          <div class="flex flex-wrap space-x-2 text-dark-secondary">
             <nuxt-link
               :to="{ name: 'tags-name', params: { name: tag.name } }"
               v-for="tag in article.tags"
