@@ -16,7 +16,7 @@
         >
           <button
             @click="remove(article.id, index)"
-            class="text-3xl text-red-600 rounded-full w-9 h-9 hover:bg-red-600 hover:text-white"
+            class="text-3xl text-red-600"
           >
             &times;
           </button>

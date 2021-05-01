@@ -6,47 +6,108 @@
   </div>
 
   <div v-else class="min-h-full">
-    <div
-      class="flex mb-4 transition-all duration-500 ease-in-out rounded dark:hover:bg-gray-600 hover:bg-gray-100"
-      v-for="(article, index) in articles"
-      :key="article.id"
-    >
-      <div class="ml-3">
-        <h3 class="text-lg text-gray-700 dark:text-gray-100">
-          <nuxt-link
-            :to="{
-              name: 'username-articleSlug',
-              params: {
-                username: article.user.username,
-                articleSlug: article.slug,
-              },
-            }"
-            >{{ article.title }}
-          </nuxt-link>
-        </h3>
-        <p class="text-sm font-bold text-gray-600 dark:text-gray-200">
-          {{ $moment(article.created_at).format('LLLL') }}
-        </p>
+    <div class="inline-block min-w-full overflow-hidden rounded-lg">
+      <table class="min-w-full leading-normal">
+        <thead>
+          <tr>
+            <th
+              scope="col"
+              class="px-5 py-3 text-sm font-bold text-left uppercase border-b border-gray-200 dark:border-gray-700 text-dark"
+            >
+              শিরোনাম
+            </th>
+            <th
+              scope="col"
+              class="px-5 py-3 text-sm font-bold text-left uppercase border-b border-gray-200 dark:border-gray-700 text-dark"
+            >
+              তৈরি করা হয়েছিল
+            </th>
+            <th
+              scope="col"
+              class="px-5 py-3 text-sm font-bold text-left uppercase border-b border-gray-200 dark:border-gray-700 text-dark"
+            >
+              status
+            </th>
+            <th
+              scope="col"
+              class="px-5 py-3 text-sm font-normal text-left uppercase border-b border-gray-200 dark:border-gray-700 text-dark"
+            ></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(article, index) in articles" :key="article.id">
+            <td
+              class="px-5 py-5 text-sm border-b border-gray-200 dark:border-gray-700"
+            >
+              <p class="whitespace-no-wrap text-dark">
+                <nuxt-link
+                  :to="{
+                    name: 'username-articleSlug',
+                    params: {
+                      username: article.user.username,
+                      articleSlug: article.slug,
+                    },
+                  }"
+                >
+                  {{ article.title }}
+                </nuxt-link>
+              </p>
+            </td>
+            <td
+              class="px-5 py-5 text-sm border-b border-gray-200 dark:border-gray-700"
+            >
+              <p class="whitespace-no-wrap text-dark">
+                {{ $moment(article.created_at).format('LLLL') }}
+              </p>
+            </td>
+            <td
+              class="px-5 py-5 text-sm border-b border-gray-200 dark:border-gray-700"
+            >
+              <span
+                class="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900"
+              >
+                <span
+                  aria-hidden="true"
+                  class="absolute inset-0 rounded-full opacity-50"
+                  :class="{
+                    'bg-paste-500': article.is_published,
+                    'bg-yellow-400': !article.is_published,
+                  }"
+                >
+                </span>
+                <span class="relative" v-if="article.is_published">
+                  প্রকাশিত
+                </span>
 
-        <div class="mt-1">
-          <nuxt-link
-            :to="{
-              name: 'dashboard-diaries-slug-edit',
-              params: { slug: article.slug },
-            }"
-            class="mr-2 text-sm font-bold text-green-400 hover:underline"
-          >
-            সংস্কার
-          </nuxt-link>
-          <a
-            href="#"
-            class="mr-2 text-sm font-bold text-red-400 hover:underline"
-            @click="removeArticle(article.slug, index)"
-          >
-            মুছুন
-          </a>
-        </div>
-      </div>
+                <span class="relative" v-if="!article.is_published">
+                  খসড়া
+                </span>
+              </span>
+            </td>
+            <td
+              class="px-5 py-5 space-x-2 text-sm border-b border-gray-200 dark:border-gray-700"
+            >
+              <nuxt-link
+                class="font-bold text-indigo-600 hover:text-indigo-900"
+                :to="{
+                  name: 'dashboard-diaries-slug-edit',
+                  params: { slug: article.slug },
+                }"
+              >
+                সংস্কার
+              </nuxt-link>
+
+              <a
+                href="#"
+                class="mr-2 text-sm font-bold text-red-400 hover:underline"
+                @click="removeArticle(article.slug, index)"
+              >
+                মুছুন
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div
