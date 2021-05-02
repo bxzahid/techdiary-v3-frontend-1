@@ -658,7 +658,7 @@
 
       <div class='col-span-12 lg:col-span-6'>
         <h1 class='text-xl font-thin md:text-3xl text-dark'>
-          বাংলার প্রোগ্রামিং নেটয়ার্ক
+          বাংলার প্রোগ্রামিং নেটওয়ার্ক
         </h1>
         <p
           class='mt-3 space-x-3 text-sm uppercase md:text-lg text-dark-secondary'
