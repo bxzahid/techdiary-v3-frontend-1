@@ -6,7 +6,10 @@
   </div>
 
   <div v-else class="min-h-full">
-    <div class="inline-block min-w-full overflow-hidden rounded-lg">
+    <div
+      v-if="articles.length"
+      class="inline-block min-w-full overflow-hidden rounded-lg"
+    >
       <table class="min-w-full leading-normal">
         <thead>
           <tr>
