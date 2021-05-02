@@ -70,6 +70,7 @@ export default {
     '@nuxtjs/cloudinary',
     '@nuxtjs/toast',
     '@nuxt/content',
+    'nuxt-maintenance-mode',
     [
       '@netsells/nuxt-hotjar',
       {
@@ -145,6 +146,7 @@ export default {
       },
     },
   },
+
   server: {
     host: '0.0.0.0',
   },
