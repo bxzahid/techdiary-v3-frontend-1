@@ -28,7 +28,6 @@
     "lodash.clonedeep": "^4.5.0",
     "lodash.debounce": "^4.0.8",
     "markdown-it": "^12.0.4",
-    "markdown-it-prism": "^2.1.6",
     "nuxt": "^2.15.3",
     "pusher-js": "^7.0.3",
     "sweetalert": "^2.1.2",

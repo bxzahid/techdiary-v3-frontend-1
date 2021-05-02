@@ -17,7 +17,12 @@
         :key="article.id"
         :article="article"
       />
-      <div v-observe-visibility="visibilityChanged"></div>
+      <div
+        v-observe-visibility="visibilityChanged"
+        class="flex items-center justify-center"
+      >
+        <loader-spin />
+      </div>
     </div>
   </layout-home>
 </template>
