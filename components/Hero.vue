@@ -664,7 +664,7 @@
           class='mt-3 space-x-3 text-sm uppercase md:text-lg text-dark-secondary'
         >
           <span># ব্লগ</span>
-          <span># টিটরিয়াল</span>
+          <span># টিউটোরিয়াল</span>
           <span># চ্যালেঞ্জ</span>
           <span># আলোচনা</span>
         </p>
