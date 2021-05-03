@@ -1,7 +1,7 @@
 <template>
   <aside class='col-span-12 mb-5 md:mb-0 md:col-span-3' v-if='user'>
     <div class='rounded w-72 md:w-full' v-if='user.profilePhoto'>
-      <nuxt-img
+      <img
         class='object-cover rounded h-auto w-full'
         :src='user.profilePhoto'
         :alt='user.username'
