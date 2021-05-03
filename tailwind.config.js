@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 module.exports = {
   mode: 'jit',
   purge: {
@@ -28,6 +29,7 @@ module.exports = {
           800: '#23555a',
           900: '#122a2d',
         },
+        teal: colors.teal
       },
       fontFamily: {
         KohinoorBangla: ['KohinoorBangla', 'Nunito', 'Arial'],
