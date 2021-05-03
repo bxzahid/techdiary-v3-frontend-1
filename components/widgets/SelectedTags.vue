@@ -2,7 +2,7 @@
   <div v-bind="$attrs">
     <h3 class="text-lg font-light text-dark">নির্বাচিত ট্যাগ সমূহ</h3>
     <div class="mt-2 tags">
-      <div class="tag" v-for="tag in tags" :key="tag.label">
+      <div class="tag" v-for="tag in tags" :key="tag.label" :title="tag.label">
         <nuxt-link
           :to="{ name: 'tags-name', params: { name: tag.label } }"
           class="tag__link"
@@ -35,18 +35,23 @@ export default {
       },
       {
         icon:
-          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873443/static-assets/tag-icons/html.svg',
-        label: 'html',
-      },
-      {
-        icon:
           'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873444/static-assets/tag-icons/java.svg',
         label: 'java',
       },
       {
         icon:
-          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873440/static-assets/tag-icons/css.svg',
-        label: 'css',
+          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873446/static-assets/tag-icons/python.svg',
+        label: 'python',
+      },
+      {
+        icon:
+          'https://res.cloudinary.com/techdiary-dev/image/upload/v1620056845/static-assets/tag-icons/dart.svg',
+        label: 'dart',
+      },
+      {
+        icon:
+          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873442/static-assets/tag-icons/go.svg',
+        label: 'go',
       },
       {
         icon:
@@ -60,13 +65,13 @@ export default {
       },
       {
         icon:
-          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873446/static-assets/tag-icons/python.svg',
-        label: 'python',
+          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873443/static-assets/tag-icons/html.svg',
+        label: 'html',
       },
       {
         icon:
-          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873442/static-assets/tag-icons/go.svg',
-        label: 'go',
+          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873440/static-assets/tag-icons/css.svg',
+        label: 'css',
       },
       {
         icon:
@@ -77,6 +82,31 @@ export default {
         icon:
           'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873442/static-assets/tag-icons/graphql.svg',
         label: 'graphql',
+      },
+      {
+        icon:
+          'https://res.cloudinary.com/techdiary-dev/image/upload/v1620055377/static-assets/tag-icons/react.svg',
+        label: 'react',
+      },
+      {
+        icon:
+          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873448/static-assets/tag-icons/vue.svg',
+        label: 'vue',
+      },
+      {
+        icon:
+          'https://res.cloudinary.com/techdiary-dev/image/upload/v1620055921/static-assets/tag-icons/svelte.svg',
+        label: 'svelte',
+      },
+      {
+        icon:
+          'https://res.cloudinary.com/techdiary-dev/image/upload/v1620054922/static-assets/tag-icons/angular.svg',
+        label: 'angular',
+      },
+      {
+        icon:
+          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873442/static-assets/tag-icons/flutter.svg',
+        label: 'flutter',
       },
       {
         icon:
@@ -102,12 +132,6 @@ export default {
         icon:
           'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873442/static-assets/tag-icons/github.svg',
         label: 'github',
-      },
-
-      {
-        icon:
-          'https://res.cloudinary.com/techdiary-dev/image/upload/v1616873442/static-assets/tag-icons/flutter.svg',
-        label: 'flutter',
       },
     ],
   }),
