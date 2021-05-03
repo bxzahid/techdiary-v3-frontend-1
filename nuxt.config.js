@@ -57,6 +57,7 @@ export default {
     '@nuxtjs/color-mode',
     '@nuxtjs/moment',
     '@nuxtjs/google-analytics',
+    '@nuxt/image'
   ],
   toast: {
     position: 'top-center',

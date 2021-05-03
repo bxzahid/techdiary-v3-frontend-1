@@ -55,7 +55,6 @@ export default {
         this.errors = {}
       } catch (e) {
         this.loading = false
-        console.log(e)
       }
     },
   },

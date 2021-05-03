@@ -32,7 +32,6 @@ const editorjsParser = (blocks) => {
        */
 
       const title = block.data.caption ? block.data.caption : 'article-image'
-      console.log(block.data.stretched)
       html += `
         <figure class="${
           block.data.stretched ? 'image--stretched' : 'image--normal'
@@ -160,8 +159,6 @@ const editorjsParser = (blocks) => {
         html += `<li>${li}</li>`
       })
       html += `</${block.data.style === 'ordered' ? 'o' : 'u'}l>`
-    } else {
-      console.log(block)
     }
   })
 

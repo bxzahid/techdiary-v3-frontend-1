@@ -1,17 +1,17 @@
 <template>
-  <aside class="col-span-12 md:col-span-3">
-    <div class="overflow-hidden rounded h-72 w-72" v-if="user.profilePhoto">
-      <img
-        class="w-full h-auto"
-        :src="user.profilePhoto"
-        :alt="user.username"
+  <aside class='col-span-12 mb-5 md:mb-0 md:col-span-3' v-if='user'>
+    <div class='rounded w-72 md:w-full' v-if='user.profilePhoto'>
+      <nuxt-img
+        class='object-cover rounded h-auto w-full'
+        :src='user.profilePhoto'
+        :alt='user.username'
       />
     </div>
 
-    <div class="mt-5">
-      <h2 class="flex items-center text-2xl dark:text-gray-200">
+    <div class='mt-5'>
+      <h2 class='flex items-center text-2xl dark:text-gray-200'>
         <span
-          class="inline-block w-2 h-2 mr-2 rounded-full"
+          class='inline-block w-2 h-2 mr-2 rounded-full'
           :class="{
             'bg-green-500': isOnline(user.username),
             'bg-red-500': !isOnline(user.username),
@@ -54,10 +54,10 @@
           ></path>
         </svg>
         <a
-          target="_blank"
-          :href="user.social_links.github"
-          class="text-gray-800 dark:text-gray-400"
-          >{{ fetchUsernameFromUrl(user.social_links.github) }}</a
+          target='_blank'
+          :href='user.social_links.github'
+          class='text-gray-800 dark:text-gray-400'
+        >{{ fetchUsernameFromUrl(user.social_links.github) }}</a
         >
       </div>
 
@@ -78,10 +78,10 @@
           />
         </svg>
         <a
-          :href="user.social_links.twitter"
-          target="_blank"
-          class="text-gray-800 dark:text-gray-400"
-          >{{ fetchUsernameFromUrl(user.social_links.twitter) }}</a
+          :href='user.social_links.twitter'
+          target='_blank'
+          class='text-gray-800 dark:text-gray-400'
+        >{{ fetchUsernameFromUrl(user.social_links.twitter) }}</a
         >
       </div>
 
@@ -205,19 +205,27 @@
           v-if="user.social_links && user.social_links.medium"
         >
           <svg
-            class="w-5 h-5 text-gray-800 fill-current dark:text-gray-400"
-            xmlns="http://www.w3.org/2000/svg"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            class='w-5 h-5 text-gray-800 fill-current dark:text-gray-400'
+            xmlns='http://www.w3.org/2000/svg'
+            fill-rule='evenodd'
+            clip-rule='evenodd'
           >
             <path
-              d="M19 24h-14c-2.761 0-5-2.239-5-5v-14c0-2.761 2.239-5 5-5h14c2.762 0 5 2.239 5 5v14c0 2.761-2.237 4.999-5 5zm.97-5.649v-.269l-1.247-1.224c-.11-.084-.165-.222-.142-.359v-8.998c-.023-.137.032-.275.142-.359l1.277-1.224v-.269h-4.422l-3.152 7.863-3.586-7.863h-4.638v.269l1.494 1.799c.146.133.221.327.201.523v7.072c.044.255-.037.516-.216.702l-1.681 2.038v.269h4.766v-.269l-1.681-2.038c-.181-.186-.266-.445-.232-.702v-6.116l4.183 9.125h.486l3.593-9.125v7.273c0 .194 0 .232-.127.359l-1.292 1.254v.269h6.274z"
+              d='M19 24h-14c-2.761 0-5-2.239-5-5v-14c0-2.761 2.239-5 5-5h14c2.762 0 5 2.239 5 5v14c0 2.761-2.237 4.999-5 5zm.97-5.649v-.269l-1.247-1.224c-.11-.084-.165-.222-.142-.359v-8.998c-.023-.137.032-.275.142-.359l1.277-1.224v-.269h-4.422l-3.152 7.863-3.586-7.863h-4.638v.269l1.494 1.799c.146.133.221.327.201.523v7.072c.044.255-.037.516-.216.702l-1.681 2.038v.269h4.766v-.269l-1.681-2.038c-.181-.186-.266-.445-.232-.702v-6.116l4.183 9.125h.486l3.593-9.125v7.273c0 .194 0 .232-.127.359l-1.292 1.254v.269h6.274z'
             />
           </svg>
         </a>
       </div>
     </div>
   </aside>
+  <div v-else class='col-span-12 md:col-span-3'>
+    <svg class='text-gray-300 dark:text-gray-600 w-full rounded animate-pulse' viewBox='0 0 278 361' fill='currentColor'
+         xmlns='http://www.w3.org/2000/svg'>
+      <rect width='278' height='299' rx='5' fill='currentColor' />
+      <rect y='313' width='227' height='17' rx='4' fill='currentColor' />
+      <rect y='344' width='185' height='17' rx='4' fill='currentColor' />
+    </svg>
+  </div>
 </template>
 
 <script>

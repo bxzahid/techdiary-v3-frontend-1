@@ -27,7 +27,6 @@ export default ({ app }, inject) => {
               callback(false, response.data)
             })
             .catch((error) => {
-              console.log(error)
               callback(true, error)
             })
         },

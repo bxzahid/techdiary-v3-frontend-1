@@ -1,58 +1,52 @@
 <template>
-  <div class="wrapper">
-    <div class="grid grid-cols-12">
-      <user-profile-sidebar-info :user="user" />
+  <main class='col-span-12 md:col-span-9 md:px-4'>
+    <div>
+      <p
+        class='font-mono text-xs font-semibold text-gray-500 dark:text-gray-400'
+      >
+        ~/techdiary/{{ user && user.username }}/README.md
+      </p>
 
-      <!-- Main Content -->
-      <main class="col-span-12 md:col-span-9 md:px-4">
+      <div class='readme-content dark:bg-gray-800'>
         <div
-          class="min-h-screen p-4 bg-white rounded shadow dark:bg-gray-800 dark:text-white"
-        >
-          <user-profile-tabs :username="user.username" />
-          <div>
-            <p
-              class="font-mono text-xs font-semibold text-gray-500 dark:text-gray-400"
-            >
-              ~/techdiary/{{ user.username }}/README.md
-            </p>
-
-            <div class="readme-content dark:bg-gray-800">
-              <div
-                class="content-typography"
-                v-html="user.profile_readme"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </main>
+          class='content-typography'
+          v-html='user && user.profile_readme'
+        ></div>
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 <script>
-import md from '~/mixins/MarkdownParser'
+
+
+import { mapState } from 'vuex'
 
 export default {
+  layout: 'publicuserdashboard',
+  computed: {
+    ...mapState({ user: (state) => state.publicUser.user })
+  },
   head() {
     return {
-      title: this.user.username,
+      title: this.user?.username,
       bodyAttrs: {
-        class: 'bg-gray-100 dark:bg-gray-700',
-      },
-    }
-  },
-  async asyncData({ $axios, params, error }) {
-    try {
-      const { data: user } = await $axios.$get(`/api/user/${params.username}`)
-      if (user.profile_readme) {
-        user.profile_readme = md(user.profile_readme)
+        class: 'bg-gray-100 dark:bg-gray-700'
       }
-      return { user }
-    } catch (e) {
-      error({
-        statusCode: e.response.status,
-        message: e.response.data.message,
-      })
     }
-  },
+  }
+  // async asyncData({ $axios, params, error }) {
+  //   try {
+  //     const { data: user } = await $axios.$get(`/api/user/${params.username}`)
+  //     if (user.profile_readme) {
+  //       user.profile_readme = md(user.profile_readme)
+  //     }
+  //     return { user }
+  //   } catch (e) {
+  //     error({
+  //       statusCode: e.response.status,
+  //       message: e.response.data.message,
+  //     })
+  //   }
+  // },
 }
 </script>

@@ -1,11 +1,11 @@
 <template>
-  <div class="sk-chase">
-    <div class="sk-chase-dot"></div>
-    <div class="sk-chase-dot"></div>
-    <div class="sk-chase-dot"></div>
-    <div class="sk-chase-dot"></div>
-    <div class="sk-chase-dot"></div>
-    <div class="sk-chase-dot"></div>
+  <div class='sk-chase' v-bind='$attrs'>
+    <div class='sk-chase-dot'></div>
+    <div class='sk-chase-dot'></div>
+    <div class='sk-chase-dot'></div>
+    <div class='sk-chase-dot'></div>
+    <div class='sk-chase-dot'></div>
+    <div class='sk-chase-dot'></div>
   </div>
 </template>
 

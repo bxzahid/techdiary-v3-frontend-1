@@ -80,7 +80,6 @@ export default {
       `/api/articles/${this.$route.params.articleSlug}/comments?page=${this.pageMeta.current_page}`
     )
     // const comment = await this.$axios.$get(`/api/articles/${this.$route.params.articleSlug}/comments?page=${1}`)
-    // console.log(comment)
     
     this.articleComments = this.articleComments.concat(data)
     this.pageMeta = { current_page, last_page }
