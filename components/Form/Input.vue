@@ -1,13 +1,13 @@
 <template>
   <div>
     <label>
-      <p v-if="label" class="td-label">
+      <p v-if='label' class='td-label capitalize'>
         {{ label }}
-        <span v-if="required" class="text-red-500">*</span>
+        <span v-if='required' class='text-red-500'>*</span>
       </p>
       <input
         @input="$emit('input', $event.target.value)"
-        class="td-input"
+        class='td-input'
         :class="{ 'has-error': error }"
         v-bind="$attrs"
         :required="required ? true : false"
