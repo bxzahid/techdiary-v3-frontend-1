@@ -21,19 +21,19 @@
         </div>
 
         <!-- Title and meta start -->
-        <div class="my-4">
-          <h2 class="text-xl md:text-3xl dark:text-gray-300 font-Boshonto">
+        <div class='my-4'>
+          <h2 class='text-xl md:text-3xl dark:text-gray-300 font-Boshonto'>
             {{ article.title }}
           </h2>
-          <p class="text-dark-secondary">
+          <p class='text-dark-secondary'>
             {{ $moment(article.created_at).format('LLLL') }}
           </p>
           <!-- tags -->
-          <div class="flex flex-wrap space-x-2 text-dark-secondary">
-            <nuxt-link
-              :to="{ name: 'tags-name', params: { name: tag.name } }"
-              v-for="tag in article.tags"
-              :key="tag.id"
+          <div class='flex flex-wrap text-dark-secondary'>
+            <nuxt-link class='mr-2'
+                       :to="{ name: 'tags-name', params: { name: tag.name } }"
+                       v-for='tag in article.tags'
+                       :key='tag.id'
             >
               #{{ tag.name }}
             </nuxt-link>

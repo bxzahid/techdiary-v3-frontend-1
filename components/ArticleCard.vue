@@ -29,8 +29,9 @@
       <div class="flex flex-wrap space-x-2 text-dark-secondary">
         <nuxt-link
           :to="{ name: 'tags-name', params: { name: tag.name } }"
-          v-for="tag in article.tags"
-          :key="tag.id"
+          v-for='(tag, index) in article.tags'
+          :key='tag.id'
+          v-if='index < 3'
         >
           #{{ tag.name }}
         </nuxt-link>
