@@ -10,7 +10,7 @@
 
     <!-- Article content start -->
     <div class="mt-2">
-      <nuxt-link :to="articleUrl" class="block text-xl text-dark">
+      <nuxt-link :to="articleUrl" class="block text-xl text-dark font-Boshonto">
         <span
           v-if="isSearchCard"
           class="search-title"
