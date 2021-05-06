@@ -137,8 +137,8 @@
         </svg>
       </button>
       <nuxt-link
-        class="text-dark"
-        v-if="$auth.loggedIn && $auth.user.id == article.user.id"
+        class='text-dark'
+        v-if='$auth.loggedIn && $auth.user.id == article.user.id'
         :to="{
           name: 'dashboard-diaries-slug-edit',
           params: { slug: article.slug },
@@ -146,6 +146,8 @@
       >
         সংস্কার
       </nuxt-link>
+
+      <progress-ring stroke='5' radius='30' :progress='progress ? progress : 0' />
       <!-- <button
         title="share"
         class="focus:outline-none"
@@ -219,13 +221,13 @@
 import reactions from '~/mixins/reactions'
 export default {
   mixins: [reactions],
-  props: ['article'],
+  props: ['article', 'progress'],
   data() {
     return {
       reactions: this.article.reactions,
-      shareOpen: false,
+      shareOpen: false
     }
-  },
+  }
 }
 </script>
 
