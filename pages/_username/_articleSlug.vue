@@ -75,7 +75,7 @@ export default {
   name: 'techdiary-details',
   mixins: [reactions],
   mounted() {
-    if (this.updatedCount <= 0) {
+    if (this.updatedCount <= 0 && !this.$fetchState.pending) {
       this.progressGsap = this.$gsap.to(this, {
         articleProgress: 100,
         duration: 0.5,
@@ -90,7 +90,23 @@ export default {
       })
       this.updatedCount++
     }
-    console.log('updated article details')
+  },
+  updated() {
+    if (this.updatedCount <= 0 && !this.$fetchState.pending) {
+      this.progressGsap = this.$gsap.to(this, {
+        articleProgress: 100,
+        duration: 0.5,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: this.$refs.content,
+          start: 'top 20%',
+          end: 'bottom 80%',
+          scrub: 0.3
+          // markers: true
+        }
+      })
+      this.updatedCount++
+    }
   },
 
   head() {
