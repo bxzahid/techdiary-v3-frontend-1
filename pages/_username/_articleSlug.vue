@@ -85,7 +85,6 @@ export default {
           start: 'top 20%',
           end: 'bottom 80%',
           scrub: 0.3,
-          markers: true
         }
       })
       this.updatedCount++
