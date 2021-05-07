@@ -15,7 +15,7 @@
         </main>
       </div>
     </div>
-    <footer class='grid place-content-center mb-4'>
+    <footer class='grid mb-4 place-content-center'>
       <div class='mb-2'>
         <nuxt-link
           :to="{ name: 'pages-slug', params: { slug: 'privacy-policy' } }"
