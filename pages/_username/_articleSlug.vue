@@ -66,27 +66,12 @@
   </div>
 </template>
 <script>
-import gsap from 'gsap'
-// import scrollTrigger from 'gsap/scrollTrigger'
 import editorjsParser from '~/mixins/editorjsParser'
 import reactions from '~/mixins/reactions'
 
 export default {
   name: 'techdiary-details',
   mixins: [reactions],
-  mounted() {
-    if (this.updatedCount <= 0 && !this.$fetchState.pending) {
-      this.scrollContentAnimation()
-      this.updatedCount++
-    }
-  },
-  updated() {
-    if (this.progressGsap) {
-      this.progressGsap.kill()
-    }
-    this.scrollContentAnimation()
-  },
-
   head() {
     return {
       title: this.article?.title,
@@ -130,9 +115,6 @@ export default {
         }
       ],
     }
-  },
-  beforeDestroy() {
-    if (this.progressGsap) this.progressGsap.kill()
   },
   data() {
     return {
