@@ -21,7 +21,7 @@
   * -----------------------------------
   */
   blockquote {
-    @apply text-gray-700 ml-0 bg-gray-100 border-l-2 border-primary rounded;
+    @apply text-gray-700 ml-0 bg-gray-100 border-l-2 border-primary rounded py-2;
 
     @apply text-xl py-1;
     @media (min-width: 768px) {
@@ -33,10 +33,10 @@
     }
 
     .quotation {
-      @apply mb-0;
+      @apply m-0 not-italic;
     }
     .author {
-      @apply italic font-bold mt-0;
+      @apply not-italic font-bold m-0;
     }
   }
 
@@ -55,7 +55,10 @@
   * -----------------------------------
   */
   mark {
-    @apply bg-yellow-200;
+    @apply bg-yellow-200 px-1 rounded;
+    & > a {
+      color: #333 !important;
+    }
   }
 
   .techdiary-embed {
@@ -85,7 +88,11 @@
 
   figure {
     figcaption {
-      @apply text-sm text-gray-600 italic text-center mt-2;
+      @apply text-sm text-gray-600 dark:text-gray-200 italic text-center mt-2;
+    }
+
+    img {
+      @apply mx-auto;
     }
 
     @media (min-width: 768px) {

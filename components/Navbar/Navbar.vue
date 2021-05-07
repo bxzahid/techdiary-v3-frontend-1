@@ -1,7 +1,5 @@
 <template>
   <div class="fixed top-0 left-0 z-50 w-full">
-    <alert-popup />
-
     <div
       class="flex items-center justify-between px-4 py-1 bg-gray-800 shadow-sm md:px-10 h-14"
     >

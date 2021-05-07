@@ -36,10 +36,8 @@ export default {
         this.$store.dispatch('search/doSearch', {
           index: 'articles',
           query,
-          page: 1
+          page: 1,
         })
-        if (query)
-          this.$route.params.query = query
       }, 500),
     },
   },

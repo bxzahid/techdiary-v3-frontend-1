@@ -29,7 +29,7 @@ module.exports = {
           800: '#23555a',
           900: '#122a2d',
         },
-        teal: colors.teal
+        teal: colors.teal,
       },
       fontFamily: {
         KohinoorBangla: ['KohinoorBangla', 'Nunito', 'Arial'],

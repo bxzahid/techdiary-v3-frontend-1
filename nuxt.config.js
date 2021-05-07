@@ -44,7 +44,7 @@ export default {
     '@/plugins/skeleton.js',
     '@/plugins/bn.js',
     '@/plugins/echo.client.js',
-    '@/plugins/gsap.client.js'
+    '@/plugins/gsap.client.js',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -58,7 +58,8 @@ export default {
     '@nuxtjs/color-mode',
     '@nuxtjs/moment',
     '@nuxtjs/google-analytics',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxtjs/svg',
   ],
   toast: {
     position: 'top-center',
