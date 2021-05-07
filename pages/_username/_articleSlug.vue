@@ -81,10 +81,10 @@ export default {
     }
   },
   updated() {
-    if (this.updatedCount <= 0 && !this.$fetchState.pending) {
-      this.scrollContentAnimation()
-      this.updatedCount++
+    if (this.progressGsap) {
+      this.progressGsap.kill()
     }
+    this.scrollContentAnimation()
   },
 
   head() {
@@ -132,7 +132,7 @@ export default {
     }
   },
   beforeDestroy() {
-    this.progressGsap.kill()
+    if (this.progressGsap) this.progressGsap.kill()
   },
   data() {
     return {
@@ -176,7 +176,7 @@ export default {
           start: 'top 20%',
           end: 'bottom 80%',
           scrub: 0.3,
-          markers: true
+          // markers: true
         }
       })
     }
