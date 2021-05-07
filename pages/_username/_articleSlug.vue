@@ -91,21 +91,23 @@ export default {
       this.updatedCount++
     }
   },
-  updated() {
-    if (this.updatedCount <= 0 && !this.$fetchState.pending) {
-      this.progressGsap = this.$gsap.to(this, {
-        articleProgress: 100,
-        duration: 0.5,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: this.$refs.content,
-          start: 'top 20%',
-          end: 'bottom 80%',
-          scrub: 0.3
-          // markers: true
-        }
-      })
-      this.updatedCount++
+  watch: {
+    '$fetchState.pending': (value) => {
+      if (this.updatedCount <= 0) {
+        this.progressGsap = this.$gsap.to(this, {
+          articleProgress: 100,
+          duration: 0.5,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: this.$refs.content,
+            start: 'top 20%',
+            end: 'bottom 80%',
+            scrub: 0.3
+            // markers: true
+          }
+        })
+        this.updatedCount++
+      }
     }
   },
 
