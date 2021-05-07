@@ -66,49 +66,12 @@
   </div>
 </template>
 <script>
-import gsap from 'gsap'
-// import scrollTrigger from 'gsap/scrollTrigger'
 import editorjsParser from '~/mixins/editorjsParser'
 import reactions from '~/mixins/reactions'
 
 export default {
   name: 'techdiary-details',
   mixins: [reactions],
-  mounted() {
-    if (this.updatedCount <= 0 && !this.$fetchState.pending) {
-      this.progressGsap = this.$gsap.to(this, {
-        articleProgress: 100,
-        duration: 0.5,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: this.$refs.content,
-          start: 'top 20%',
-          end: 'bottom 80%',
-          scrub: 0.3
-          // markers: true
-        }
-      })
-      this.updatedCount++
-    }
-  },
-  updated() {
-    if (this.updatedCount <= 0 && !this.$fetchState.pending) {
-      this.progressGsap = this.$gsap.to(this, {
-        articleProgress: 100,
-        duration: 0.5,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: this.$refs.content,
-          start: 'top 20%',
-          end: 'bottom 80%',
-          scrub: 0.3
-          // markers: true
-        }
-      })
-      this.updatedCount++
-    }
-  },
-
   head() {
     return {
       title: this.article?.title,
@@ -153,9 +116,6 @@ export default {
       ],
     }
   },
-  beforeDestroy() {
-    this.progressGsap.kill()
-  },
   data() {
     return {
       article: null,
@@ -188,8 +148,19 @@ export default {
     }
   },
   methods: {
-    onScrollContent(e) {
-      console.log('scrolled')
+    scrollContentAnimation() {
+      this.progressGsap = this.$gsap.to(this, {
+        articleProgress: 100,
+        duration: 0.5,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: this.$refs.content,
+          start: 'top 20%',
+          end: 'bottom 80%',
+          scrub: 0.3,
+          // markers: true
+        }
+      })
     }
   }
 }
