@@ -6,30 +6,14 @@
       >
         <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
           <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
-            <a href="/" class="mb-6 sm:mx-auto">
-              <div
-                class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-accent-400"
-              >
-                <svg
-                  class="w-10 h-10 text-deep-purple-900"
-                  stroke="currentColor"
-                  viewBox="0 0 52 52"
-                >
-                  <polygon
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    fill="none"
-                    points="29 13 14 29 25 29 23 39 38 23 27 23"
-                  ></polygon>
-                </svg>
-              </div>
-            </a>
+            <div class="my-6">
+              <TechdiaryLightLogo class="h-6 sm:mx-auto" />
+            </div>
             <div
               class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"
             >
               <h2
-                class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white sm:text-4xl md:mx-auto"
+                class="max-w-lg mb-6 text-3xl font-semibold leading-normal tracking-tight text-white font-KohinoorBangla sm:text-4xl md:mx-auto"
               >
                 <span class="relative inline-block">
                   <svg
@@ -54,13 +38,14 @@
                       height="24"
                     ></rect>
                   </svg>
-                  <span class="relative">The</span>
+                  <span class="relative">ঝড় তুলুন</span>
                 </span>
-                quick, brown fox jumps over a lazy dog
+                আপনার কি-বোর্ড এ আর ছড়িয়ে যাক আপনার লিখা পুরো বাংলায়
               </h2>
               <p class="text-base text-indigo-100 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam, eaque ipsa quae.
+                টেক ডাইরি এমন একটি প্লাট ফর্ম যেখানে আপনি মাতৃভাষায় আপনার
+                প্রযুক্তি জ্ঞান সবার কাছে ছড়িয়ে দিতে পারবেন সেই নিমিত্তে আমাদের
+                অগ্রযাত্রা
               </p>
             </div>
             <div>
@@ -77,46 +62,44 @@
     </div>
 
     <!--============================================ State section start  ============================================-->
-    <template>
-      <div
-        class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
-      >
-        <div class="grid grid-cols-2 row-gap-8 md:grid-cols-4">
-          <div class="text-center md:border-r">
-            <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl">144K</h6>
-            <p
-              class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base"
-            >
-              Downloads
-            </p>
-          </div>
-          <div class="text-center md:border-r">
-            <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl">12.9K</h6>
-            <p
-              class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base"
-            >
-              Subscribers
-            </p>
-          </div>
-          <div class="text-center md:border-r">
-            <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl">48.3K</h6>
-            <p
-              class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base"
-            >
-              Users
-            </p>
-          </div>
-          <div class="text-center">
-            <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl">24.5K</h6>
-            <p
-              class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base"
-            >
-              Cookies
-            </p>
-          </div>
+    <div
+      class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+    >
+      <div class="grid grid-cols-2 row-gap-8 md:grid-cols-4">
+        <div class="text-center md:border-r">
+          <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl">144K</h6>
+          <p
+            class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base"
+          >
+            Downloads
+          </p>
+        </div>
+        <div class="text-center md:border-r">
+          <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl">12.9K</h6>
+          <p
+            class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base"
+          >
+            Subscribers
+          </p>
+        </div>
+        <div class="text-center md:border-r">
+          <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl">48.3K</h6>
+          <p
+            class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base"
+          >
+            Users
+          </p>
+        </div>
+        <div class="text-center">
+          <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl">24.5K</h6>
+          <p
+            class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base"
+          >
+            Cookies
+          </p>
         </div>
       </div>
-    </template>
+    </div>
     <!--============================================ State section end  ============================================-->
 
     <!--============================================ feature section start  ============================================-->
@@ -172,12 +155,10 @@
                     ></polygon>
                   </svg>
                 </div>
-                <h6 class="mb-2 font-semibold leading-5">
-                  The quick, brown fox jumps over a lazy dog
-                </h6>
+                <h6 class="mb-2 font-semibold leading-5">টিমওয়ার্ক</h6>
                 <p class="text-sm text-gray-900">
-                  Baseball ipsum dolor sit amet cellar rubber win hack tossed.
-                  Slugging catcher slide bench league.
+                  আমাদের এই আগ্রযাত্রাকে সফল করতে আমরা এনেছি বাংলাদেশ এর প্রথম
+                  ওপেন সোর্স ব্লগিং প্লাটফর্ম
                 </p>
               </div>
             </div>
@@ -199,9 +180,7 @@
                   ></polygon>
                 </svg>
               </div>
-              <h6 class="mb-2 font-semibold leading-5">
-                A flower in my garden, a mystery
-              </h6>
+              <h6 class="mb-2 font-semibold leading-5">কন্টেস্ট</h6>
               <p class="text-sm text-gray-900">
                 They urge you to put down your sword and come join the winners.
               </p>
@@ -262,8 +241,8 @@
           <div>
             <img
               class="object-cover w-full h-56 rounded shadow-lg sm:h-96"
-              src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
-              alt=""
+              src="~/static/techdiary-imac-mockup.png"
+              alt="techdiary"
             />
           </div>
         </div>
@@ -279,11 +258,10 @@
         <p
           class="inline-block px-3 py-px mb-4 text-xl font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400"
         >
-          Know Our Team
+          যারা কাজ করছেন এই প্রচেষ্ঠার পেছনে
         </p>
         <p class="text-base text-gray-700 md:text-lg">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium.
+          আমাদের এই ছোট টিম সব স্কিয়েটিভ এবং পরিশ্রমী মেম্বার গন এক ফ্রেমে
         </p>
       </div>
       <div class="grid gap-10 mx-auto lg:grid-cols-2 lg:max-w-screen-lg">
@@ -298,8 +276,8 @@
           <div
             class="flex flex-col justify-center mt-5 sm:mt-0 sm:p-5 sm:col-span-2"
           >
-            <p class="text-lg font-bold">Oliver Aguilerra</p>
-            <p class="mb-4 text-xs text-gray-800">Product Manager</p>
+            <p class="text-lg font-bold">মোহাম্মদ রায়হান</p>
+            <p class="mb-4 text-xs text-gray-800">Founder</p>
             <p class="mb-4 text-sm tracking-wide text-gray-800">
               Vincent Van Gogh’s most popular painting, The Starry Night.
             </p>
@@ -597,12 +575,13 @@
 
 <script>
 import TechdiaryLogo from '~/static/branding/text-logo-dark.svg?inline'
+import TechdiaryLightLogo from '~/static/branding/text-logo-light.svg?inline'
 export default {
   head() {
     return {
       title: 'About',
     }
   },
-  components: { TechdiaryLogo },
+  components: { TechdiaryLogo, TechdiaryLightLogo },
 }
 </script>
