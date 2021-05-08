@@ -19,7 +19,7 @@
               name: 'username',
               params: { username: $auth.user.username },
             }"
-            class='px-3 py-1 rounded bg-primary focus:shadow-outline'
+            class="px-3 py-1 rounded bg-primary focus:shadow-outline"
           >
             Preview
           </nuxt-link>
@@ -47,10 +47,7 @@ export default {
       this.loading = true
       try {
         await this.$axios.$post('/api/auth/update-profile', this.form)
-        this.$store.commit(
-          'alert/SUCCESS_ALERT',
-          'Profile readme updated successfully'
-        )
+        this.$toast.success('Updated successfully')
         this.loading = false
         this.errors = {}
       } catch (e) {
