@@ -54,7 +54,7 @@ export default {
     }
   },
   beforeDestroy() {
-    this.user = null
+    this.$store.commit('publicUser/SET_USER', null)
   },
 }
 </script>

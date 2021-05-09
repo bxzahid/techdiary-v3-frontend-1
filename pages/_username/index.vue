@@ -2,10 +2,14 @@
   <main class="col-span-12 md:col-span-9 md:px-4">
     <div>
       <div class="readme-content dark:bg-gray-800">
-        <div v-if="!user">
+        <div
+          v-if="user"
+          class="markdown"
+          v-html="user && user.profile_readme"
+        ></div>
+        <div v-else>
           <skelleton-user-profile-readme />
         </div>
-        <div v-else class="markdown" v-html="user.profile_readme"></div>
       </div>
     </div>
   </main>
