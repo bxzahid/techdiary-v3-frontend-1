@@ -127,14 +127,14 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('scroll', () => {
-      this.changeProgressCircleOnScroll()
-    })
+    window.addEventListener('scroll',
+      this.changeProgressCircleOnScroll
+    )
   },
   beforeDestroy() {
-    window.removeEventListener('scroll', () => {
-      this.changeProgressCircleOnScroll()
-    })
+    window.removeEventListener('scroll',
+      this.changeProgressCircleOnScroll
+    )
   },
   async fetch() {
     try {
@@ -160,12 +160,17 @@ export default {
   },
   methods: {
     changeProgressCircleOnScroll() {
-      // console.log('scrollY', window.scrollY)
-      // console.log('offsetTop', this.$refs.content?.offsetTop)
-      // console.log('offsetheight', this.$refs.content?.offsetHeight)
-      // console.log('innerHeight', window.innerHeight)
-
-      this.articleProgress = Math.round(((window.scrollY - this.$refs.content?.offsetTop) / (this.$refs.content?.offsetHeight - window.innerHeight)) * 100)
+      const scrollTop = window.scrollY,
+        contentOffsetTop = this.$refs.content?.offsetTop,
+        contentHeight = this.$refs.content?.offsetHeight,
+        innerHeight = window.innerHeight
+      let progress = Math.round(((scrollTop - contentOffsetTop) / (contentHeight - innerHeight)) * 100)
+      if (progress <= 0) {
+        progress = 0
+      } else if (progress >= 100 || (contentHeight - innerHeight) <= 0) {
+        progress = 100
+      }
+      this.articleProgress = progress
     }
   },
 }
