@@ -1,5 +1,6 @@
 <template>
   <aside>
+    <techdiary-image />
     <a
       href="https://contest.techdiary.dev"
       target="_blank"

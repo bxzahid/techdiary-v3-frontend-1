@@ -37,6 +37,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '@/plugins/urlHost.js',
     '@/plugins/visibility-observer.js',
     '@/plugins/select.client.js',
     '@/plugins/clickaway.js',
