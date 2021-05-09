@@ -2,10 +2,9 @@
   <div>
     <article-user-info :article="article" :showReactionAlways="true" />
 
-    <div v-if="article.thumbnail">
+    <div v-if="article.thumbnail" class="w-full overflow-hidden rounded-md">
       <nuxt-link :to="articleUrl">
         <image-widget
-          class="w-full rounded-md"
           :imageUrl="article.thumbnail"
           crop="scale"
           width="600"
