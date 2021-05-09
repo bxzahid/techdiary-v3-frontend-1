@@ -1,4 +1,29 @@
 import md from '~/mixins/MarkdownParser'
+// import ImageWidget from '~/components/ImageWidget.vue'
+// import Vue from 'vue'
+
+class ArticleImage {
+  constructor(imageUrl) {
+    this.imageUrl = imageUrl
+  }
+
+  checkHost() {
+    const url = new URL(this.imageUrl)
+    return url.host
+  }
+  isCloudinary() {
+    return this.checkHost() === 'res.cloudinary.com'
+  }
+  cloudinaryPublicId() {
+    if (!this.isCloudinary)
+      throw new Error('This is not a cloudinary image url')
+    return this.imageUrl.split('/').slice(-2).join('/')
+  }
+
+  getImageUrl() {
+    return this.isCloudinary() ? $cloudinary.url(this.cloudinaryPublicId()) : ''
+  }
+}
 
 const editorjsParser = (blocks) => {
   var html = ''
@@ -30,6 +55,21 @@ const editorjsParser = (blocks) => {
        *  Block: Image
        * --------------------------------------------------
        */
+      // const img = new ArticleImage(block.data.file.url)
+      // console.log(img.getImageUrl())
+      // html += 'Image'
+
+      // const ImageViewer = Vue.extend(ImageWidget)
+      // const ImageViewerComponent = new ImageViewer({
+      //   propsData: {
+      //     width: 1200,
+      //     fetchFormat: 'auto',
+      //     quality: 'auto',
+      //     loading: 'lazy',
+      //     imageUrl: block.data.file.url,
+      //     alt: block.data.caption,
+      //   },
+      // }).$mount()
 
       const title = block.data.caption ? block.data.caption : 'article-image'
       html += `
@@ -39,7 +79,6 @@ const editorjsParser = (blocks) => {
           <img src="${
             block.data.file.url
           }" title="Techdiary: ${title}" alt="Techdiary: ${title}" />
-
         ${
           block.data.caption
             ? `<figcaption>${block.data.caption}</figcaption>`

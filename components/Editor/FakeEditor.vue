@@ -1,12 +1,17 @@
 <template>
   <div class="mb-10 bg-white rounded-md dark:bg-gray-900">
     <div class="flex items-center space-x-2">
-      <img
-        :src="$auth.user.profilePhoto"
-        :alt="$auth.user.username"
-        class="w-8 rounded-full"
-        v-if="$auth.loggedIn"
-      />
+      <div class="w-8 overflow-hidden rounded-full" v-if="$auth.loggedIn">
+        <image-widget
+          crop="scale"
+          width="32"
+          fetchFormat="auto"
+          quality="auto"
+          loading="lazy"
+          :imageUrl="$auth.user.profilePhoto"
+          :alt="$auth.user.username"
+        />
+      </div>
 
       <svg
         v-if="!$auth.loggedIn"

@@ -10,11 +10,16 @@
         <nuxt-link
           :to="{ name: 'username', params: { username: user.username } }"
         >
-          <img
-            class="w-10 h-10 rounded-full"
-            :src="user.profilePhoto"
-            alt="user.username"
-          />
+          <div class="w-10 h-10 overflow-hidden rounded-full">
+            <image-widget
+              crop="scale"
+              width="40"
+              fetchFormat="auto"
+              quality="auto"
+              loading="lazy"
+              :imageUrl="user.profilePhoto"
+            />
+          </div>
         </nuxt-link>
 
         <div class="ml-2">

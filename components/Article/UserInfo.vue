@@ -5,12 +5,17 @@
       :to="userProfileUrl"
       class="flex items-center space-x-2 font-mono"
     >
-      <img
-        class="w-8 rounded-full"
-        :src="article.user.profilePhoto"
-        :alt="article.user.name"
-      />
-
+      <div class="w-8 overflow-hidden rounded-full">
+        <image-widget
+          crop="scale"
+          width="32"
+          fetchFormat="auto"
+          quality="auto"
+          loading="lazy"
+          :imageUrl="article.user.profilePhoto"
+          :alt="article.user.name"
+        />
+      </div>
       <span class="font-mono text-dark-secondary">
         {{ article.user.username }}
       </span>
