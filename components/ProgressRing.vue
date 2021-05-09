@@ -30,7 +30,7 @@ export default {
       return this.normalizedRadius * 2 * Math.PI
     },
     offset() {
-      return this.circumference - (this.progress / 100 * this.circumference)
+      return this.circumference - ((this.progress < 0 ? 0 : this.progress > 100 ? 100 : this.progress) / 100 * this.circumference)
     }
   }
 }

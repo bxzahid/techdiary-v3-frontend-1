@@ -123,8 +123,18 @@ export default {
       comments: [],
       articleProgress: 0,
       progressGsap: null,
-      updatedCount: 0,
+      updatedCount: 0
     }
+  },
+  mounted() {
+    window.addEventListener('scroll', () => {
+      this.changeProgressCircleOnScroll()
+    })
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', () => {
+      this.changeProgressCircleOnScroll()
+    })
   },
   async fetch() {
     try {
@@ -149,20 +159,14 @@ export default {
     },
   },
   methods: {
-    scrollContentAnimation() {
-      this.progressGsap = this.$gsap.to(this, {
-        articleProgress: 100,
-        duration: 0.5,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: this.$refs.content,
-          start: 'top 20%',
-          end: 'bottom 80%',
-          scrub: 0.3,
-          // markers: true
-        },
-      })
-    },
+    changeProgressCircleOnScroll() {
+      // console.log('scrollY', window.scrollY)
+      // console.log('offsetTop', this.$refs.content?.offsetTop)
+      // console.log('offsetheight', this.$refs.content?.offsetHeight)
+      // console.log('innerHeight', window.innerHeight)
+
+      this.articleProgress = Math.round(((window.scrollY - this.$refs.content?.offsetTop) / (this.$refs.content?.offsetHeight - window.innerHeight)) * 100)
+    }
   },
 }
 </script>

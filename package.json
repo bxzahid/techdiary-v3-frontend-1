@@ -23,7 +23,6 @@
     "bnnum": "^1.0.6",
     "codemirror": "^5.60.0",
     "core-js": "^3.6.5",
-    "gsap": "^3.6.1",
     "highlight.js": "^10.6.0",
     "laravel-echo": "^1.10.0",
     "lodash.clonedeep": "^4.5.0",

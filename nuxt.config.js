@@ -43,7 +43,6 @@ export default {
     '@/plugins/fragment.js',
     '@/plugins/bn.js',
     '@/plugins/echo.client.js',
-    '@/plugins/gsap.client.js',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
