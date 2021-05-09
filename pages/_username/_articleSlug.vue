@@ -72,14 +72,14 @@ import reactions from '~/mixins/reactions'
 
 export default {
   name: 'techdiary-details',
-  mixins: [reactions],
+  mixins: [reactions, editorjsParser],
   head() {
     return {
       title: this.article ? this.article?.title : 'Please wait...',
       meta: [
         {
           name: 'description',
-          content: `${this.article?.title} | Techdiary`,
+          content: `${this.article?.title} | Techdiary`
         },
         {
           property: 'og:title',
@@ -141,7 +141,7 @@ export default {
       const { data: article } = await this.$axios.get(
         `api/articles/${this.$route.params.articleSlug}`
       )
-      article.data.body = editorjsParser(article.data.body)
+      article.data.body = this.editorJsParser(article.data.body)
       this.article = article.data
       this.reactions = article.data.reactions
     } catch (error) {
