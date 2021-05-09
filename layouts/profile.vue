@@ -53,5 +53,8 @@ export default {
       })
     }
   },
+  beforeDestroy() {
+    this.user = null
+  },
 }
 </script>
