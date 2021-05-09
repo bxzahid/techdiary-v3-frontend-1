@@ -75,7 +75,7 @@ export default {
   mixins: [reactions],
   head() {
     return {
-      title: this.article?.title,
+      title: this.article ? this.article?.title : 'Please wait...',
       meta: [
         {
           name: 'description',

@@ -11,9 +11,13 @@
           v-if="$auth.user.profilePhoto"
           class="w-8 h-8 mr-2 overflow-hidden rounded-full cursor-pointer"
         >
-          <img
-            v-if="$auth.user.profilePhoto"
-            :src="$auth.user.profilePhoto"
+          <image-widget
+            crop="scale"
+            width="32"
+            fetchFormat="auto"
+            quality="auto"
+            loading="lazy"
+            :imageUrl="$auth.user.profilePhoto"
             :alt="$auth.user.name"
           />
         </div>

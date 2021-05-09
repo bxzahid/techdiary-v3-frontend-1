@@ -7,7 +7,13 @@
     <cld-placeholder type="vectorize" />
   </cld-image>
 
-  <img v-else :src="imageUrl" alt="alt" v-bind="$attrs" />
+  <img
+    v-else
+    :src="imageUrl"
+    :alt="alt"
+    class="w-full h-auto"
+    v-bind="$attrs"
+  />
 </template>
 <script>
 export default {
