@@ -69,17 +69,18 @@
 <script>
 import editorjsParser from '~/mixins/editorjsParser'
 import reactions from '~/mixins/reactions'
+import cloudinary from '~/mixins/cloudinary'
 
 export default {
   name: 'techdiary-details',
-  mixins: [reactions, editorjsParser],
+  mixins: [reactions, editorjsParser, cloudinary],
   head() {
     return {
       title: this.article ? this.article?.title : 'Please wait...',
       meta: [
         {
           name: 'description',
-          content: `${this.article?.title} | Techdiary`
+          content: `${this.article?.title} | Techdiary`,
         },
         {
           property: 'og:title',
@@ -87,7 +88,12 @@ export default {
         },
         {
           property: 'og:image',
-          content: this.article?.thumbnail,
+          content:
+            this.article?.thumbnail ??
+            this.socialMediaImage(
+              this.article.title,
+              this.article.user.username
+            ),
         },
         {
           property: 'og:image:width',
@@ -123,18 +129,14 @@ export default {
       comments: [],
       articleProgress: 0,
       progressGsap: null,
-      updatedCount: 0
+      updatedCount: 0,
     }
   },
   mounted() {
-    window.addEventListener('scroll',
-      this.changeProgressCircleOnScroll
-    )
+    window.addEventListener('scroll', this.changeProgressCircleOnScroll)
   },
   beforeDestroy() {
-    window.removeEventListener('scroll',
-      this.changeProgressCircleOnScroll
-    )
+    window.removeEventListener('scroll', this.changeProgressCircleOnScroll)
   },
   async fetch() {
     try {
@@ -164,14 +166,16 @@ export default {
         contentOffsetTop = this.$refs.content?.offsetTop,
         contentHeight = this.$refs.content?.offsetHeight,
         innerHeight = window.innerHeight
-      let progress = Math.round(((scrollTop - contentOffsetTop) / (contentHeight - innerHeight)) * 100)
+      let progress = Math.round(
+        ((scrollTop - contentOffsetTop) / (contentHeight - innerHeight)) * 100
+      )
       if (progress <= 0) {
         progress = 0
-      } else if (progress >= 100 || (contentHeight - innerHeight) <= 0) {
+      } else if (progress >= 100 || contentHeight - innerHeight <= 0) {
         progress = 100
       }
       this.articleProgress = progress
-    }
+    },
   },
 }
 </script>
