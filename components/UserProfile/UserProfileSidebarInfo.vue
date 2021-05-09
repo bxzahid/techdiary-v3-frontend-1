@@ -25,7 +25,7 @@
       <div v-if="user.designation" class="mt-3 italic dark:text-gray-200">
         {{ user.designation }}
       </div>
-      <p class="mt-2 dark:text-gray-500">
+      <p class="mt-2 dark:text-gray-300">
         {{ user.bio }}
       </p>
     </div>
@@ -253,6 +253,7 @@
       </div>
     </div>
   </aside>
+
   <div v-else class="col-span-12 md:col-span-3">
     <svg
       class="w-full text-gray-300 rounded dark:text-gray-600 animate-pulse"

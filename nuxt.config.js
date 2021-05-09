@@ -41,7 +41,6 @@ export default {
     '@/plugins/select.client.js',
     '@/plugins/clickaway.js',
     '@/plugins/fragment.js',
-    '@/plugins/skeleton.js',
     '@/plugins/bn.js',
     '@/plugins/echo.client.js',
     '@/plugins/gsap.client.js',

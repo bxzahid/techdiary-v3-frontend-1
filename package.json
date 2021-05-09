@@ -69,7 +69,6 @@
     "sass": "^1.32.4",
     "sass-loader": "^10.1.1",
     "tailwindcss": "^2.1.2",
-    "vue-loading-skeleton": "^1.1.9",
     "vue-observe-visibility": "^1.0.0"
   }
 }

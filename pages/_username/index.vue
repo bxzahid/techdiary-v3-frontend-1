@@ -2,11 +2,7 @@
   <main class="col-span-12 md:col-span-9 md:px-4">
     <div>
       <div class="readme-content dark:bg-gray-800">
-        <!-- <div class="markdown" v-html="user && user.profile_readme"></div> -->
-
-        <pre>
-          {{ user }}
-        </pre>
+        <div class="markdown" v-html="user && user.profile_readme"></div>
       </div>
     </div>
   </main>

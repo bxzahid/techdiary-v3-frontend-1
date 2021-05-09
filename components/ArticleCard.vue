@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-5">
+  <div>
     <article-user-info :article="article" :showReactionAlways="true" />
 
     <div v-if="article.thumbnail">
@@ -29,9 +29,9 @@
       <div class="flex flex-wrap space-x-2 text-dark-secondary">
         <nuxt-link
           :to="{ name: 'tags-name', params: { name: tag.name } }"
-          v-for='(tag, index) in article.tags'
-          :key='tag.id'
-          v-if='index < 3'
+          v-for="(tag, index) in article.tags"
+          :key="tag.id"
+          v-if="index < 3"
         >
           #{{ tag.name }}
         </nuxt-link>

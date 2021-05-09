@@ -1,6 +1,6 @@
 <template>
   <Fragment>
-    <h3 class="-mb-4 font-bold text-dark">সর্বশেষ নিবন্ধিত ব্যবহারকারী</h3>
+    <h3 class="-mb-4 text-dark">সর্বশেষ নিবন্ধিত ব্যবহারকারী</h3>
 
     <div v-if="$fetchState.pending">
       <skelleton-user-list v-for="i in new Array(10)" :key="i" />

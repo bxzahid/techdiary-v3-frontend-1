@@ -1,6 +1,5 @@
 <template>
   <div>
-    <progress max='100' value='0' class='hidden' ref='article_progress'></progress>
     <div v-if="$fetchState.pending" class="wrapper">
       <skelleton-article-details />
     </div>
@@ -14,7 +13,7 @@
       </alert>
 
       <div class="fixed hidden w-32 md:block top-25">
-        <ArticleReactions :article='article' :progress='articleProgress' />
+        <ArticleReactions :article="article" :progress="articleProgress" />
       </div>
       <div class="mx-auto md:w-8/12">
         <div v-if="article.thumbnail" class="overflow-hidden rounded-md">
@@ -22,19 +21,20 @@
         </div>
 
         <!-- Title and meta start -->
-        <div class='my-4'>
-          <h2 class='text-3xl md:text-4xl dark:text-gray-300 font-Boshonto'>
+        <div class="my-4">
+          <h2 class="text-3xl md:text-4xl dark:text-gray-300 font-Boshonto">
             {{ article.title }}
           </h2>
-          <p class='text-dark-secondary'>
+          <p class="text-dark-secondary">
             {{ $moment(article.created_at).format('LLLL') }}
           </p>
           <!-- tags -->
-          <div class='flex flex-wrap text-dark-secondary'>
-            <nuxt-link class='mr-2'
-                       :to="{ name: 'tags-name', params: { name: tag.name } }"
-                       v-for='tag in article.tags'
-                       :key='tag.id'
+          <div class="flex flex-wrap text-dark-secondary">
+            <nuxt-link
+              class="mr-2"
+              :to="{ name: 'tags-name', params: { name: tag.name } }"
+              v-for="tag in article.tags"
+              :key="tag.id"
             >
               #{{ tag.name }}
             </nuxt-link>
@@ -42,22 +42,23 @@
         </div>
 
         <!-- Title and meta end -->
-        <article-user-info :article='article' />
+        <article-user-info :article="article" />
 
-        <div class='mt-3'>
-          <a href='https://contest.techdiary.dev' target='_blank'>
+        <div class="mt-3">
+          <a href="https://contest.techdiary.dev" target="_blank">
             <img
-              class='w-full rounded-md'
-              src='https://res.cloudinary.com/techdiary-dev/image/upload/v1619780480/static-assets/contest/k09ialie9h1cr5tir9wi.png'
-              alt='dev-article-contest-season-1'
+              class="w-full rounded-md"
+              src="https://res.cloudinary.com/techdiary-dev/image/upload/v1619780480/static-assets/contest/k09ialie9h1cr5tir9wi.png"
+              alt="dev-article-contest-season-1"
             />
           </a>
         </div>
 
-        <article ref='content'
-                 class='my-6 content-typography text-dark max-w-none'
-                 :id='article.id'
-                 v-html='article.body'
+        <article
+          ref="content"
+          class="my-6 content-typography text-dark max-w-none"
+          :id="article.id"
+          v-html="article.body"
         />
 
         <article-comments />
@@ -78,7 +79,7 @@ export default {
       meta: [
         {
           name: 'description',
-          content: `${this.article?.title} | Techdiary`
+          content: `${this.article?.title} | Techdiary`,
         },
         {
           property: 'og:title',
@@ -107,12 +108,12 @@ export default {
         },
         {
           property: 'twitter:image',
-          content: this.article?.thumbnail
+          content: this.article?.thumbnail,
         },
         {
           property: 'keywords',
-          content: `${this.article?.tags.map((k) => k.name).join(',')}`
-        }
+          content: `${this.article?.tags.map((k) => k.name).join(',')}`,
+        },
       ],
     }
   },
@@ -122,7 +123,7 @@ export default {
       comments: [],
       articleProgress: 0,
       progressGsap: null,
-      updatedCount: 0
+      updatedCount: 0,
     }
   },
   async fetch() {
@@ -142,10 +143,10 @@ export default {
       return {
         name: 'username',
         params: {
-          username: this.article.user.username
-        }
+          username: this.article.user.username,
+        },
       }
-    }
+    },
   },
   methods: {
     scrollContentAnimation() {
@@ -159,13 +160,11 @@ export default {
           end: 'bottom 80%',
           scrub: 0.3,
           // markers: true
-        }
+        },
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

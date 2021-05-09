@@ -1,19 +1,16 @@
 <template>
-  <div class="pb-5 mb-5">
-    <!-- top bar -->
-    <div class="flex justify-between">
-      <PuSkeleton circle height="40px" width="40px" />
-      <div>
-        <PuSkeleton height="35px" width="35px" />
-        <PuSkeleton height="35px" width="35px" />
-      </div>
-    </div>
+  <svg
+    class="w-full mb-5 text-gray-200 animate-pulse dark:text-gray-600"
+    viewBox="0 0 587 479"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect x="4" y="52" height="373" rx="6" class="w-full fill-current" />
 
-    <!-- thumbnail -->
-    <PuSkeleton height="250px" />
-
-    <div>
-      <PuSkeleton height="12px" :count="2" />
-    </div>
-  </div>
+    <rect x="4" y="440" width="583" height="20" rx="6" class="fill-current" />
+    <rect x="4" y="468" width="359" height="15" rx="6" class="fill-current" />
+    <circle cx="20" cy="20" r="20" class="fill-current" />
+    <rect x="502" y="3" width="35" rx="6" height="35" class="fill-current" />
+    <rect x="552" y="3" width="35" rx="6" height="35" class="fill-current" />
+  </svg>
 </template>

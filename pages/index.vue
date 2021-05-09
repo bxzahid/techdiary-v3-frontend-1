@@ -7,7 +7,7 @@
     <editor-fake-editor />
 
     <div v-if="$fetchState.pending">
-      <skelleton-article-card v-for="i in new Array(4)" :key="i" />
+      <skelleton-article-card v-for="i in new Array(6)" :key="i" />
     </div>
 
     <div v-else>

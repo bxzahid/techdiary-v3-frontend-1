@@ -21,7 +21,7 @@
   }
 
   a {
-    @apply text-blue-600 font-semibold;
+    @apply text-blue-400 font-normal;
   }
 
   h1 {
@@ -45,21 +45,33 @@
   }
 
   h6 {
-    @apply leading-tight text-sm font-semibold text-gray-600 mb-4 mt-6;
+    @apply leading-tight text-sm font-semibold mb-4 mt-6;
   }
 
   blockquote {
-    @apply text-base border-l-4 border-gray-300 pl-4 pr-4 text-gray-600;
+    @apply text-base border-l-4 border-gray-300 pl-4 pr-4;
   }
 
   code {
     @apply font-mono text-sm inline bg-gray-200 rounded px-1 py-1;
   }
 
+  img {
+    @apply inline-block;
+  }
+
   pre {
     @apply bg-gray-100 rounded p-4;
     code {
       @apply block bg-transparent p-0 overflow-visible rounded-none;
+    }
+
+    &.hljs {
+      background-color: #1f2937;
+
+      code {
+        @apply leading-loose;
+      }
     }
   }
 
