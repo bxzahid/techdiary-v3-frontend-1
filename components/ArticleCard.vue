@@ -5,6 +5,7 @@
     <div v-if="article.thumbnail">
       <nuxt-link :to="articleUrl">
         <image-widget
+          class="w-full rounded-md"
           :imageUrl="article.thumbnail"
           crop="scale"
           width="600"
