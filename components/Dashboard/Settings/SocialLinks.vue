@@ -4,17 +4,17 @@
       Social Links
     </div>
     <div>
-      <form action='#' method='POST' @submit.prevent='save'>
+      <form action="#" method="POST" @submit.prevent="save">
         <form-input
-          v-for='(url, service) in form'
-          :key='service'
-          :label='service'
-          class='mb-3'
-          v-model='form[service]'
-          :placeholder='`আপনার ${service} লিংক`'
-          type='text'
-          :error='hasError(service)'
-          :helperText='hasErrorMessage(service)'
+          v-for="(url, service) in form"
+          :key="service"
+          :label="service"
+          class="mb-3"
+          v-model="form[service]"
+          :placeholder="`আপনার ${service} লিংক`"
+          type="text"
+          :error="hasError(service)"
+          :helperText="hasErrorMessage(service)"
         />
 
         <form-button :loading="loading"> হালনাগাদ </form-button>
@@ -71,6 +71,7 @@ export default {
         await this.$axios.$post('/api/auth/update-profile', {
           social_links: this.form,
         })
+        this.$toast.success('Updated successfully')
         this.$store.commit(
           'alert/SUCCESS_ALERT',
           'Social link updated successfully'

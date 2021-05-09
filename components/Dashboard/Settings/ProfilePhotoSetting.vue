@@ -123,6 +123,7 @@ export default {
         profilePhoto: this.profilePhoto,
       })
       await this.$auth.fetchUser()
+      this.$toast.success('Updated successfully')
       this.dirty = false
     },
   },
