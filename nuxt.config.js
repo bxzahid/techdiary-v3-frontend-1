@@ -122,7 +122,9 @@ export default {
     cssPath: '~/assets/styles/app.scss',
   },
   cloudinary: {
-    cloudName: process.env.NUXT_ENV_CLOUDINARY_CLOUDNAME,
+    cloudName: process.env.NUXT_APP_CLOUDINARY_CLOUDNAME,
+    apiKey: process.env.NUXT_ENV_CLOUDINARY_API_KEY,
+    useComponent: true,
   },
   googleAnalytics: {
     id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID,
