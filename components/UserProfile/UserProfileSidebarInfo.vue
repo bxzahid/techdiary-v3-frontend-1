@@ -1,11 +1,17 @@
 <template>
   <aside class="col-span-12 mb-5 md:mb-0 md:col-span-3" v-if="user">
     <div class="rounded w-72 md:w-full" v-if="user.profilePhoto">
-      <img
-        class="object-cover w-full h-auto rounded"
-        :src="user.profilePhoto"
-        :alt="user.username"
-      />
+      <div class="object-cover w-full h-auto overflow-hidden rounded">
+        <image-widget
+          crop="scale"
+          width="300"
+          fetchFormat="auto"
+          quality="auto"
+          loading="lazy"
+          :imageUrl="user.profilePhoto"
+          :alt="user.username"
+        />
+      </div>
     </div>
 
     <div class="mt-5">
