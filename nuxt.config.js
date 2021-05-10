@@ -123,7 +123,6 @@ export default {
   },
   cloudinary: {
     cloudName: process.env.NUXT_APP_CLOUDINARY_CLOUDNAME,
-    apiKey: process.env.NUXT_ENV_CLOUDINARY_API_KEY,
     useComponent: true,
   },
   googleAnalytics: {

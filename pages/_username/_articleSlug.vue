@@ -17,7 +17,15 @@
       </div>
       <div class="mx-auto md:w-8/12">
         <div v-if="article.thumbnail" class="overflow-hidden rounded-md">
-          <img :src="article.thumbnail" :alt="article.title" />
+          <image-widget
+            crop="scale"
+            width="1200"
+            fetchFormat="auto"
+            quality="auto"
+            loading="lazy"
+            :imageUrl="article.thumbnail"
+            :alt="article.title"
+          />
         </div>
 
         <!-- Title and meta start -->
