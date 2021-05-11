@@ -16,14 +16,15 @@
           From: "opacity-100"
           To: "opacity-0"
       -->
-      <transition name="background-overlay">
+      <transition enter-active-class='ease-out duration-300' enter-class='opacity-0' enter-to-class='opacity-100'
+                  leave-active-class='ease-in duration-200' leave-class='opacity-100' leave-to-class='opacity-0'>
         <div
-          class="fixed inset-0 transition-opacity"
-          aria-hidden="true"
-          v-if="show"
-          @click="clickAway"
+          class='fixed inset-0 transition-opacity'
+          aria-hidden='true'
+          v-if='show'
+          @click='clickAway'
         >
-          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+          <div class='absolute inset-0 bg-gray-500 opacity-75'></div>
         </div>
       </transition>
       <!-- This element is to trick the browser into centering the modal contents. -->
