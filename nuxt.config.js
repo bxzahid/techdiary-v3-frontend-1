@@ -30,6 +30,14 @@ export default {
       },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
     ],
+    script: [
+      {
+        src: 'https://plausible.io/js/plausible.js',
+        'data-domain': 'techdiary.dev',
+        defer: true,
+        async: true,
+      },
+    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
