@@ -37,8 +37,6 @@
       </button>
     </div>
     <div class='mt-4'>
-      <!-- thumbnail -->
-      <EditorThumbnail v-model='article.thumbnail' />
 
       <div class='my-5'>
         <multi-select

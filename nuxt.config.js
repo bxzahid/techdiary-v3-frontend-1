@@ -118,7 +118,6 @@ export default {
   },
 
   tailwindcss: {
-    jit: true,
     cssPath: '~/assets/styles/app.scss',
   },
   cloudinary: {

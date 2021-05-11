@@ -100,9 +100,11 @@ export default {
     async handleUploadImage(event) {
       this.loading = true
       const file = event.target.files[0]
+      console.log(event)
       if (!file) return
 
       this.thumbnail = await this.uploadFile(file, 'techdiary-article-covers')
+      console.log(this.thumbnail)
       this.loading = false
     },
     openUploadWindow() {

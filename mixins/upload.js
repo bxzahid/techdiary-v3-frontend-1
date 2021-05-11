@@ -1,23 +1,17 @@
 export default {
   methods: {
-    uploadFile(file, preset) {
-      return new Promise(async (resolve) => {
-        const fd = new FormData()
-        fd.append('file', file)
-        fd.append('upload_preset', preset)
+    async uploadFile(file, preset) {
 
-        // TODO: handle exception
-        const fetchApi = await fetch(
-          `https://api.cloudinary.com/v1_1/techdiary-dev/image/upload`,
-          {
-            method: 'POST',
-            body: fd,
-          }
-        )
-        const res = await fetchApi.json()
-
-        resolve(res.secure_url)
+      /* create a reader */
+      const readData = (f) => new Promise((resolve) => {
+        const reader = new FileReader()
+        reader.onloadend = () => resolve(reader.result)
+        reader.readAsDataURL(f)
       })
-    },
+
+      const data = await readData(file)
+      const asset = await this.$cloudinary.upload(data, { upload_preset: preset })
+      return asset.public_id
+    }
   },
 }
