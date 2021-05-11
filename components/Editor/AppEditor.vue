@@ -2,8 +2,6 @@
   <div>
     <header
       class='sticky top-0 z-10 mx-auto bg-white dark:bg-gray-900 bg-opacity-50 dark:bg-opacity-50 h-[72px] backdrop-filter backdrop-blur max-w-8xl firefox:bg-opacity-90 max-w-4xl px-3 md:px-0'>
-
-
       <nav
         class=' flex items-center justify-between h-full'>
         <nuxt-link
@@ -123,7 +121,7 @@
         placeholder='ডায়েরির শিরোনাম'
         v-model='article.title'
       />
-      <div id='techdiary-editor' class='text-dark td-editor'></div>
+      <div id="techdiary-editor" class="text-dark td-editor"></div>
     </div>
     <!-- ======================================================= -->
     <!-- Editor Content end -->
@@ -133,11 +131,11 @@
     <!-- Sidebar Content start -->
     <!-- ======================================================= -->
     <div
-      class='fixed inset-0 w-full z-30 overflow-y-auto'
-      :class='[showOptions ? "visible" : "invisible"]'
+      class="fixed inset-0 z-30 w-full overflow-y-auto"
+      :class="[showOptions ? 'visible' : 'invisible']"
     >
       <div
-        class='flex items-end justify-end min-h-screen px-4 pt-4 pb-20 text-right mr-3 sm:block sm:p-0'
+        class="flex items-end justify-end min-h-screen px-4 pt-4 pb-20 mr-3 text-right sm:block sm:p-0"
       >
         <!--
           Background overlay, show/hide based on modal state.
@@ -148,18 +146,21 @@
             From: "opacity-100"
             To: "opacity-0"
         -->
-        <transition enter-active-class='ease-out duration-300'
-                    enter-class='opacity-0'
-                    enter-to-class='opacity-100'
-                    leave-active-class='ease-in duration-200'
-                    leave-class='opacity-100' leave-to-class='opacity-0'>
+        <transition
+          enter-active-class="duration-300 ease-out"
+          enter-class="opacity-0"
+          enter-to-class="opacity-100"
+          leave-active-class="duration-200 ease-in"
+          leave-class="opacity-100"
+          leave-to-class="opacity-0"
+        >
           <div
-            class='fixed inset-0 transition-opacity'
-            aria-hidden='true'
-            v-if='showOptions'
-            @click='closeOptions'
+            class="fixed inset-0 transition-opacity"
+            aria-hidden="true"
+            v-if="showOptions"
+            @click="closeOptions"
           >
-            <div class='absolute inset-0 bg-gray-500 opacity-75'></div>
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
           </div>
         </transition>
 
@@ -172,11 +173,14 @@
             From: "opacity-100 translate-y-0 sm:scale-100"
             To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         -->
-        <transition enter-active-class='ease-out duration-300'
-                    enter-class='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
-                    enter-to-class='opacity-100 translate-y-0 sm:scale-100' leave-active-class='ease-in duration-200'
-                    leave-class='opacity-100 translate-y-0 sm:scale-100'
-                    leave-to-class='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
+        <transition
+          enter-active-class="duration-300 ease-out"
+          enter-class="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
+          enter-to-class="translate-y-0 opacity-100 sm:scale-100"
+          leave-active-class="duration-200 ease-in"
+          leave-class="translate-y-0 opacity-100 sm:scale-100"
+          leave-to-class="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
+        >
           <div
             class='inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-md shadow-xl sm:my-8 max-w-sm w-full'
             role='dialog'
@@ -184,17 +188,16 @@
             aria-labelledby='modal-headline'
             v-if='showOptions'
           >
-            <div class='px-4 py-5 bg-white w-full dark:bg-gray-800'>
+            <div class="w-full px-4 py-5 bg-white dark:bg-gray-800">
               <div>
-                <div class='mt-3 text-center sm:mt-0 sm:text-left'>
-                  <div class='mt-2'>
+                <div class="mt-3 text-center sm:mt-0 sm:text-left">
+                  <div class="mt-2">
                     <editor-meta
-                      @closeMeta='closeOptions'
-                      :loading='loading'
-                      :article='article'
-                      @saveArticle='() => save()'
+                      @closeMeta="closeOptions"
+                      :loading="loading"
+                      :article="article"
+                      @saveArticle="() => save()"
                     />
-
                   </div>
                 </div>
               </div>
@@ -205,8 +208,6 @@
     </div>
   </div>
 </template>
-
-
 
 <script>
 import upload from '~/mixins/upload'
