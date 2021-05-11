@@ -89,6 +89,7 @@
 
 <script>
 export default {
+  fetchOnServer: false,
   data() {
     return {
       pageviews: 0,

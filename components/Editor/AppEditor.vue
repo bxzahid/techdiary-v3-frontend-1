@@ -1,73 +1,74 @@
 <template>
   <div>
     <nav
-      class='sticky top-0 z-10 mx-auto bg-opacity-50 h-[72px] bg-white dark:bg-gray-900 backdrop-filter backdrop-blur max-w-8xl xl:px-8 firefox:bg-opacity-90 flex items-center justify-between p-8'>
+      class="sticky top-0 z-10 mx-auto bg-opacity-50 h-[72px] bg-white dark:bg-gray-900 backdrop-filter backdrop-blur max-w-8xl xl:px-8 firefox:bg-opacity-90 flex items-center justify-between p-8"
+    >
       <nuxt-link
         :to="{ name: 'dashboard-diaries' }"
-        class='flex items-center space-x-2 text-dark'
+        class="flex items-center space-x-2 text-dark"
       >
         <svg
-          class='w-4 h-4'
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
+          class="w-4 h-4"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
           <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-width='2'
-            d='M10 19l-7-7m0 0l7-7m-7 7h18'
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
           />
         </svg>
 
         <span>ডায়েরি সমূহ</span>
       </nuxt-link>
-      <div class='flex items-center space-x-2'>
+      <div class="flex items-center space-x-2">
         <button
-          class='flex px-3 py-2 rounded-md items-center space-x-1 justify-center transition duration-150 text-dark opacity-90 transform focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-500'
-          @click='openOptions'
+          class="flex items-center justify-center px-3 py-2 space-x-1 transition duration-150 transform rounded-md text-dark opacity-90 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-500"
+          @click="openOptions"
         >
           <svg
-            class=' stroke-1 w-7'
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
+            class="stroke-1 w-7"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
             <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
             />
             <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
           <span>সেটিংস</span>
         </button>
         <button
-          class='flex items-center justify-center px-5 py-1 rounded-full bg-primary'
-          @click='save'
+          class="flex items-center justify-center px-5 py-1 rounded-full bg-primary"
+          @click="save"
         >
           <svg
-            v-if='loading'
-            class='w-5 h-5 mr-2 animate-spin'
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
+            v-if="loading"
+            class="w-5 h-5 mr-2 animate-spin"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
           >
             <circle
-              class='opacity-25'
-              cx='12'
-              cy='12'
-              r='10'
-              stroke='currentColor'
-              stroke-width='4'
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
             ></circle>
             <path
               class="opacity-75"
@@ -78,8 +79,6 @@
           <span v-if="loading">অপেক্ষা করুন...</span>
           <span v-else>সেভ করুন</span>
         </button>
-
-
       </div>
     </nav>
     <!-- ======================================================= -->
@@ -92,7 +91,7 @@
         placeholder="ডায়েরির শিরোনাম"
         v-model="article.title"
       />
-      <div id='techdiary-editor' class='text-dark td-editor'></div>
+      <div id="techdiary-editor" class="text-dark td-editor"></div>
     </div>
     <!-- ======================================================= -->
     <!-- Editor Content end -->
@@ -123,11 +122,11 @@
     <!--      </div>-->
     <!--    </transition>-->
     <div
-      class='fixed inset-0 w-full z-30 overflow-y-auto'
-      :class='[showOptions ? "visible" : "invisible"]'
+      class="fixed inset-0 z-30 w-full overflow-y-auto"
+      :class="[showOptions ? 'visible' : 'invisible']"
     >
       <div
-        class='flex items-end justify-end min-h-screen px-4 pt-4 pb-20 text-right mr-3 sm:block sm:p-0'
+        class="flex items-end justify-end min-h-screen px-4 pt-4 pb-20 mr-3 text-right sm:block sm:p-0"
       >
         <!--
           Background overlay, show/hide based on modal state.
@@ -138,18 +137,21 @@
             From: "opacity-100"
             To: "opacity-0"
         -->
-        <transition enter-active-class='ease-out duration-300'
-                    enter-class='opacity-0'
-                    enter-to-class='opacity-100'
-                    leave-active-class='ease-in duration-200'
-                    leave-class='opacity-100' leave-to-class='opacity-0'>
+        <transition
+          enter-active-class="duration-300 ease-out"
+          enter-class="opacity-0"
+          enter-to-class="opacity-100"
+          leave-active-class="duration-200 ease-in"
+          leave-class="opacity-100"
+          leave-to-class="opacity-0"
+        >
           <div
-            class='fixed inset-0 transition-opacity'
-            aria-hidden='true'
-            v-if='showOptions'
-            @click='closeOptions'
+            class="fixed inset-0 transition-opacity"
+            aria-hidden="true"
+            v-if="showOptions"
+            @click="closeOptions"
           >
-            <div class='absolute inset-0 bg-gray-500 opacity-75'></div>
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
           </div>
         </transition>
 
@@ -162,29 +164,31 @@
             From: "opacity-100 translate-y-0 sm:scale-100"
             To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         -->
-        <transition enter-active-class='ease-out duration-300'
-                    enter-class='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
-                    enter-to-class='opacity-100 translate-y-0 sm:scale-100' leave-active-class='ease-in duration-200'
-                    leave-class='opacity-100 translate-y-0 sm:scale-100'
-                    leave-to-class='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
+        <transition
+          enter-active-class="duration-300 ease-out"
+          enter-class="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
+          enter-to-class="translate-y-0 opacity-100 sm:scale-100"
+          leave-active-class="duration-200 ease-in"
+          leave-class="translate-y-0 opacity-100 sm:scale-100"
+          leave-to-class="translate-y-4 opacity-0 sm:translate-y-0 sm:scale-95"
+        >
           <div
-            class='inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-md shadow-xl sm:my-8 max-w-md w-full'
-            role='dialog'
-            aria-modal='true'
-            aria-labelledby='modal-headline'
-            v-if='showOptions'
+            class="inline-block w-full max-w-md overflow-hidden text-left align-bottom transition-all transform bg-white rounded-md shadow-xl sm:my-8"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-headline"
+            v-if="showOptions"
           >
-            <div class='px-4 py-5 bg-white w-full dark:bg-gray-800'>
+            <div class="w-full px-4 py-5 bg-white dark:bg-gray-800">
               <div>
-                <div class='mt-3 text-center sm:mt-0 sm:text-left'>
-                  <div class='mt-2'>
+                <div class="mt-3 text-center sm:mt-0 sm:text-left">
+                  <div class="mt-2">
                     <editor-meta
-                      @closeMeta='closeOptions'
-                      :loading='loading'
-                      :article='article'
-                      @saveArticle='() => save()'
+                      @closeMeta="closeOptions"
+                      :loading="loading"
+                      :article="article"
+                      @saveArticle="() => save()"
                     />
-
                   </div>
                 </div>
               </div>
@@ -198,8 +202,6 @@
     <!-- ======================================================= -->
   </div>
 </template>
-
-
 
 <script>
 import upload from '~/mixins/upload'
@@ -343,7 +345,7 @@ export default {
     },
     toggleOptions() {
       this.showOptions = !this.showOptions
-    }
+    },
   },
 }
 </script>
