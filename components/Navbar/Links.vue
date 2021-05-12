@@ -107,10 +107,7 @@ export default {
       if (this.$auth.loggedIn) {
         this.$router.push({ name: 'dashboard-diaries-new' })
       } else {
-        this.$store.commit(
-          'alert/ERROR_ALERT',
-          '<b>নতুন ডায়েরি লিখতে আপনাকে অবশ্যই আগে লগইন করতে হবে।</b>'
-        )
+        this.$toast.error('নতুন ডায়েরি লিখতে আপনাকে অবশ্যই আগে লগইন করতে হবে।')
       }
     },
   },
