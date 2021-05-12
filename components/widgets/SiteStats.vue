@@ -99,7 +99,7 @@ export default {
   },
   async fetch() {
     const { results } = await this.$axios.$get(
-      'https://techdiary-stats.netlify.app/.netlify/functions/site-stats'
+      'https://stats.techdiary.dev/.netlify/functions/site-stats'
     )
     this.pageviews = results.pageviews.value
     this.visit_duration = results.visit_duration.value

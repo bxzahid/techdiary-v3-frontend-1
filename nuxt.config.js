@@ -32,7 +32,7 @@ export default {
     ],
     script: [
       {
-        src: 'https://plausible.io/js/plausible.js',
+        src: 'https://analytics.techdiary.dev/js/index.js',
         'data-domain': 'techdiary.dev',
         defer: true,
         async: true,
