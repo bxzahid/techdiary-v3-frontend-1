@@ -58,7 +58,7 @@ export default {
            * --------------------------------------------------
            */
           let publicId = block.data.file.url.split('/').slice(-2).join('/')
-          const imageUrl = `https://res.cloudinary.com/techdiary-dev/image/upload/c_scale,f_auto,q_auto,w_1500/v1/${publicId}`
+          const imageUrl = `https://res.cloudinary.com/techdiary-dev/image/upload/c_scale,f_auto,q_auto/v1/${publicId}`
           const title = block.data.caption ? block.data.caption : 'article-image'
           html += `
         <figure class='${

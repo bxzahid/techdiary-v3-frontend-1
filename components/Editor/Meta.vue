@@ -55,8 +55,8 @@
           :closeOnSelect='false'
         ></multi-select>
       </div>
-      <div class='flex items-center'>
-        <input type='checkbox' id='isPublished' v-model='article.isPublished' />
+      <div class='flex items-center text-dark ml-2'>
+        <input type='checkbox' class='text-primary rounded' id='isPublished' v-model='article.isPublished' />
         <label class='ml-2' for='isPublished'>Public Diary</label>
       </div>
     </div>
