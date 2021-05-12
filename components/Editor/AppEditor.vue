@@ -111,7 +111,7 @@
           </svg>
         </button>
       </div>
-      <div v-if='this.loading' class='grid place-content-center'>
+      <div v-if='this.editorLoading' class='grid place-content-center'>
         <loader-spin />
       </div>
       <!-- Title -->
@@ -226,14 +226,15 @@ export default {
     return {
       editor: null,
       showOptions: false,
+      editorLoading: false,
       article: {
         body: this.articleData?.body || [],
         tags: this.articleData?.tags || [],
         title: this.articleData?.title || '',
         excerpt: '',
         isPublished: this.articleData?.isPublished || false,
-        thumbnail: this.articleData?.thumbnail || '',
-      },
+        thumbnail: this.articleData?.thumbnail || ''
+      }
     }
   },
   mounted() {
@@ -356,17 +357,17 @@ export default {
       this.$refs.thumbnailFileInput.click()
     },
     async handleUploadImage(event) {
-      this.loading = true
+      this.editorLoading = true
       const file = event.target.files[0]
       if (!file) return
 
       const public_id = await this.uploadFile(file, 'techdiary-article-covers')
       this.article.thumbnail = this.$cloudinary.image.url(public_id, { crop: 'scale', width: 1500 })
-      this.loading = false
+      this.editorLoading = false
     },
     removeThumbnail() {
       this.article.thumbnail = ''
-      this.loading = false
+      this.editorLoading = false
     }
   },
 }

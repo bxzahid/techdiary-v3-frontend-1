@@ -84,23 +84,23 @@ export default {
   mixins: [reactions, editorjsParser, cloudinary],
   head() {
     return {
-      title: this.article ? this.article?.title : 'Please wait...',
+      title: this.article?.title,
       meta: [
         {
           name: 'description',
-          content: `${this.article?.title} | Techdiary`,
+          content: `${this.article?.title} | Techdiary`
         },
         {
           property: 'og:title',
-          content: `${this.article?.title} | Techdiary`,
+          content: `${this.article?.title} | Techdiary`
         },
         {
           property: 'og:image',
           content:
             this.article?.thumbnail ??
             this.socialMediaImage(
-              this.article.title,
-              this.article.user.username
+              this.article?.title,
+              this.article?.user.username
             ),
         },
         {
@@ -136,7 +136,6 @@ export default {
       article: null,
       comments: [],
       articleProgress: 0,
-      progressGsap: null,
       updatedCount: 0,
     }
   },
